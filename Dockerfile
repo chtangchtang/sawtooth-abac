@@ -13,7 +13,7 @@ COPY . .
 
 # Install Python 3 specific dependencies
 RUN python3 -m pip install --upgrade pip \
-    && python3 -m pip install marshmallow-annotations marshmallow~=3.2
+    && python3 -m pip install lru-dict==1.2 marshmallow-annotations marshmallow~=3.2
 
 # Make the log directory
 RUN mkdir /var/log/sawtooth
