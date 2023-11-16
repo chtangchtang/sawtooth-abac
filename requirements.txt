@@ -1,2 +1,0 @@
-marshmallow-annotations
-marshmallow~=3.2
