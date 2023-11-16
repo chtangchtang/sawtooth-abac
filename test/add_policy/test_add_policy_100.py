@@ -59,10 +59,13 @@ policy = {
     "priority": 0
 }
 
+# Generate 10000 policies.
+for i in range(10000):
+    with open('policy' + str(i) + '.json', 'w') as f:
+        policy["uid"] = str(i)
+        json.dump(policy, f)
+print("Generated 10000 policies.")
 
-with open('policy.json', 'w') as f:
-    json.dump(policy, f)
-
-while True:
-    os.system("abac add policy.json --url 172.18.0.27:8008")
+for i in range(10000):
+    os.system("abac add policy" + str(i) + ".json --url 172.18.0.27:8008")
     time.sleep(0.01)
