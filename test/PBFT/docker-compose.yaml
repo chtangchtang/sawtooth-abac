@@ -23,6 +23,7 @@ services:
   abac-client:
     image: chtang/sawtooth-abac-cli:v1
     container_name: abac-client
+    host_name: abac-client
     entrypoint: "bash -c \"\
         sawtooth keygen && \
         telegraf & \
