@@ -164,7 +164,7 @@ services:
       \ \\\n    --bind rest-api-0:8008\n\"\n"
     container_name: rest-api-0
     depends_on:
-    - validator-5
+    - validator-0
     expose:
     - 8008
     hostname: rest-api-0
@@ -235,59 +235,59 @@ services:
     hostname: rest-api-5
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 8000:8008
+    - 8005:8008
     stop_signal: SIGKILL
   rest-api-6:
     command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-6:4004\
       \ \\\n    --bind rest-api-6:8008\n\"\n"
     container_name: rest-api-6
     depends_on:
-    - validator-5
+    - validator-6
     expose:
     - 8008
     hostname: rest-api-6
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 8000:8008
+    - 8006:8008
     stop_signal: SIGKILL
   rest-api-7:
     command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-7:4004\
       \ \\\n    --bind rest-api-7:8008\n\"\n"
     container_name: rest-api-7
     depends_on:
-    - validator-5
+    - validator-7
     expose:
     - 8008
     hostname: rest-api-7
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 8000:8008
+    - 8007:8008
     stop_signal: SIGKILL
   rest-api-8:
     command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-8:4004\
       \ \\\n    --bind rest-api-8:8008\n\"\n"
     container_name: rest-api-8
     depends_on:
-    - validator-5
+    - validator-8
     expose:
     - 8008
     hostname: rest-api-8
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 8000:8008
+    - 8008:8008
     stop_signal: SIGKILL
   rest-api-9:
     command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-9:4004\
       \ \\\n    --bind rest-api-9:8008\n\"\n"
     container_name: rest-api-9
     depends_on:
-    - validator-5
+    - validator-9
     expose:
     - 8008
     hostname: rest-api-9
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 8000:8008
+    - 8009:8008
     stop_signal: SIGKILL
   settings-tp-0:
     container_name: settings-tp-0
