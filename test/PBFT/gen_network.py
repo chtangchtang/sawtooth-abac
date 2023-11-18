@@ -1,6 +1,7 @@
 import yaml
 import sys
 import copy
+import json
 
 
 # Read basic compose file
@@ -9,7 +10,7 @@ content = yaml.load(f.read(), Loader=yaml.FullLoader)
 f.close()
 
 # Add services
-new_num = int(sys.argv[1]) - 5
+new_num = int(sys.argv[1])
 old_num = int(list(content['services'].keys())[-1][-1]) + 1
 for i in range(old_num, new_num):
     # abac-tp
@@ -50,5 +51,5 @@ for i in range(old_num, new_num):
 
 # Write new compose file
 f = open(sys.argv[1] + 'nodes.yaml', 'w')
-yaml.dump(content, f, Dumper=yaml.SafeDumper)
+yaml.dump(json.loads(json.dumps(content)), f, Dumper=yaml.SafeDumper)
 f.close()

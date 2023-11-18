@@ -49,6 +49,46 @@ services:
     hostname: abac-tp-python-default-4
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
+  abac-tp-python-5:
+    container_name: abac-tp-python-default-5
+    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-5:4004 "
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-5
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-6:
+    container_name: abac-tp-python-default-6
+    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-6:4004 "
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-6
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-7:
+    container_name: abac-tp-python-default-7
+    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-7:4004 "
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-7
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-8:
+    container_name: abac-tp-python-default-8
+    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-8:4004 "
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-8
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-9:
+    container_name: abac-tp-python-default-9
+    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-9:4004 "
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-9
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
   pbft-0:
     container_name: sawtooth-pbft-engine-default-0
     entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-0:5050
@@ -84,12 +124,47 @@ services:
     hostname: sawtooth-pbft-engine-default-4
     image: hyperledger/sawtooth-pbft-engine:v1
     stop_signal: SIGKILL
+  pbft-5:
+    container_name: sawtooth-pbft-engine-default-5
+    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-5:5050
+      "
+    hostname: sawtooth-pbft-engine-default-5
+    image: hyperledger/sawtooth-pbft-engine:v1
+    stop_signal: SIGKILL
+  pbft-6:
+    container_name: sawtooth-pbft-engine-default-6
+    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-6:5050
+      "
+    hostname: sawtooth-pbft-engine-default-6
+    image: hyperledger/sawtooth-pbft-engine:v1
+    stop_signal: SIGKILL
+  pbft-7:
+    container_name: sawtooth-pbft-engine-default-7
+    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-7:5050
+      "
+    hostname: sawtooth-pbft-engine-default-7
+    image: hyperledger/sawtooth-pbft-engine:v1
+    stop_signal: SIGKILL
+  pbft-8:
+    container_name: sawtooth-pbft-engine-default-8
+    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-8:5050
+      "
+    hostname: sawtooth-pbft-engine-default-8
+    image: hyperledger/sawtooth-pbft-engine:v1
+    stop_signal: SIGKILL
+  pbft-9:
+    container_name: sawtooth-pbft-engine-default-9
+    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-9:5050
+      "
+    hostname: sawtooth-pbft-engine-default-9
+    image: hyperledger/sawtooth-pbft-engine:v1
+    stop_signal: SIGKILL
   rest-api-0:
     command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-0:4004\
       \ \\\n    --bind rest-api-0:8008\n\"\n"
     container_name: rest-api-0
     depends_on:
-    - validator-0
+    - validator-5
     expose:
     - 8008
     hostname: rest-api-0
@@ -149,6 +224,71 @@ services:
     ports:
     - 8004:8008
     stop_signal: SIGKILL
+  rest-api-5:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-5:4004\
+      \ \\\n    --bind rest-api-5:8008\n\"\n"
+    container_name: rest-api-5
+    depends_on:
+    - validator-5
+    expose:
+    - 8008
+    hostname: rest-api-5
+    image: hyperledger/sawtooth-rest-api:v1
+    ports:
+    - 8000:8008
+    stop_signal: SIGKILL
+  rest-api-6:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-6:4004\
+      \ \\\n    --bind rest-api-6:8008\n\"\n"
+    container_name: rest-api-6
+    depends_on:
+    - validator-5
+    expose:
+    - 8008
+    hostname: rest-api-6
+    image: hyperledger/sawtooth-rest-api:v1
+    ports:
+    - 8000:8008
+    stop_signal: SIGKILL
+  rest-api-7:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-7:4004\
+      \ \\\n    --bind rest-api-7:8008\n\"\n"
+    container_name: rest-api-7
+    depends_on:
+    - validator-5
+    expose:
+    - 8008
+    hostname: rest-api-7
+    image: hyperledger/sawtooth-rest-api:v1
+    ports:
+    - 8000:8008
+    stop_signal: SIGKILL
+  rest-api-8:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-8:4004\
+      \ \\\n    --bind rest-api-8:8008\n\"\n"
+    container_name: rest-api-8
+    depends_on:
+    - validator-5
+    expose:
+    - 8008
+    hostname: rest-api-8
+    image: hyperledger/sawtooth-rest-api:v1
+    ports:
+    - 8000:8008
+    stop_signal: SIGKILL
+  rest-api-9:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-9:4004\
+      \ \\\n    --bind rest-api-9:8008\n\"\n"
+    container_name: rest-api-9
+    depends_on:
+    - validator-5
+    expose:
+    - 8008
+    hostname: rest-api-9
+    image: hyperledger/sawtooth-rest-api:v1
+    ports:
+    - 8000:8008
+    stop_signal: SIGKILL
   settings-tp-0:
     container_name: settings-tp-0
     entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-0:4004
@@ -178,6 +318,36 @@ services:
     entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-4:4004
       "
     hostname: settings-tp-4
+    image: hyperledger/sawtooth-settings-tp:v1
+  settings-tp-5:
+    container_name: settings-tp-5
+    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-5:4004
+      "
+    hostname: settings-tp-5
+    image: hyperledger/sawtooth-settings-tp:v1
+  settings-tp-6:
+    container_name: settings-tp-6
+    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-6:4004
+      "
+    hostname: settings-tp-6
+    image: hyperledger/sawtooth-settings-tp:v1
+  settings-tp-7:
+    container_name: settings-tp-7
+    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-7:4004
+      "
+    hostname: settings-tp-7
+    image: hyperledger/sawtooth-settings-tp:v1
+  settings-tp-8:
+    container_name: settings-tp-8
+    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-8:4004
+      "
+    hostname: settings-tp-8
+    image: hyperledger/sawtooth-settings-tp:v1
+  settings-tp-9:
+    container_name: settings-tp-9
+    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-9:4004
+      "
+    hostname: settings-tp-9
     image: hyperledger/sawtooth-settings-tp:v1
   validator-0:
     command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-0.priv\
@@ -302,6 +472,127 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-4
+    image: hyperledger/sawtooth-validator:v1
+    volumes:
+    - pbft-shared:/pbft-shared
+  validator-5:
+    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-5.priv\
+      \ ]; then\n    cp /pbft-shared/validators/validator-5.pub /etc/sawtooth/keys/validator.pub\n\
+      \    cp /pbft-shared/validators/validator-5.priv /etc/sawtooth/keys/validator.priv\n\
+      \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
+      \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
+      \ /pbft-shared/validators/validator-5.pub\n    cp /etc/sawtooth/keys/validator.priv\
+      \ /pbft-shared/validators/validator-5.priv\n  fi &&\n  sawtooth-validator -vv\
+      \ \\\n    --endpoint tcp://validator-5:8800 \\\n    --bind component:tcp://eth0:4004\
+      \ \\\n    --bind consensus:tcp://eth0:5050 \\\n    --bind network:tcp://eth0:8800\
+      \ \\\n    --scheduler parallel \\\n    --peering static \\\n    --maximum-peer-connectivity\
+      \ 10000 \\\n    --peers tcp://validator-0:8800 \\\n    --peers tcp://validator-1:8800\
+      \ \\\n    --peers tcp://validator-2:8800 \\\n    --peers tcp://validator-3:8800\
+      \ \\\n    --peers tcp://validator-4:8800\n\"\n"
+    container_name: sawtooth-validator-default-5
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-5
+    image: hyperledger/sawtooth-validator:v1
+    volumes:
+    - pbft-shared:/pbft-shared
+  validator-6:
+    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-6.priv\
+      \ ]; then\n    cp /pbft-shared/validators/validator-6.pub /etc/sawtooth/keys/validator.pub\n\
+      \    cp /pbft-shared/validators/validator-6.priv /etc/sawtooth/keys/validator.priv\n\
+      \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
+      \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
+      \ /pbft-shared/validators/validator-6.pub\n    cp /etc/sawtooth/keys/validator.priv\
+      \ /pbft-shared/validators/validator-6.priv\n  fi &&\n  sawtooth-validator -vv\
+      \ \\\n    --endpoint tcp://validator-6:8800 \\\n    --bind component:tcp://eth0:4004\
+      \ \\\n    --bind consensus:tcp://eth0:5050 \\\n    --bind network:tcp://eth0:8800\
+      \ \\\n    --scheduler parallel \\\n    --peering static \\\n    --maximum-peer-connectivity\
+      \ 10000 \\\n    --peers tcp://validator-0:8800 \\\n    --peers tcp://validator-1:8800\
+      \ \\\n    --peers tcp://validator-2:8800 \\\n    --peers tcp://validator-3:8800\
+      \ \\\n    --peers tcp://validator-4:8800 \\\n    --peers tcp://validator-5:8800\n\
+      \"\n"
+    container_name: sawtooth-validator-default-6
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-6
+    image: hyperledger/sawtooth-validator:v1
+    volumes:
+    - pbft-shared:/pbft-shared
+  validator-7:
+    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-7.priv\
+      \ ]; then\n    cp /pbft-shared/validators/validator-7.pub /etc/sawtooth/keys/validator.pub\n\
+      \    cp /pbft-shared/validators/validator-7.priv /etc/sawtooth/keys/validator.priv\n\
+      \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
+      \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
+      \ /pbft-shared/validators/validator-7.pub\n    cp /etc/sawtooth/keys/validator.priv\
+      \ /pbft-shared/validators/validator-7.priv\n  fi &&\n  sawtooth-validator -vv\
+      \ \\\n    --endpoint tcp://validator-7:8800 \\\n    --bind component:tcp://eth0:4004\
+      \ \\\n    --bind consensus:tcp://eth0:5050 \\\n    --bind network:tcp://eth0:8800\
+      \ \\\n    --scheduler parallel \\\n    --peering static \\\n    --maximum-peer-connectivity\
+      \ 10000 \\\n    --peers tcp://validator-0:8800 \\\n    --peers tcp://validator-1:8800\
+      \ \\\n    --peers tcp://validator-2:8800 \\\n    --peers tcp://validator-3:8800\
+      \ \\\n    --peers tcp://validator-4:8800 \\\n    --peers tcp://validator-5:8800\
+      \ \\\n    --peers tcp://validator-6:8800\n\"\n"
+    container_name: sawtooth-validator-default-7
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-7
+    image: hyperledger/sawtooth-validator:v1
+    volumes:
+    - pbft-shared:/pbft-shared
+  validator-8:
+    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-8.priv\
+      \ ]; then\n    cp /pbft-shared/validators/validator-8.pub /etc/sawtooth/keys/validator.pub\n\
+      \    cp /pbft-shared/validators/validator-8.priv /etc/sawtooth/keys/validator.priv\n\
+      \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
+      \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
+      \ /pbft-shared/validators/validator-8.pub\n    cp /etc/sawtooth/keys/validator.priv\
+      \ /pbft-shared/validators/validator-8.priv\n  fi &&\n  sawtooth-validator -vv\
+      \ \\\n    --endpoint tcp://validator-8:8800 \\\n    --bind component:tcp://eth0:4004\
+      \ \\\n    --bind consensus:tcp://eth0:5050 \\\n    --bind network:tcp://eth0:8800\
+      \ \\\n    --scheduler parallel \\\n    --peering static \\\n    --maximum-peer-connectivity\
+      \ 10000 \\\n    --peers tcp://validator-0:8800 \\\n    --peers tcp://validator-1:8800\
+      \ \\\n    --peers tcp://validator-2:8800 \\\n    --peers tcp://validator-3:8800\
+      \ \\\n    --peers tcp://validator-4:8800 \\\n    --peers tcp://validator-5:8800\
+      \ \\\n    --peers tcp://validator-6:8800 \\\n    --peers tcp://validator-7:8800\n\
+      \"\n"
+    container_name: sawtooth-validator-default-8
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-8
+    image: hyperledger/sawtooth-validator:v1
+    volumes:
+    - pbft-shared:/pbft-shared
+  validator-9:
+    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-9.priv\
+      \ ]; then\n    cp /pbft-shared/validators/validator-9.pub /etc/sawtooth/keys/validator.pub\n\
+      \    cp /pbft-shared/validators/validator-9.priv /etc/sawtooth/keys/validator.priv\n\
+      \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
+      \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
+      \ /pbft-shared/validators/validator-9.pub\n    cp /etc/sawtooth/keys/validator.priv\
+      \ /pbft-shared/validators/validator-9.priv\n  fi &&\n  sawtooth-validator -vv\
+      \ \\\n    --endpoint tcp://validator-9:8800 \\\n    --bind component:tcp://eth0:4004\
+      \ \\\n    --bind consensus:tcp://eth0:5050 \\\n    --bind network:tcp://eth0:8800\
+      \ \\\n    --scheduler parallel \\\n    --peering static \\\n    --maximum-peer-connectivity\
+      \ 10000 \\\n    --peers tcp://validator-0:8800 \\\n    --peers tcp://validator-1:8800\
+      \ \\\n    --peers tcp://validator-2:8800 \\\n    --peers tcp://validator-3:8800\
+      \ \\\n    --peers tcp://validator-4:8800 \\\n    --peers tcp://validator-5:8800\
+      \ \\\n    --peers tcp://validator-6:8800 \\\n    --peers tcp://validator-7:8800\
+      \ \\\n    --peers tcp://validator-8:8800\n\"\n"
+    container_name: sawtooth-validator-default-9
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-9
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
