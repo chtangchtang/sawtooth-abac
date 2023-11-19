@@ -371,13 +371,14 @@ services:
       \\['\\\"'$$(cat /pbft-shared/validators/validator-0.pub)'\\\"','\\\"'$$(cat\
       \ /pbft-shared/validators/validator-1.pub)'\\\"','\\\"'$$(cat /pbft-shared/validators/validator-2.pub)'\\\
       \"','\\\"'$$(cat /pbft-shared/validators/validator-3.pub)'\\\"','\\\"'$$(cat\
-      \ /pbft-shared/validators/validator-4.pub)'\\\"','\"'$$(cat /pbft-shared/validators/validator-5.pub)'\"\
-      ','\"'$$(cat /pbft-shared/validators/validator-6.pub)'\"','\"'$$(cat /pbft-shared/validators/validator-7.pub)'\"\
-      ','\"'$$(cat /pbft-shared/validators/validator-8.pub)'\"','\"'$$(cat /pbft-shared/validators/validator-9.pub)'\"\
-      '\\\\] \\\n      sawtooth.publisher.max_batches_per_block=1200 \\\n      -o\
-      \ config.batch\n  fi &&\n  if [ ! -e /var/lib/sawtooth/genesis.batch ]; then\n\
-      \    sawadm genesis config-genesis.batch config.batch\n  fi &&\n  sawtooth-validator\
-      \ -vv \\\n    --endpoint tcp://validator-0:8800 \\\n    --bind component:tcp://eth0:4004\
+      \ /pbft-shared/validators/validator-4.pub)'\\\"','\\\"'$$(cat /pbft-shared/validators/validator-5.pub)'\\\
+      \"','\\\"'$$(cat /pbft-shared/validators/validator-6.pub)'\\\"','\\\"'$$(cat\
+      \ /pbft-shared/validators/validator-7.pub)'\\\"','\\\"'$$(cat /pbft-shared/validators/validator-8.pub)'\\\
+      \"','\\\"'$$(cat /pbft-shared/validators/validator-9.pub)'\\\"'\\\\] \\\n  \
+      \    sawtooth.publisher.max_batches_per_block=1200 \\\n      -o config.batch\n\
+      \  fi &&\n  if [ ! -e /var/lib/sawtooth/genesis.batch ]; then\n    sawadm genesis\
+      \ config-genesis.batch config.batch\n  fi &&\n  sawtooth-validator -vv \\\n\
+      \    --endpoint tcp://validator-0:8800 \\\n    --bind component:tcp://eth0:4004\
       \ \\\n    --bind consensus:tcp://eth0:5050 \\\n    --bind network:tcp://eth0:8800\
       \ \\\n    --scheduler parallel \\\n    --peering static \\\n    --maximum-peer-connectivity\
       \ 10000\n\"\n"

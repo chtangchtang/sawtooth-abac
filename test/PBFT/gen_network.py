@@ -62,7 +62,11 @@ content['services']['validator-0']['command'] = ''.join(content['services']['val
 index = content['services']['validator-0']['command'].find('cat /pbft-shared/validators/validator-4.pub')
 data = ''
 for i in range(old_num, new_num):
-    data += ",'\"'$$(cat /pbft-shared/validators/validator-" + str(i) + ".pub)'\"'"
+    s1 = r",'\"'$$(cat /pbft-shared/validators/validator-4.pub)'"
+    s2 = r"\"'"
+    s = s1 + s2
+    s = s.replace('4', str(i))
+    data += s
 content['services']['validator-0']['command'] = list(content['services']['validator-0']['command'])
 content['services']['validator-0']['command'].insert(index + 48, data)
 content['services']['validator-0']['command'] = ''.join(content['services']['validator-0']['command'])
