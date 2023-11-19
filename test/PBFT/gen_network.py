@@ -2,6 +2,7 @@ import yaml
 import sys
 import copy
 import json
+import re
 
 
 # Read basic compose file
@@ -50,7 +51,24 @@ for i in range(old_num, new_num):
     tmp['entrypoint'] = tmp['entrypoint'].replace('validator-0', 'validator-' + str(i))
     content['services']['pbft-' + str(i)] = tmp
 
+# validator-0
+index = content['services']['validator-0']['command'].find('/pbft-shared/validators/validator-4.pub')
+content['services']['validator-0']['command'] = list(content['services']['validator-0']['command'])
+data = ''
+for i in range(old_num, new_num):
+    data += ' || \\\n           ! -f /pbft-shared/validators/validator-' + str(i) + '.pub'
+content['services']['validator-0']['command'].insert(index + 39, data)
+content['services']['validator-0']['command'] = ''.join(content['services']['validator-0']['command'])
+index = content['services']['validator-0']['command'].find('cat /pbft-shared/validators/validator-4.pub')
+data = ''
+for i in range(old_num, new_num):
+    data += ",'\"'$$(cat /pbft-shared/validators/validator-" + str(i) + ".pub)'\"'"
+content['services']['validator-0']['command'] = list(content['services']['validator-0']['command'])
+content['services']['validator-0']['command'].insert(index + 48, data)
+content['services']['validator-0']['command'] = ''.join(content['services']['validator-0']['command'])
+print(content['services']['validator-0']['command'])
+
 # Write new compose file
 f = open(sys.argv[1] + 'nodes.yaml', 'w')
-yaml.dump(json.loads(json.dumps(content)), f, Dumper=yaml.SafeDumper)
+yaml.dump(json.loads(json.dumps(content)), f, Dumper=yaml.Dumper)
 f.close()
