@@ -2,7 +2,6 @@ import yaml
 import sys
 import copy
 import json
-import re
 
 
 # Read basic compose file
