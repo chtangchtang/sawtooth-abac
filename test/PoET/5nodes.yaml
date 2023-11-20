@@ -16,7 +16,7 @@
 version: '2.1'
 
 volumes:
-  pbft-shared:
+  poet-shared:
 
 services:
 
