@@ -96,6 +96,121 @@ services:
         \""
     stop_signal: SIGKILL
 
+  settings-tp-0:
+    container_name: settings-tp-0
+    hostname: settings-tp-0
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-0:4004 \
+        \""
+
+  settings-tp-1:
+    container_name: settings-tp-1
+    hostname: settings-tp-1
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-1:4004 \
+        \""
+
+  settings-tp-2:
+    container_name: settings-tp-2
+    hostname: settings-tp-2
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-2:4004 \
+        \""
+
+  settings-tp-3:
+    container_name: settings-tp-3
+    hostname: settings-tp-3
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-3:4004 \
+        \""
+
+  settings-tp-4:
+    container_name: settings-tp-4
+    hostname: settings-tp-4
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-4:4004 \
+        \""
+
+  poet-validator-registry-tp-0:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    container_name: poet-validator-registry-tp-0
+    hostname: poet-validator-registry-tp-0
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-0:4004 \
+        \""
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-1:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    container_name: poet-validator-registry-tp-1
+    hostname: poet-validator-registry-tp-1
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-1:4004 \
+        \""
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-2:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    container_name: poet-validator-registry-tp-2
+    hostname: poet-validator-registry-tp-2
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-2:4004 \
+        \""
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-3:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    container_name: poet-validator-registry-tp-3
+    hostname: poet-validator-registry-tp-3
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-3:4004 \
+        \""
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-4:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    container_name: poet-validator-registry-tp-4
+    hostname: poet-validator-registry-tp-4
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-4:4004 \
+        \""
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
   validator-0:
     container_name: validator-0
     hostname: validator-0
@@ -107,6 +222,7 @@ services:
       - '4004:4004'
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
@@ -147,6 +263,7 @@ services:
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
@@ -154,7 +271,6 @@ services:
       "
     depends_on:
       - validator-0
-
 
   validator-2:
     container_name: validator-2
@@ -165,6 +281,7 @@ services:
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
@@ -182,6 +299,7 @@ services:
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
@@ -199,6 +317,7 @@ services:
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
@@ -300,104 +419,4 @@ services:
           --connect tcp://validator-4:4004 \
           --bind rest-api-4:8008
       "
-    stop_signal: SIGKILL
-
-  settings-tp-0:
-    container_name: settings-tp-0
-    hostname: settings-tp-0
-    image: hyperledger/sawtooth-settings-tp:v1
-    entrypoint: "bash -c \"\
-        telegraf & \
-        settings-tp -v --connect tcp://validator-0:4004 \
-        \""
-
-  settings-tp-1:
-    container_name: settings-tp-1
-    hostname: settings-tp-1
-    image: hyperledger/sawtooth-settings-tp:v1
-    entrypoint: "bash -c \"\
-        telegraf & \
-        settings-tp -v --connect tcp://validator-1:4004 \
-        \""
-
-  settings-tp-2:
-    container_name: settings-tp-2
-    hostname: settings-tp-2
-    image: hyperledger/sawtooth-settings-tp:v1
-    entrypoint: "bash -c \"\
-        telegraf & \
-        settings-tp -v --connect tcp://validator-2:4004 \
-        \""
-
-  settings-tp-3:
-    container_name: settings-tp-3
-    hostname: settings-tp-3
-    image: hyperledger/sawtooth-settings-tp:v1
-    entrypoint: "bash -c \"\
-        telegraf & \
-        settings-tp -v --connect tcp://validator-3:4004 \
-        \""
-
-  settings-tp-4:
-    container_name: settings-tp-4
-    hostname: settings-tp-4
-    image: hyperledger/sawtooth-settings-tp:v1
-    entrypoint: "bash -c \"\
-        telegraf & \
-        settings-tp -v --connect tcp://validator-4:4004 \
-        \""
-
-  poet-validator-registry-tp-0:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: poet-validator-registry-tp-0
-    hostname: poet-validator-registry-tp-0
-    expose:
-      - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-0:4004
-    environment:
-      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
-    stop_signal: SIGKILL
-
-  poet-validator-registry-tp-1:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: poet-validator-registry-tp-1
-    hostname: poet-validator-registry-tp-1
-    expose:
-      - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-1:4004
-    environment:
-      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
-    stop_signal: SIGKILL
-
-  poet-validator-registry-tp-2:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: poet-validator-registry-tp-2
-    hostname: poet-validator-registry-tp-2
-    expose:
-      - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-2:4004
-    environment:
-      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
-    stop_signal: SIGKILL
-
-  poet-validator-registry-tp-3:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: poet-validator-registry-tp-3
-    hostname: poet-validator-registry-tp-3
-    expose:
-      - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-3:4004
-    environment:
-      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
-    stop_signal: SIGKILL
-
-  poet-validator-registry-tp-4:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: poet-validator-registry-tp-4
-    hostname: poet-validator-registry-tp-4
-    expose:
-      - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-4:4004
-    environment:
-      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
