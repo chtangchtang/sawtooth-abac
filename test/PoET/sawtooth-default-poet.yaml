@@ -28,7 +28,7 @@ services:
         \""
 
   validator-0:
-    image: hyperledger/sawtooth-validator:nightly
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-default-0
     expose:
       - 4004
@@ -80,7 +80,7 @@ services:
     stop_signal: SIGKILL
 
   validator-1:
-    image: hyperledger/sawtooth-validator:nightly
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-default-1
     expose:
       - 4004
@@ -110,7 +110,7 @@ services:
     stop_signal: SIGKILL
 
   validator-2:
-    image: hyperledger/sawtooth-validator:nightly
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-default-2
     expose:
       - 4004
@@ -140,7 +140,7 @@ services:
     stop_signal: SIGKILL
 
   validator-3:
-    image: hyperledger/sawtooth-validator:nightly
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-default-3
     expose:
       - 4004
@@ -170,7 +170,7 @@ services:
     stop_signal: SIGKILL
 
   validator-4:
-    image: hyperledger/sawtooth-validator:nightly
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-default-4
     expose:
       - 4004
@@ -200,7 +200,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-0:
-    image: hyperledger/sawtooth-rest-api:nightly
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-0
     expose:
       - 8008
@@ -213,7 +213,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-1:
-    image: hyperledger/sawtooth-rest-api:nightly
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-1
     expose:
       - 8008
@@ -226,7 +226,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-2:
-    image: hyperledger/sawtooth-rest-api:nightly
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-2
     expose:
       - 8008
@@ -239,7 +239,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-3:
-    image: hyperledger/sawtooth-rest-api:nightly
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-3
     expose:
       - 8008
@@ -252,7 +252,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-4:
-    image: hyperledger/sawtooth-rest-api:nightly
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-4
     expose:
       - 8008
