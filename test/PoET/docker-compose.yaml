@@ -28,6 +28,46 @@ services:
         tail -f /dev/null \
         \""
 
+  intkey-tp-0:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-0
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-1:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-1
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-2:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-2
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-2:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-3:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-3
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-3:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-4:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-4
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-4:4004
+    stop_signal: SIGKILL
+
   settings-tp-0:
     container_name: settings-tp-0
     image: hyperledger/sawtooth-settings-tp:1.0
@@ -57,57 +97,57 @@ services:
 
 
 
-  simple-tp-python-0:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-0
-    expose:
-      - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -vv -C tcp://validator-0:4004
-    stop_signal: SIGKILL
+  # simple-tp-python-0:
+  #   image: szeshun/sawtooth-simple-tp:latest
+  #   container_name: simple-tp-python-default-0
+  #   expose:
+  #     - 4004
+  #   volumes:
+  #     - '../../../src/:/project/'
+  #   entrypoint: simple-tp-python -vv -C tcp://validator-0:4004
+  #   stop_signal: SIGKILL
 
 
-  simple-tp-python-1:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-1
-    expose:
-      - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -v -C tcp://validator-1:4004
-    stop_signal: SIGKILL
+  # simple-tp-python-1:
+  #   image: szeshun/sawtooth-simple-tp:latest
+  #   container_name: simple-tp-python-default-1
+  #   expose:
+  #     - 4004
+  #   volumes:
+  #     - '../../../src/:/project/'
+  #   entrypoint: simple-tp-python -v -C tcp://validator-1:4004
+  #   stop_signal: SIGKILL
 
-  simple-tp-python-2:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-2
-    expose:
-      - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -v -C tcp://validator-2:4004
-    stop_signal: SIGKILL
+  # simple-tp-python-2:
+  #   image: szeshun/sawtooth-simple-tp:latest
+  #   container_name: simple-tp-python-default-2
+  #   expose:
+  #     - 4004
+  #   volumes:
+  #     - '../../../src/:/project/'
+  #   entrypoint: simple-tp-python -v -C tcp://validator-2:4004
+  #   stop_signal: SIGKILL
 
 
-  simple-tp-python-3:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-3
-    expose:
-      - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -v -C tcp://validator-3:4004
-    stop_signal: SIGKILL
+  # simple-tp-python-3:
+  #   image: szeshun/sawtooth-simple-tp:latest
+  #   container_name: simple-tp-python-default-3
+  #   expose:
+  #     - 4004
+  #   volumes:
+  #     - '../../../src/:/project/'
+  #   entrypoint: simple-tp-python -v -C tcp://validator-3:4004
+  #   stop_signal: SIGKILL
 
-  simple-tp-python-4:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-4
-    expose:
-      - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -v -C tcp://validator-4:4004
-    stop_signal: SIGKILL
+  # simple-tp-python-4:
+  #   image: szeshun/sawtooth-simple-tp:latest
+  #   container_name: simple-tp-python-default-4
+  #   expose:
+  #     - 4004
+  #   volumes:
+  #     - '../../../src/:/project/'
+  #   entrypoint: simple-tp-python -v -C tcp://validator-4:4004
+  #   stop_signal: SIGKILL
 
 
   poet-validator-registry-tp-0:
