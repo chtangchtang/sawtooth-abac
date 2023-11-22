@@ -95,61 +95,6 @@ services:
     image: hyperledger/sawtooth-settings-tp:1.0
     command: settings-tp -v --connect tcp://validator-4:4004
 
-
-
-  # simple-tp-python-0:
-  #   image: szeshun/sawtooth-simple-tp:latest
-  #   container_name: simple-tp-python-default-0
-  #   expose:
-  #     - 4004
-  #   volumes:
-  #     - '../../../src/:/project/'
-  #   entrypoint: simple-tp-python -vv -C tcp://validator-0:4004
-  #   stop_signal: SIGKILL
-
-
-  # simple-tp-python-1:
-  #   image: szeshun/sawtooth-simple-tp:latest
-  #   container_name: simple-tp-python-default-1
-  #   expose:
-  #     - 4004
-  #   volumes:
-  #     - '../../../src/:/project/'
-  #   entrypoint: simple-tp-python -v -C tcp://validator-1:4004
-  #   stop_signal: SIGKILL
-
-  # simple-tp-python-2:
-  #   image: szeshun/sawtooth-simple-tp:latest
-  #   container_name: simple-tp-python-default-2
-  #   expose:
-  #     - 4004
-  #   volumes:
-  #     - '../../../src/:/project/'
-  #   entrypoint: simple-tp-python -v -C tcp://validator-2:4004
-  #   stop_signal: SIGKILL
-
-
-  # simple-tp-python-3:
-  #   image: szeshun/sawtooth-simple-tp:latest
-  #   container_name: simple-tp-python-default-3
-  #   expose:
-  #     - 4004
-  #   volumes:
-  #     - '../../../src/:/project/'
-  #   entrypoint: simple-tp-python -v -C tcp://validator-3:4004
-  #   stop_signal: SIGKILL
-
-  # simple-tp-python-4:
-  #   image: szeshun/sawtooth-simple-tp:latest
-  #   container_name: simple-tp-python-default-4
-  #   expose:
-  #     - 4004
-  #   volumes:
-  #     - '../../../src/:/project/'
-  #   entrypoint: simple-tp-python -v -C tcp://validator-4:4004
-  #   stop_signal: SIGKILL
-
-
   poet-validator-registry-tp-0:
     image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
     container_name: poet-validator-registry-tp-0
@@ -203,7 +148,7 @@ services:
 
   validator-0:
     container_name: validator-0
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
@@ -245,7 +190,7 @@ services:
 
   validator-1:
     container_name: validator-1
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
@@ -263,7 +208,7 @@ services:
 
   validator-2:
     container_name: validator-2
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
@@ -280,7 +225,7 @@ services:
 
   validator-3:
     container_name: validator-3
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
@@ -297,7 +242,7 @@ services:
 
   validator-4:
     container_name: validator-4
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
@@ -316,7 +261,7 @@ services:
 
   rest-api-0:
     container_name: rest-api-0
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -333,7 +278,7 @@ services:
 
   rest-api-1:
     container_name: rest-api-1
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -351,7 +296,7 @@ services:
 
   rest-api-2:
     container_name: rest-api-2
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -368,7 +313,7 @@ services:
 
   rest-api-3:
     container_name: rest-api-3
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -385,7 +330,7 @@ services:
 
   rest-api-4:
     container_name: rest-api-4
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
