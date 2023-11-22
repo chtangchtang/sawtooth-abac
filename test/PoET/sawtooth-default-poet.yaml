@@ -20,15 +20,15 @@ volumes:
 
 services:
 
-abac-client:
-  image: chtang/sawtooth-abac-cli:v1
-  container_name: abac-client
-  hostname: abac-client
-  entrypoint: "bash -c \"\
-      sawtooth keygen && \
-      telegraf & \
-      tail -f /dev/null \
-      \""
+  abac-client:
+    image: chtang/sawtooth-abac-cli:v1
+    container_name: abac-client
+    hostname: abac-client
+    entrypoint: "bash -c \"\
+        sawtooth keygen && \
+        telegraf & \
+        tail -f /dev/null \
+        \""
   
   abac-listener:
     image: chtang/sawtooth-abac-listener:v1
