@@ -19,85 +19,13 @@ volumes:
   poet-shared:
 
 services:
-
-  abac-client:
-    image: chtang/sawtooth-abac-cli:v1
-    container_name: abac-client
-    hostname: abac-client
+  shell:
+    image: hyperledger/sawtooth-shell:chime
+    container_name: sawtooth-shell-default
     entrypoint: "bash -c \"\
         sawtooth keygen && \
-        telegraf & \
         tail -f /dev/null \
         \""
-  
-  abac-listener:
-    image: chtang/sawtooth-abac-listener:v1
-    container_name: abac-listener
-    hostname: abac-listener
-    entrypoint: "bash -c \"\
-        telegraf & \
-        tail -f /dev/null \
-        \""
-
-  abac-tp-python-0:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-0
-    hostname: abac-tp-python-default-0
-    expose:
-      - 4004
-    entrypoint: "bash -c \"\
-        telegraf & \
-        abac-tp-python -v -C tcp://validator-0:4004 \
-        \""
-    stop_signal: SIGKILL
-
-  abac-tp-python-1:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-1
-    hostname: abac-tp-python-default-1
-    expose:
-      - 4004
-    entrypoint: "bash -c \"\
-        telegraf & \
-        abac-tp-python -v -C tcp://validator-1:4004 \
-        \""
-    stop_signal: SIGKILL
-
-  abac-tp-python-2:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-2
-    hostname: abac-tp-python-default-2
-    expose:
-      - 4004
-    entrypoint: "bash -c \"\
-        telegraf & \
-        abac-tp-python -v -C tcp://validator-2:4004 \
-        \""
-    stop_signal: SIGKILL
-
-  abac-tp-python-3:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-3
-    hostname: abac-tp-python-default-3
-    expose:
-      - 4004
-    entrypoint: "bash -c \"\
-        telegraf & \
-        abac-tp-python -v -C tcp://validator-3:4004 \
-        \""
-    stop_signal: SIGKILL
-
-  abac-tp-python-4:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-4
-    hostname: abac-tp-python-default-4
-    expose:
-      - 4004
-    entrypoint: "bash -c \"\
-        telegraf & \
-        abac-tp-python -v -C tcp://validator-4:4004 \
-        \""
-    stop_signal: SIGKILL
 
   validator-0:
     image: hyperledger/sawtooth-validator:chime
@@ -334,6 +262,86 @@ services:
           --connect tcp://validator-4:4004 \
           --bind rest-api-4:8008
       "
+    stop_signal: SIGKILL
+
+  intkey-tp-0:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-0
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-1:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-1
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-2:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-2
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-2:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-3:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-3
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-3:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-4:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-4
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-4:4004
+    stop_signal: SIGKILL
+
+  xo-tp-0:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-0
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+  xo-tp-1:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-1
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+  xo-tp-2:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-2
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-2:4004
+    stop_signal: SIGKILL
+
+  xo-tp-3:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-3
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-3:4004
+    stop_signal: SIGKILL
+
+  xo-tp-4:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-4
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-4:4004
     stop_signal: SIGKILL
 
   settings-tp-0:
