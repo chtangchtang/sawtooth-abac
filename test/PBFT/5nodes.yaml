@@ -34,7 +34,10 @@ services:
     image: chtang/sawtooth-abac-listener:v1
     container_name: abac-listener
     hostname: abac-listener
-    entrypoint: telegraf &
+    entrypoint: "bash -c \"\
+        telegraf & \
+        tail -f /dev/null \
+        \""
 
   abac-tp-python-0:
     image: chtang/sawtooth-abac-tp:v1

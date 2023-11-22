@@ -6,7 +6,7 @@ services:
     image: chtang/sawtooth-abac-cli:v1
   abac-listener:
     container_name: abac-listener
-    entrypoint: telegraf &
+    entrypoint: bash -c "telegraf & tail -f /dev/null "
     hostname: abac-listener
     image: chtang/sawtooth-abac-listener:v1
   abac-tp-python-0:
