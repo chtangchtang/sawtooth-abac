@@ -19,16 +19,85 @@ volumes:
   poet-shared:
 
 services:
-  shell:
-    image: hyperledger/sawtooth-shell:nightly
-    container_name: sawtooth-shell-default
+
+abac-client:
+  image: chtang/sawtooth-abac-cli:v1
+  container_name: abac-client
+  hostname: abac-client
+  entrypoint: "bash -c \"\
+      sawtooth keygen && \
+      telegraf & \
+      tail -f /dev/null \
+      \""
+  
+  abac-listener:
+    image: chtang/sawtooth-abac-listener:v1
+    container_name: abac-listener
+    hostname: abac-listener
+    entrypoint: telegraf &
+
+  abac-tp-python-0:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-0
+    hostname: abac-tp-python-default-0
+    expose:
+      - 4004
     entrypoint: "bash -c \"\
-        sawtooth keygen && \
-        tail -f /dev/null \
+        telegraf & \
+        abac-tp-python -v -C tcp://validator-0:4004 \
         \""
+    stop_signal: SIGKILL
+
+  abac-tp-python-1:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-1
+    hostname: abac-tp-python-default-1
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        abac-tp-python -v -C tcp://validator-1:4004 \
+        \""
+    stop_signal: SIGKILL
+
+  abac-tp-python-2:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-2
+    hostname: abac-tp-python-default-2
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        abac-tp-python -v -C tcp://validator-2:4004 \
+        \""
+    stop_signal: SIGKILL
+
+  abac-tp-python-3:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-3
+    hostname: abac-tp-python-default-3
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        abac-tp-python -v -C tcp://validator-3:4004 \
+        \""
+    stop_signal: SIGKILL
+
+  abac-tp-python-4:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-4
+    hostname: abac-tp-python-default-4
+    expose:
+      - 4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        abac-tp-python -v -C tcp://validator-4:4004 \
+        \""
+    stop_signal: SIGKILL
 
   validator-0:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:nightly
     container_name: sawtooth-validator-default-0
     expose:
       - 4004
@@ -80,7 +149,7 @@ services:
     stop_signal: SIGKILL
 
   validator-1:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:nightly
     container_name: sawtooth-validator-default-1
     expose:
       - 4004
@@ -110,7 +179,7 @@ services:
     stop_signal: SIGKILL
 
   validator-2:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:nightly
     container_name: sawtooth-validator-default-2
     expose:
       - 4004
@@ -140,7 +209,7 @@ services:
     stop_signal: SIGKILL
 
   validator-3:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:nightly
     container_name: sawtooth-validator-default-3
     expose:
       - 4004
@@ -170,7 +239,7 @@ services:
     stop_signal: SIGKILL
 
   validator-4:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:nightly
     container_name: sawtooth-validator-default-4
     expose:
       - 4004
@@ -200,7 +269,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-0:
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:nightly
     container_name: sawtooth-rest-api-default-0
     expose:
       - 8008
@@ -213,7 +282,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-1:
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:nightly
     container_name: sawtooth-rest-api-default-1
     expose:
       - 8008
@@ -226,7 +295,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-2:
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:nightly
     container_name: sawtooth-rest-api-default-2
     expose:
       - 8008
@@ -239,7 +308,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-3:
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:nightly
     container_name: sawtooth-rest-api-default-3
     expose:
       - 8008
@@ -252,7 +321,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-4:
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:nightly
     container_name: sawtooth-rest-api-default-4
     expose:
       - 8008
