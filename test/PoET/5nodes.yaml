@@ -99,87 +99,117 @@ services:
         \""
     stop_signal: SIGKILL
 
-  shell:
-    image: hyperledger/sawtooth-all:1.0
-    container_name: shell-default
-    entrypoint: "bash -c \"\
-        sawtooth keygen && \
-        tail -f /dev/null \
-        \""
-
   settings-tp-0:
     container_name: settings-tp-0
-    image: hyperledger/sawtooth-settings-tp:1.0
-    command: settings-tp -v --connect tcp://validator-0:4004
-
+    hostname: settings-tp-0
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-0:4004 \
+        \""
 
   settings-tp-1:
     container_name: settings-tp-1
-    image: hyperledger/sawtooth-settings-tp:1.0
-    command: settings-tp -v --connect tcp://validator-1:4004
+    hostname: settings-tp-1
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-1:4004 \
+        \""
 
   settings-tp-2:
     container_name: settings-tp-2
-    image: hyperledger/sawtooth-settings-tp:1.0
-    command: settings-tp -v --connect tcp://validator-2:4004
-
+    hostname: settings-tp-2
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-2:4004 \
+        \""
 
   settings-tp-3:
     container_name: settings-tp-3
-    image: hyperledger/sawtooth-settings-tp:1.0
-    command: settings-tp -v --connect tcp://validator-3:4004
+    hostname: settings-tp-3
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-3:4004 \
+        \""
 
   settings-tp-4:
     container_name: settings-tp-4
-    image: hyperledger/sawtooth-settings-tp:1.0
-    command: settings-tp -v --connect tcp://validator-4:4004
+    hostname: settings-tp-4
+    image: hyperledger/sawtooth-settings-tp:v1
+    entrypoint: "bash -c \"\
+        telegraf & \
+        settings-tp -v --connect tcp://validator-4:4004 \
+        \""
 
   poet-validator-registry-tp-0:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: poet-validator-registry-tp-0
+    hostname: poet-validator-registry-tp-0
     expose:
       - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-0:4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-0:4004 \
+        \""
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-1:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: poet-validator-registry-tp-1
+    hostname: poet-validator-registry-tp-1
     expose:
       - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-1:4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-1:4004 \
+        \""
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-2:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: poet-validator-registry-tp-2
+    hostname: poet-validator-registry-tp-2
     expose:
       - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-2:4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-2:4004 \
+        \""
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-3:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: poet-validator-registry-tp-3
+    hostname: poet-validator-registry-tp-3
     expose:
       - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-3:4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-3:4004 \
+        \""
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-4:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: poet-validator-registry-tp-4
+    hostname: poet-validator-registry-tp-4
     expose:
       - 4004
-    command: poet-validator-registry-tp -v -C tcp://validator-4:4004
+    entrypoint: "bash -c \"\
+        telegraf & \
+        poet-validator-registry-tp -v -C tcp://validator-4:4004 \
+        \""
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
@@ -187,7 +217,8 @@ services:
 
   validator-0:
     container_name: validator-0
-    image: hyperledger/sawtooth-validator:1.0
+    hostname: validator-0
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
@@ -195,6 +226,7 @@ services:
       - '4004:4004'
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -229,12 +261,14 @@ services:
 
   validator-1:
     container_name: validator-1
-    image: hyperledger/sawtooth-validator:1.0
+    hostname: validator-1
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -247,12 +281,14 @@ services:
 
   validator-2:
     container_name: validator-2
-    image: hyperledger/sawtooth-validator:1.0
+    hostname: validator-2
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -264,12 +300,14 @@ services:
 
   validator-3:
     container_name: validator-3
-    image: hyperledger/sawtooth-validator:1.0
+    hostname: validator-3
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -281,12 +319,14 @@ services:
 
   validator-4:
     container_name: validator-4
-    image: hyperledger/sawtooth-validator:1.0
+    hostname: validator-4
+    image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -296,11 +336,10 @@ services:
     depends_on:
       - validator-0
 
-
-
   rest-api-0:
     container_name: rest-api-0
-    image: hyperledger/sawtooth-rest-api:1.0
+    hostname: rest-api-0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -309,6 +348,7 @@ services:
       - validator-0
     command: |
       bash -c "
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-0:4004 \
           --bind rest-api-0:8008
@@ -317,7 +357,8 @@ services:
 
   rest-api-1:
     container_name: rest-api-1
-    image: hyperledger/sawtooth-rest-api:1.0
+    hostname: rest-api-1
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -326,6 +367,7 @@ services:
       - validator-1
     command: |
       bash -c "
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-1:4004 \
           --bind rest-api-1:8008
@@ -335,7 +377,8 @@ services:
 
   rest-api-2:
     container_name: rest-api-2
-    image: hyperledger/sawtooth-rest-api:1.0
+    hostname: rest-api-2
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -344,6 +387,7 @@ services:
       - validator-2
     command: |
       bash -c "
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-2:4004 \
           --bind rest-api-2:8008
@@ -352,7 +396,8 @@ services:
 
   rest-api-3:
     container_name: rest-api-3
-    image: hyperledger/sawtooth-rest-api:1.0
+    hostname: rest-api-3
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -361,6 +406,7 @@ services:
       - validator-3
     command: |
       bash -c "
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-3:4004 \
           --bind rest-api-3:8008
@@ -369,7 +415,8 @@ services:
 
   rest-api-4:
     container_name: rest-api-4
-    image: hyperledger/sawtooth-rest-api:1.0
+    hostname: rest-api-4
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -378,6 +425,7 @@ services:
       - validator-4
     command: |
       bash -c "
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-4:4004 \
           --bind rest-api-4:8008
