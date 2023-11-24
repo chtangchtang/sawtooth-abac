@@ -12,9 +12,7 @@ services:
       - 8800
     command: |
       bash -c "
-        cat > /etc/sawtooth/validator.toml << EOF
-        opentsdb_url = "127.0.0.1:8008"
-        EOF &&
+        echo "opentsdb_url = "127.0.0.1:8008"" > /etc/sawtooth/validator.toml &&
         telegraf &
         tail -f /dev/null
       "
