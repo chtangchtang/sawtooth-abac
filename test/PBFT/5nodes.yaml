@@ -111,6 +111,10 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         if [ -e /pbft-shared/validators/validator-0.priv ]; then
           cp /pbft-shared/validators/validator-0.pub /etc/sawtooth/keys/validator.pub
@@ -164,6 +168,10 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         if [ -e /pbft-shared/validators/validator-1.priv ]; then
           cp /pbft-shared/validators/validator-1.pub /etc/sawtooth/keys/validator.pub
@@ -198,6 +206,10 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         if [ -e /pbft-shared/validators/validator-2.priv ]; then
           cp /pbft-shared/validators/validator-2.pub /etc/sawtooth/keys/validator.pub
@@ -233,6 +245,10 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         if [ -e /pbft-shared/validators/validator-3.priv ]; then
          cp /pbft-shared/validators/validator-3.pub /etc/sawtooth/keys/validator.pub
@@ -269,6 +285,10 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         if [ -e /pbft-shared/validators/validator-4.priv ]; then
           cp /pbft-shared/validators/validator-4.pub /etc/sawtooth/keys/validator.pub
@@ -306,6 +326,10 @@ services:
       - validator-0
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-0:4004 \
@@ -325,6 +349,10 @@ services:
       - validator-1
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-1:4004 \
@@ -344,6 +372,10 @@ services:
       - validator-2
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-2:4004 \
@@ -363,6 +395,10 @@ services:
       - validator-3
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-3:4004 \
@@ -382,6 +418,10 @@ services:
       - validator-4
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-4:4004 \
