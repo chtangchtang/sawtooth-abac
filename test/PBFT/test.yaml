@@ -1,0 +1,21 @@
+version: '2.1'
+
+services:
+
+  validator-0:
+    image: hyperledger/sawtooth-validator:v1
+    container_name: sawtooth-validator-default-0
+    hostname: sawtooth-validator-default-0
+    expose:
+      - 4004
+      - 5050
+      - 8800
+    volumes:
+      - pbft-shared:/pbft-shared
+    command: |
+      bash -c "
+        cat > /etc/sawtooth/validator.toml << EOF
+        opentsdb_url = "127.0.0.1:8008"
+        EOF
+        telegraf &
+      "
