@@ -10,8 +10,6 @@ services:
       - 4004
       - 5050
       - 8800
-    volumes:
-      - pbft-shared:/pbft-shared
     command: |
       bash -c "
         cat > /etc/sawtooth/validator.toml << EOF
