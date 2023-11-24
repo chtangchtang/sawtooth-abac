@@ -16,4 +16,5 @@ services:
         opentsdb_url = "127.0.0.1:8008"
         EOF
         telegraf &
+        tail -f /dev/null
       "
