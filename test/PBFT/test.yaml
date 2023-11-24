@@ -14,7 +14,7 @@ services:
       bash -c "
         cat > /etc/sawtooth/validator.toml << EOF
         opentsdb_url = "127.0.0.1:8008"
-        EOF
+        EOF \
         telegraf &
         tail -f /dev/null
       "
