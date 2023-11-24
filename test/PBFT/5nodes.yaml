@@ -432,10 +432,10 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-0:4004 \
@@ -463,10 +463,10 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-1:4004 \
@@ -494,10 +494,10 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-2:4004 \
@@ -525,10 +525,10 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-3:4004 \
@@ -556,10 +556,10 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
-        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-4:4004 \
