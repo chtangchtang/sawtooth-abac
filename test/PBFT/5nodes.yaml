@@ -646,7 +646,7 @@ services:
         \""
 
   pbft-0:
-    image: hyperledger/sawtooth-pbft-engine:1.1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-0
     hostname: sawtooth-pbft-engine-default-0
     volumes:
@@ -664,7 +664,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-1:
-    image: hyperledger/sawtooth-pbft-engine:1.1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-1
     hostname: sawtooth-pbft-engine-default-1
     volumes:
@@ -682,7 +682,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-2:
-    image: hyperledger/sawtooth-pbft-engine:1.1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-2
     hostname: sawtooth-pbft-engine-default-2
     volumes:
@@ -700,7 +700,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-3:
-    image: hyperledger/sawtooth-pbft-engine:1.1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-3
     hostname: sawtooth-pbft-engine-default-3
     volumes:
@@ -718,7 +718,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-4:
-    image: hyperledger/sawtooth-pbft-engine:1.1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-4
     hostname: sawtooth-pbft-engine-default-4
     volumes:
