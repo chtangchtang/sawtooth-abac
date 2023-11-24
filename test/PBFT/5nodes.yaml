@@ -100,7 +100,7 @@ services:
     stop_signal: SIGKILL
 
   validator-0:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-0
     hostname: sawtooth-validator-default-0
     expose:
@@ -109,9 +109,13 @@ services:
       - 8800
     volumes:
       - pbft-shared:/pbft-shared
-      - /root:/root
+      # - /root:/root
     command: |
       bash -c "
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
         telegraf &
         if [ -e /pbft-shared/validators/validator-0.priv ]; then
           cp /pbft-shared/validators/validator-0.pub /etc/sawtooth/keys/validator.pub
@@ -154,7 +158,7 @@ services:
       "
 
   validator-1:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-1
     hostname: sawtooth-validator-default-1
     expose:
@@ -192,7 +196,7 @@ services:
       "
 
   validator-2:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-2
     hostname: sawtooth-validator-default-2
     expose:
@@ -231,7 +235,7 @@ services:
       "
 
   validator-3:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-3
     hostname: sawtooth-validator-default-3
     expose:
@@ -271,7 +275,7 @@ services:
       "
 
   validator-4:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-4
     hostname: sawtooth-validator-default-4
     expose:
@@ -314,7 +318,7 @@ services:
   rest-api-0:
     container_name: rest-api-0
     hostname: rest-api-0
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -337,7 +341,7 @@ services:
   rest-api-1:
     container_name: rest-api-1
     hostname: rest-api-1
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -360,7 +364,7 @@ services:
   rest-api-2:
     container_name: rest-api-2
     hostname: rest-api-2
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -383,7 +387,7 @@ services:
   rest-api-3:
     container_name: rest-api-3
     hostname: rest-api-3
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -406,7 +410,7 @@ services:
   rest-api-4:
     container_name: rest-api-4
     hostname: rest-api-4
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
