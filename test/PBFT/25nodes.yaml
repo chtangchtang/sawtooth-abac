@@ -5,387 +5,567 @@ services:
     hostname: abac-client
     image: chtang/sawtooth-abac-cli:v1
   abac-listener:
+    command: "bash -c \"\n  telegraf &\n  tail -f /dev/null\n\"\n"
     container_name: abac-listener
-    entrypoint: bash -c "telegraf & tail -f /dev/null "
     hostname: abac-listener
     image: chtang/sawtooth-abac-listener:v1
   abac-tp-python-0:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-0:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-0
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-0:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-0
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-1:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-1:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-1
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-1:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-1
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-10:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-10:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-10
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-10:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-10
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-11:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-11:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-11
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-11:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-11
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-12:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-12:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-12
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-12:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-12
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-13:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-13:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-13
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-13:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-13
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-14:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-14:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-14
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-14:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-14
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-15:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-15:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-15
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-15:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-15
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-16:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-16:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-16
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-16:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-16
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-17:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-17:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-17
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-17:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-17
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-18:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-18:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-18
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-18:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-18
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-19:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-19:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-19
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-19:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-19
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-2:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-2:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-2
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-2:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-2
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-20:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-20:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-20
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-20:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-20
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-21:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-21:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-21
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-21:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-21
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-22:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-22:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-22
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-22:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-22
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-23:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-23:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-23
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-23:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-23
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-24:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-24:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-24
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-24:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-24
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-3:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-3:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-3
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-3:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-3
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-4:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-4:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-4
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-4:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-4
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-5:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-5:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-5
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-5:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-5
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-6:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-6:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-6
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-6:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-6
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-7:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-7:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-7
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-7:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-7
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-8:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-8:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-8
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-8:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-8
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   abac-tp-python-9:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-9:4004\n\
+      \"\n"
     container_name: abac-tp-python-default-9
-    entrypoint: bash -c "telegraf & abac-tp-python -v -C tcp://validator-9:4004 "
     expose:
     - 4004
     hostname: abac-tp-python-default-9
     image: chtang/sawtooth-abac-tp:v1
     stop_signal: SIGKILL
   pbft-0:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-0:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-0
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-0:5050
-      "
     hostname: sawtooth-pbft-engine-default-0
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-1:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-1:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-1
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-1:5050
-      "
     hostname: sawtooth-pbft-engine-default-1
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-10:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-10:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-10
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-10:5050
-      "
     hostname: sawtooth-pbft-engine-default-10
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-11:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-11:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-11
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-11:5050
-      "
     hostname: sawtooth-pbft-engine-default-11
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-12:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-12:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-12
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-12:5050
-      "
     hostname: sawtooth-pbft-engine-default-12
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-13:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-13:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-13
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-13:5050
-      "
     hostname: sawtooth-pbft-engine-default-13
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-14:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-14:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-14
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-14:5050
-      "
     hostname: sawtooth-pbft-engine-default-14
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-15:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-15:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-15
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-15:5050
-      "
     hostname: sawtooth-pbft-engine-default-15
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-16:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-16:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-16
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-16:5050
-      "
     hostname: sawtooth-pbft-engine-default-16
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-17:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-17:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-17
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-17:5050
-      "
     hostname: sawtooth-pbft-engine-default-17
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-18:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-18:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-18
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-18:5050
-      "
     hostname: sawtooth-pbft-engine-default-18
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-19:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-19:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-19
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-19:5050
-      "
     hostname: sawtooth-pbft-engine-default-19
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-2:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-2:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-2
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-2:5050
-      "
     hostname: sawtooth-pbft-engine-default-2
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-20:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-20:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-20
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-20:5050
-      "
     hostname: sawtooth-pbft-engine-default-20
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-21:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-21:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-21
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-21:5050
-      "
     hostname: sawtooth-pbft-engine-default-21
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-22:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-22:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-22
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-22:5050
-      "
     hostname: sawtooth-pbft-engine-default-22
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-23:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-23:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-23
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-23:5050
-      "
     hostname: sawtooth-pbft-engine-default-23
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-24:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-24:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-24
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-24:5050
-      "
     hostname: sawtooth-pbft-engine-default-24
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-3:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-3:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-3
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-3:5050
-      "
     hostname: sawtooth-pbft-engine-default-3
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-4:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-4:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-4
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-4:5050
-      "
     hostname: sawtooth-pbft-engine-default-4
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-5:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-5:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-5
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-5:5050
-      "
     hostname: sawtooth-pbft-engine-default-5
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-6:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-6:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-6
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-6:5050
-      "
     hostname: sawtooth-pbft-engine-default-6
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-7:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-7:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-7
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-7:5050
-      "
     hostname: sawtooth-pbft-engine-default-7
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-8:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-8:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-8
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-8:5050
-      "
     hostname: sawtooth-pbft-engine-default-8
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   pbft-9:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-9:5050\n\"\n"
     container_name: sawtooth-pbft-engine-default-9
-    entrypoint: bash -c "telegraf & pbft-engine -vv --connect tcp://validator-9:5050
-      "
     hostname: sawtooth-pbft-engine-default-9
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-0:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-0:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-0:4004\
       \ \\\n    --bind rest-api-0:8008\n\"\n"
     container_name: rest-api-0
     depends_on:
@@ -397,8 +577,15 @@ services:
     ports:
     - 8000:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-1:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-1:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-1:4004\
       \ \\\n    --bind rest-api-1:8008\n\"\n"
     container_name: rest-api-1
     depends_on:
@@ -410,8 +597,15 @@ services:
     ports:
     - 8001:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-10:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-10:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-10:4004\
       \ \\\n    --bind rest-api-10:8008\n\"\n"
     container_name: rest-api-10
     depends_on:
@@ -423,8 +617,15 @@ services:
     ports:
     - 80010:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-11:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-11:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-11:4004\
       \ \\\n    --bind rest-api-11:8008\n\"\n"
     container_name: rest-api-11
     depends_on:
@@ -436,8 +637,15 @@ services:
     ports:
     - 80011:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-12:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-12:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-12:4004\
       \ \\\n    --bind rest-api-12:8008\n\"\n"
     container_name: rest-api-12
     depends_on:
@@ -449,8 +657,15 @@ services:
     ports:
     - 80012:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-13:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-13:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-13:4004\
       \ \\\n    --bind rest-api-13:8008\n\"\n"
     container_name: rest-api-13
     depends_on:
@@ -462,8 +677,15 @@ services:
     ports:
     - 80013:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-14:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-14:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-14:4004\
       \ \\\n    --bind rest-api-14:8008\n\"\n"
     container_name: rest-api-14
     depends_on:
@@ -475,8 +697,15 @@ services:
     ports:
     - 80014:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-15:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-15:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-15:4004\
       \ \\\n    --bind rest-api-15:8008\n\"\n"
     container_name: rest-api-15
     depends_on:
@@ -488,8 +717,15 @@ services:
     ports:
     - 80015:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-16:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-16:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-16:4004\
       \ \\\n    --bind rest-api-16:8008\n\"\n"
     container_name: rest-api-16
     depends_on:
@@ -501,8 +737,15 @@ services:
     ports:
     - 80016:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-17:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-17:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-17:4004\
       \ \\\n    --bind rest-api-17:8008\n\"\n"
     container_name: rest-api-17
     depends_on:
@@ -514,8 +757,15 @@ services:
     ports:
     - 80017:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-18:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-18:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-18:4004\
       \ \\\n    --bind rest-api-18:8008\n\"\n"
     container_name: rest-api-18
     depends_on:
@@ -527,8 +777,15 @@ services:
     ports:
     - 80018:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-19:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-19:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-19:4004\
       \ \\\n    --bind rest-api-19:8008\n\"\n"
     container_name: rest-api-19
     depends_on:
@@ -540,8 +797,15 @@ services:
     ports:
     - 80019:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-2:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-2:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-2:4004\
       \ \\\n    --bind rest-api-2:8008\n\"\n"
     container_name: rest-api-2
     depends_on:
@@ -553,8 +817,15 @@ services:
     ports:
     - 8002:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-20:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-20:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-20:4004\
       \ \\\n    --bind rest-api-20:8008\n\"\n"
     container_name: rest-api-20
     depends_on:
@@ -566,8 +837,15 @@ services:
     ports:
     - 80020:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-21:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-21:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-21:4004\
       \ \\\n    --bind rest-api-21:8008\n\"\n"
     container_name: rest-api-21
     depends_on:
@@ -579,8 +857,15 @@ services:
     ports:
     - 80021:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-22:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-22:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-22:4004\
       \ \\\n    --bind rest-api-22:8008\n\"\n"
     container_name: rest-api-22
     depends_on:
@@ -592,8 +877,15 @@ services:
     ports:
     - 80022:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-23:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-23:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-23:4004\
       \ \\\n    --bind rest-api-23:8008\n\"\n"
     container_name: rest-api-23
     depends_on:
@@ -605,8 +897,15 @@ services:
     ports:
     - 80023:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-24:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-24:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-24:4004\
       \ \\\n    --bind rest-api-24:8008\n\"\n"
     container_name: rest-api-24
     depends_on:
@@ -618,8 +917,15 @@ services:
     ports:
     - 80024:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-3:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-3:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-3:4004\
       \ \\\n    --bind rest-api-3:8008\n\"\n"
     container_name: rest-api-3
     depends_on:
@@ -631,8 +937,15 @@ services:
     ports:
     - 8003:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-4:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-4:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-4:4004\
       \ \\\n    --bind rest-api-4:8008\n\"\n"
     container_name: rest-api-4
     depends_on:
@@ -644,8 +957,15 @@ services:
     ports:
     - 8004:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-5:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-5:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-5:4004\
       \ \\\n    --bind rest-api-5:8008\n\"\n"
     container_name: rest-api-5
     depends_on:
@@ -657,8 +977,15 @@ services:
     ports:
     - 8005:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-6:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-6:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-6:4004\
       \ \\\n    --bind rest-api-6:8008\n\"\n"
     container_name: rest-api-6
     depends_on:
@@ -670,8 +997,15 @@ services:
     ports:
     - 8006:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-7:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-7:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-7:4004\
       \ \\\n    --bind rest-api-7:8008\n\"\n"
     container_name: rest-api-7
     depends_on:
@@ -683,8 +1017,15 @@ services:
     ports:
     - 8007:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-8:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-8:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-8:4004\
       \ \\\n    --bind rest-api-8:8008\n\"\n"
     container_name: rest-api-8
     depends_on:
@@ -696,8 +1037,15 @@ services:
     ports:
     - 8008:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   rest-api-9:
-    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-9:4004\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-9:4004\
       \ \\\n    --bind rest-api-9:8008\n\"\n"
     container_name: rest-api-9
     depends_on:
@@ -709,159 +1057,316 @@ services:
     ports:
     - 8009:8008
     stop_signal: SIGKILL
+    volumes:
+    - /root:/root
   settings-tp-0:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-0:4004\n\"\n"
     container_name: settings-tp-0
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-0:4004
-      "
     hostname: settings-tp-0
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-1:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-1:4004\n\"\n"
     container_name: settings-tp-1
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-1:4004
-      "
     hostname: settings-tp-1
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-10:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-10:4004\n\"\n"
     container_name: settings-tp-10
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-10:4004
-      "
     hostname: settings-tp-10
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-11:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-11:4004\n\"\n"
     container_name: settings-tp-11
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-11:4004
-      "
     hostname: settings-tp-11
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-12:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-12:4004\n\"\n"
     container_name: settings-tp-12
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-12:4004
-      "
     hostname: settings-tp-12
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-13:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-13:4004\n\"\n"
     container_name: settings-tp-13
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-13:4004
-      "
     hostname: settings-tp-13
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-14:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-14:4004\n\"\n"
     container_name: settings-tp-14
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-14:4004
-      "
     hostname: settings-tp-14
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-15:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-15:4004\n\"\n"
     container_name: settings-tp-15
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-15:4004
-      "
     hostname: settings-tp-15
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-16:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-16:4004\n\"\n"
     container_name: settings-tp-16
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-16:4004
-      "
     hostname: settings-tp-16
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-17:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-17:4004\n\"\n"
     container_name: settings-tp-17
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-17:4004
-      "
     hostname: settings-tp-17
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-18:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-18:4004\n\"\n"
     container_name: settings-tp-18
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-18:4004
-      "
     hostname: settings-tp-18
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-19:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-19:4004\n\"\n"
     container_name: settings-tp-19
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-19:4004
-      "
     hostname: settings-tp-19
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-2:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-2:4004\n\"\n"
     container_name: settings-tp-2
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-2:4004
-      "
     hostname: settings-tp-2
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-20:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-20:4004\n\"\n"
     container_name: settings-tp-20
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-20:4004
-      "
     hostname: settings-tp-20
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-21:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-21:4004\n\"\n"
     container_name: settings-tp-21
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-21:4004
-      "
     hostname: settings-tp-21
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-22:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-22:4004\n\"\n"
     container_name: settings-tp-22
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-22:4004
-      "
     hostname: settings-tp-22
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-23:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-23:4004\n\"\n"
     container_name: settings-tp-23
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-23:4004
-      "
     hostname: settings-tp-23
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-24:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-24:4004\n\"\n"
     container_name: settings-tp-24
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-24:4004
-      "
     hostname: settings-tp-24
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-3:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-3:4004\n\"\n"
     container_name: settings-tp-3
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-3:4004
-      "
     hostname: settings-tp-3
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-4:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-4:4004\n\"\n"
     container_name: settings-tp-4
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-4:4004
-      "
     hostname: settings-tp-4
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-5:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-5:4004\n\"\n"
     container_name: settings-tp-5
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-5:4004
-      "
     hostname: settings-tp-5
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-6:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-6:4004\n\"\n"
     container_name: settings-tp-6
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-6:4004
-      "
     hostname: settings-tp-6
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-7:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-7:4004\n\"\n"
     container_name: settings-tp-7
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-7:4004
-      "
     hostname: settings-tp-7
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-8:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-8:4004\n\"\n"
     container_name: settings-tp-8
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-8:4004
-      "
     hostname: settings-tp-8
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   settings-tp-9:
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  settings-tp -v --connect tcp://validator-9:4004\n\"\n"
     container_name: settings-tp-9
-    entrypoint: bash -c "telegraf & settings-tp -v --connect tcp://validator-9:4004
-      "
     hostname: settings-tp-9
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2
+    volumes:
+    - /root:/root
   validator-0:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-0.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-0.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-0.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-0.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-0.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -922,9 +1427,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-1:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-1.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-1.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-1.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-1.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-1.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -943,9 +1454,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-10:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-10.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-10.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-10.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-10.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-10.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -969,9 +1486,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-11:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-11.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-11.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-11.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-11.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-11.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -995,9 +1518,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-12:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-12.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-12.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-12.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-12.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-12.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1022,9 +1551,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-13:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-13.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-13.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-13.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-13.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-13.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1049,9 +1584,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-14:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-14.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-14.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-14.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-14.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-14.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1077,9 +1618,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-15:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-15.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-15.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-15.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-15.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-15.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1105,9 +1652,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-16:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-16.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-16.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-16.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-16.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-16.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1134,9 +1687,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-17:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-17.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-17.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-17.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-17.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-17.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1163,9 +1722,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-18:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-18.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-18.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-18.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-18.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-18.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1193,9 +1758,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-19:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-19.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-19.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-19.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-19.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-19.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1223,9 +1794,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-2:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-2.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-2.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-2.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-2.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-2.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1245,9 +1822,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-20:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-20.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-20.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-20.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-20.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-20.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1276,9 +1859,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-21:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-21.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-21.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-21.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-21.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-21.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1307,9 +1896,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-22:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-22.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-22.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-22.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-22.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-22.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1339,9 +1934,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-23:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-23.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-23.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-23.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-23.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-23.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1371,9 +1972,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-24:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-24.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-24.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-24.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-24.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-24.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1404,9 +2011,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-3:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-3.priv\
-      \ ]; then\n   cp /pbft-shared/validators/validator-3.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-3.priv ]; then\n\
+      \   cp /pbft-shared/validators/validator-3.pub /etc/sawtooth/keys/validator.pub\n\
       \   cp /pbft-shared/validators/validator-3.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n   sawadm keygen\n\
       \   mkdir -p /pbft-shared/validators || true\n   cp /etc/sawtooth/keys/validator.pub\
@@ -1426,9 +2039,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-4:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-4.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-4.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-4.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-4.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-4.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1449,9 +2068,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-5:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-5.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-5.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-5.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-5.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-5.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1472,9 +2097,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-6:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-6.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-6.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-6.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-6.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-6.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1496,9 +2127,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-7:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-7.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-7.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-7.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-7.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-7.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1520,9 +2157,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-8:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-8.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-8.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-8.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-8.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-8.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1545,9 +2188,15 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
   validator-9:
-    command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-9.priv\
-      \ ]; then\n    cp /pbft-shared/validators/validator-9.pub /etc/sawtooth/keys/validator.pub\n\
+    command: "bash -c \"\n  dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&\n  echo '[[outputs.influxdb]]'\
+      \ >> /etc/telegraf/telegraf.conf &&\n  echo '  urls = [\\\"http://172.21.105.144:8086\\\
+      \"]' >> /etc/telegraf/telegraf.conf &&\n  echo '  database = \\\"metrics\\\"\
+      ' >> /etc/telegraf/telegraf.conf &&\n  echo '  username = \\\"admin\\\"' >>\
+      \ /etc/telegraf/telegraf.conf &&\n  echo '  password = \\\"admin\\\"' >> /etc/telegraf/telegraf.conf\
+      \ &&\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-9.priv ]; then\n\
+      \    cp /pbft-shared/validators/validator-9.pub /etc/sawtooth/keys/validator.pub\n\
       \    cp /pbft-shared/validators/validator-9.priv /etc/sawtooth/keys/validator.priv\n\
       \  fi &&\n  if [ ! -e /etc/sawtooth/keys/validator.priv ]; then\n    sawadm\
       \ keygen\n    mkdir -p /pbft-shared/validators || true\n    cp /etc/sawtooth/keys/validator.pub\
@@ -1570,6 +2219,7 @@ services:
     image: hyperledger/sawtooth-validator:v1
     volumes:
     - pbft-shared:/pbft-shared
+    - /root:/root
 version: '2.1'
 volumes:
   pbft-shared: null

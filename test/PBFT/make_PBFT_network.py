@@ -17,7 +17,7 @@ for i in range(old_num, new_num):
     tmp = copy.deepcopy(content['services']['abac-tp-python-0'])
     tmp['container_name'] = 'abac-tp-python-default-' + str(i)
     tmp['hostname'] = 'abac-tp-python-default-' + str(i)
-    tmp['entrypoint'] = tmp['entrypoint'].replace('validator-0', 'validator-' + str(i))
+    tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
     content['services']['abac-tp-python-' + str(i)] = tmp
     # validator
     tmp = copy.deepcopy(content['services']['validator-' + str(i-1)])
@@ -41,13 +41,13 @@ for i in range(old_num, new_num):
     tmp = copy.deepcopy(content['services']['settings-tp-0'])
     tmp['container_name'] = 'settings-tp-' + str(i)
     tmp['hostname'] = 'settings-tp-' + str(i)
-    tmp['entrypoint'] = tmp['entrypoint'].replace('validator-0', 'validator-' + str(i))
+    tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
     content['services']['settings-tp-' + str(i)] = tmp
     # pbft-engine
     tmp = copy.deepcopy(content['services']['pbft-0'])
     tmp['container_name'] = 'sawtooth-pbft-engine-default-' + str(i)
     tmp['hostname'] = 'sawtooth-pbft-engine-default-' + str(i)
-    tmp['entrypoint'] = tmp['entrypoint'].replace('validator-0', 'validator-' + str(i))
+    tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
     content['services']['pbft-' + str(i)] = tmp
 
 # validator-0
@@ -69,7 +69,6 @@ for i in range(old_num, new_num):
 content['services']['validator-0']['command'] = list(content['services']['validator-0']['command'])
 content['services']['validator-0']['command'].insert(index + 48, data)
 content['services']['validator-0']['command'] = ''.join(content['services']['validator-0']['command'])
-print(content['services']['validator-0']['command'])
 
 # Write new compose file
 f = open(sys.argv[1] + 'nodes.yaml', 'w')
