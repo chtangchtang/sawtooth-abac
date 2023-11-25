@@ -106,7 +106,7 @@ services:
     stop_signal: SIGKILL
 
   validator-0:
-    image: hyperledger/sawtooth-validator:latest
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-0
     hostname: sawtooth-validator-default-0
     expose:
@@ -170,7 +170,7 @@ services:
       "
 
   validator-1:
-    image: hyperledger/sawtooth-validator:latest
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-1
     hostname: sawtooth-validator-default-1
     expose:
@@ -215,7 +215,7 @@ services:
       "
 
   validator-2:
-    image: hyperledger/sawtooth-validator:latest
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-2
     hostname: sawtooth-validator-default-2
     expose:
@@ -261,7 +261,7 @@ services:
       "
 
   validator-3:
-    image: hyperledger/sawtooth-validator:latest
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-3
     hostname: sawtooth-validator-default-3
     expose:
@@ -308,7 +308,7 @@ services:
       "
 
   validator-4:
-    image: hyperledger/sawtooth-validator:latest
+    image: hyperledger/sawtooth-validator:1.2
     container_name: sawtooth-validator-default-4
     hostname: sawtooth-validator-default-4
     expose:
@@ -360,7 +360,7 @@ services:
     hostname: rest-api-0
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:latest
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -391,7 +391,7 @@ services:
     hostname: rest-api-1
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:latest
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -422,7 +422,7 @@ services:
     hostname: rest-api-2
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:latest
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -453,7 +453,7 @@ services:
     hostname: rest-api-3
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:latest
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -484,7 +484,7 @@ services:
     hostname: rest-api-4
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:latest
+    image: hyperledger/sawtooth-rest-api:1.2
     expose:
       - 8008
     ports:
@@ -515,7 +515,7 @@ services:
     hostname: settings-tp-0
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:latest
+    image: hyperledger/sawtooth-settings-tp:1.2
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -533,7 +533,7 @@ services:
     hostname: settings-tp-1
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:latest
+    image: hyperledger/sawtooth-settings-tp:1.2
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -551,7 +551,7 @@ services:
     hostname: settings-tp-2
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:latest
+    image: hyperledger/sawtooth-settings-tp:1.2
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -569,7 +569,7 @@ services:
     hostname: settings-tp-3
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:latest
+    image: hyperledger/sawtooth-settings-tp:1.2
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -587,7 +587,7 @@ services:
     hostname: settings-tp-4
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:latest
+    image: hyperledger/sawtooth-settings-tp:1.2
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -601,7 +601,7 @@ services:
       "
 
   pbft-0:
-    image: hyperledger/sawtooth-pbft-engine:latest
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-0
     hostname: sawtooth-pbft-engine-default-0
     volumes:
@@ -620,7 +620,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-1:
-    image: hyperledger/sawtooth-pbft-engine:latest
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-1
     hostname: sawtooth-pbft-engine-default-1
     volumes:
@@ -639,7 +639,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-2:
-    image: hyperledger/sawtooth-pbft-engine:latest
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-2
     hostname: sawtooth-pbft-engine-default-2
     volumes:
@@ -658,7 +658,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-3:
-    image: hyperledger/sawtooth-pbft-engine:latest
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-3
     hostname: sawtooth-pbft-engine-default-3
     volumes:
@@ -677,7 +677,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-4:
-    image: hyperledger/sawtooth-pbft-engine:latest
+    image: hyperledger/sawtooth-pbft-engine:1.0
     container_name: sawtooth-pbft-engine-default-4
     hostname: sawtooth-pbft-engine-default-4
     volumes:
