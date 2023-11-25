@@ -21,7 +21,7 @@ volumes:
 services:
 
   abac-client:
-    image: chtang/sawtooth-abac-cli:v1
+    image: chtang/sawtooth-abac-cli:v2
     container_name: abac-client
     hostname: abac-client
     entrypoint: "bash -c \"\
