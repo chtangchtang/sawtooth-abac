@@ -26,17 +26,17 @@ services:
     hostname: abac-client
     volumes:
       - /root:/root
-    entrypoint: |
-      bash -c "
+    entrypoint: "bash -c \"\
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
         echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
         echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        sawtooth keygen &&
-        telegraf
-      "
+        sawtooth keygen && \
+        telegraf & \
+        tail -f /dev/null \
+        \""
   
   abac-listener:
     image: chtang/sawtooth-abac-listener:v1
