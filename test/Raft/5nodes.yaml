@@ -212,7 +212,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-0:5050 -v
+        raft-engine -vv --connect tcp://validator-0:5050
       "
     stop_signal: SIGKILL
 
@@ -234,7 +234,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-1:5050 -v
+        raft-engine -vv --connect tcp://validator-1:5050
       "
     stop_signal: SIGKILL
 
@@ -255,7 +255,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-2:5050 -v
+        raft-engine -vv --connect tcp://validator-2:5050
       "
     stop_signal: SIGKILL
 
@@ -276,7 +276,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-3:5050 -v
+        raft-engine -vv --connect tcp://validator-3:5050
       "
     stop_signal: SIGKILL
 
@@ -297,7 +297,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-4:5050 -v
+        raft-engine -vv --connect tcp://validator-4:5050
       "
     stop_signal: SIGKILL
 
@@ -340,9 +340,10 @@ services:
             -o raft-settings.batch sawtooth.consensus.raft.election_tick=20 \
             -o raft-settings.batch sawtooth.consensus.raft.period=3500 \
         sawadm genesis config-genesis.batch config-consensus.batch raft-settings.batch && \
-        sawtooth-validator -vvv \
+        sawtooth-validator -vv \
             --endpoint tcp://validator-0:8800 \
             --bind component:tcp://eth0:4004 \
+            --bind consensus:tcp://eth0:5050 \
             --bind network:tcp://eth0:8800 \
             --peering dynamic \
             --scheduler parallel \
@@ -374,7 +375,7 @@ services:
         then mv /shared_keys/validator-1.priv /etc/sawtooth/keys/validator.priv &&
         mv /shared_keys/validator-1.pub /etc/sawtooth/keys/validator.pub;
         break; fi; sleep 0.5; done; \
-        sawtooth-validator -vvv --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800 
+        sawtooth-validator -vv --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind consensus:tcp://eth0:5050 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800 
       "
     depends_on:
       - validator-0
@@ -405,7 +406,7 @@ services:
         then mv /shared_keys/validator-1.priv /etc/sawtooth/keys/validator.priv &&
         mv /shared_keys/validator-1.pub /etc/sawtooth/keys/validator.pub;
         break; fi; sleep 0.5; done; \
-        sawtooth-validator -vvv --endpoint tcp://validator-2:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+        sawtooth-validator -vv --endpoint tcp://validator-2:8800 --bind component:tcp://eth0:4004 --bind consensus:tcp://eth0:5050 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
     depends_on:
       - validator-0      
@@ -435,7 +436,7 @@ services:
         then mv /shared_keys/validator-1.priv /etc/sawtooth/keys/validator.priv &&
         mv /shared_keys/validator-1.pub /etc/sawtooth/keys/validator.pub;
         break; fi; sleep 0.5; done; \
-        sawtooth-validator -vvv --endpoint tcp://validator-3:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+        sawtooth-validator -vv --endpoint tcp://validator-3:8800 --bind component:tcp://eth0:4004 --bind consensus:tcp://eth0:5050 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
     depends_on:
       - validator-0
@@ -465,7 +466,7 @@ services:
         then mv /shared_keys/validator-1.priv /etc/sawtooth/keys/validator.priv &&
         mv /shared_keys/validator-1.pub /etc/sawtooth/keys/validator.pub;
         break; fi; sleep 0.5; done; \
-        sawtooth-validator -vvv --endpoint tcp://validator-4:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+        sawtooth-validator -vv --endpoint tcp://validator-4:8800 --bind component:tcp://eth0:4004 --bind consensus:tcp://eth0:5050 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
     depends_on:
       - validator-0
