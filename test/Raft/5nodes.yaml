@@ -212,7 +212,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-0:4004 -v
+        raft-engine --connect tcp://validator-0:5050 -v
       "
     stop_signal: SIGKILL
 
@@ -234,7 +234,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-1:4004 -v
+        raft-engine --connect tcp://validator-1:5050 -v
       "
     stop_signal: SIGKILL
 
@@ -255,7 +255,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-2:4004 -v
+        raft-engine --connect tcp://validator-2:5050 -v
       "
     stop_signal: SIGKILL
 
@@ -276,7 +276,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-3:4004 -v
+        raft-engine --connect tcp://validator-3:5050 -v
       "
     stop_signal: SIGKILL
 
@@ -297,7 +297,7 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        raft-engine --connect tcp://validator-4:4004 -v
+        raft-engine --connect tcp://validator-4:5050 -v
       "
     stop_signal: SIGKILL
 
