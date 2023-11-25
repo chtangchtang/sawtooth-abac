@@ -21,7 +21,7 @@ volumes:
 services:
 
   abac-client:
-    image: chtang/sawtooth-abac-cli:v2
+    image: chtang/sawtooth-abac-cli:v1
     container_name: abac-client
     hostname: abac-client
     entrypoint: "bash -c \"\
@@ -106,7 +106,7 @@ services:
     stop_signal: SIGKILL
 
   validator-0:
-    image: hyperledger/sawtooth-validator:chime
+    image: hyperledger/sawtooth-validatorlatest
     container_name: sawtooth-validator-default-0
     hostname: sawtooth-validator-default-0
     expose:
@@ -124,7 +124,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/validator.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
@@ -170,7 +170,7 @@ services:
       "
 
   validator-1:
-    image: hyperledger/sawtooth-validator:chime
+    image: hyperledger/sawtooth-validatorlatest
     container_name: sawtooth-validator-default-1
     hostname: sawtooth-validator-default-1
     expose:
@@ -188,7 +188,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/validator.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
@@ -215,7 +215,7 @@ services:
       "
 
   validator-2:
-    image: hyperledger/sawtooth-validator:chime
+    image: hyperledger/sawtooth-validatorlatest
     container_name: sawtooth-validator-default-2
     hostname: sawtooth-validator-default-2
     expose:
@@ -233,7 +233,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/validator.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
@@ -261,7 +261,7 @@ services:
       "
 
   validator-3:
-    image: hyperledger/sawtooth-validator:chime
+    image: hyperledger/sawtooth-validatorlatest
     container_name: sawtooth-validator-default-3
     hostname: sawtooth-validator-default-3
     expose:
@@ -279,7 +279,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/validator.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
@@ -308,7 +308,7 @@ services:
       "
 
   validator-4:
-    image: hyperledger/sawtooth-validator:chime
+    image: hyperledger/sawtooth-validatorlatest
     container_name: sawtooth-validator-default-4
     hostname: sawtooth-validator-default-4
     expose:
@@ -326,7 +326,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/validator.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/validator.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/validator.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/validator.toml &&
@@ -360,7 +360,7 @@ services:
     hostname: rest-api-0
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-apilatest
     expose:
       - 8008
     ports:
@@ -375,7 +375,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
@@ -391,7 +391,7 @@ services:
     hostname: rest-api-1
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-apilatest
     expose:
       - 8008
     ports:
@@ -406,7 +406,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
@@ -422,7 +422,7 @@ services:
     hostname: rest-api-2
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-apilatest
     expose:
       - 8008
     ports:
@@ -437,7 +437,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
@@ -453,7 +453,7 @@ services:
     hostname: rest-api-3
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-apilatest
     expose:
       - 8008
     ports:
@@ -468,7 +468,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
@@ -484,7 +484,7 @@ services:
     hostname: rest-api-4
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-apilatest
     expose:
       - 8008
     ports:
@@ -499,7 +499,7 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' >> /etc/sawtooth/rest_api.toml &&
+        echo 'opentsdb_url = \"http://172.21.105.144:8086\"' > /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_db = \"metrics\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_username = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
         echo 'opentsdb_password = \"admin\"' >> /etc/sawtooth/rest_api.toml &&
@@ -515,7 +515,7 @@ services:
     hostname: settings-tp-0
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tplatest
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -533,7 +533,7 @@ services:
     hostname: settings-tp-1
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tplatest
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -551,7 +551,7 @@ services:
     hostname: settings-tp-2
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tplatest
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -569,7 +569,7 @@ services:
     hostname: settings-tp-3
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tplatest
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -587,7 +587,7 @@ services:
     hostname: settings-tp-4
     volumes:
       - /root:/root
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tplatest
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
@@ -601,7 +601,7 @@ services:
       "
 
   pbft-0:
-    image: hyperledger/sawtooth-pbft-engine:chime
+    image: hyperledger/sawtooth-pbft-enginelatest
     container_name: sawtooth-pbft-engine-default-0
     hostname: sawtooth-pbft-engine-default-0
     volumes:
@@ -620,7 +620,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-1:
-    image: hyperledger/sawtooth-pbft-engine:chime
+    image: hyperledger/sawtooth-pbft-enginelatest
     container_name: sawtooth-pbft-engine-default-1
     hostname: sawtooth-pbft-engine-default-1
     volumes:
@@ -639,7 +639,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-2:
-    image: hyperledger/sawtooth-pbft-engine:chime
+    image: hyperledger/sawtooth-pbft-enginelatest
     container_name: sawtooth-pbft-engine-default-2
     hostname: sawtooth-pbft-engine-default-2
     volumes:
@@ -658,7 +658,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-3:
-    image: hyperledger/sawtooth-pbft-engine:chime
+    image: hyperledger/sawtooth-pbft-enginelatest
     container_name: sawtooth-pbft-engine-default-3
     hostname: sawtooth-pbft-engine-default-3
     volumes:
@@ -677,7 +677,7 @@ services:
     stop_signal: SIGKILL
 
   pbft-4:
-    image: hyperledger/sawtooth-pbft-engine:chime
+    image: hyperledger/sawtooth-pbft-enginelatest
     container_name: sawtooth-pbft-engine-default-4
     hostname: sawtooth-pbft-engine-default-4
     volumes:
