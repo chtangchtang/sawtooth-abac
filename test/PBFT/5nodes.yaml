@@ -24,15 +24,7 @@ services:
     image: chtang/sawtooth-abac-cli:v1
     container_name: abac-client
     hostname: abac-client
-    volumes:
-      - /root:/root
     entrypoint: "bash -c \"\
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         sawtooth keygen && \
         telegraf & \
         tail -f /dev/null \
@@ -42,16 +34,8 @@ services:
     image: chtang/sawtooth-abac-listener:v1
     container_name: abac-listener
     hostname: abac-listener
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         tail -f /dev/null
       "
@@ -60,18 +44,10 @@ services:
     image: chtang/sawtooth-abac-tp:v1
     container_name: abac-tp-python-default-0
     hostname: abac-tp-python-default-0
-    volumes:
-      - /root:/root
     expose:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         abac-tp-python -v -C tcp://validator-0:4004
       "
@@ -81,18 +57,10 @@ services:
     image: chtang/sawtooth-abac-tp:v1
     container_name: abac-tp-python-default-1
     hostname: abac-tp-python-default-1
-    volumes:
-      - /root:/root
     expose:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         abac-tp-python -v -C tcp://validator-1:4004
       "
@@ -102,18 +70,10 @@ services:
     image: chtang/sawtooth-abac-tp:v1
     container_name: abac-tp-python-default-2
     hostname: abac-tp-python-default-2
-    volumes:
-      - /root:/root
     expose:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         abac-tp-python -v -C tcp://validator-2:4004
       "
@@ -123,18 +83,10 @@ services:
     image: chtang/sawtooth-abac-tp:v1
     container_name: abac-tp-python-default-3
     hostname: abac-tp-python-default-3
-    volumes:
-      - /root:/root
     expose:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         abac-tp-python -v -C tcp://validator-3:4004
       "
@@ -144,18 +96,10 @@ services:
     image: chtang/sawtooth-abac-tp:v1
     container_name: abac-tp-python-default-4
     hostname: abac-tp-python-default-4
-    volumes:
-      - /root:/root
     expose:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         abac-tp-python -v -C tcp://validator-4:4004
       "
