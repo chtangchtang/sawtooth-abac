@@ -35,9 +35,9 @@ services:
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
-        sawtooth keygen &&
-        tail -f /dev/null
+        sawtooth keygen
       "
+    tty: true
   
   abac-listener:
     image: chtang/sawtooth-abac-listener:v1
