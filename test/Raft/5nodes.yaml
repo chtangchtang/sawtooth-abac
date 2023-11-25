@@ -312,8 +312,6 @@ services:
       - 4004
       - 5050
       - 8800
-    ports:
-      - '4004:4004'
     command: |
       bash -c "
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
