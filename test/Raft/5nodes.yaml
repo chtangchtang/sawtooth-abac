@@ -310,6 +310,7 @@ services:
       - /root:/root
     expose:
       - 4004
+      - 5050
       - 8800
     ports:
       - '4004:4004'
@@ -357,6 +358,7 @@ services:
     image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
+      - 5050
       - 8800
     command: |
       bash -c "
@@ -387,6 +389,7 @@ services:
     image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
+      - 5050
       - 8800
     command: |
       bash -c "
@@ -416,6 +419,7 @@ services:
     image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
+      - 5050
       - 8800
     command: |
       bash -c "
@@ -445,6 +449,7 @@ services:
     image: hyperledger/sawtooth-validator:v1
     expose:
       - 4004
+      - 5050
       - 8800
     command: |
       bash -c "
