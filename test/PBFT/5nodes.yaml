@@ -34,10 +34,9 @@ services:
         echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
         echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
-        sawtooth keygen
+        sawtooth keygen &&
+        telegraf
       "
-    tty: true
   
   abac-listener:
     image: chtang/sawtooth-abac-listener:v1
