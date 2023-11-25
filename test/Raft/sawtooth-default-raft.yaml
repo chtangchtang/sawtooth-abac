@@ -22,7 +22,7 @@ services:
 
   rest-api-0:
     container_name: rest-api-0
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -39,7 +39,7 @@ services:
 
   rest-api-1:
     container_name: rest-api-1
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -57,7 +57,7 @@ services:
 
   rest-api-2:
     container_name: rest-api-2
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -74,7 +74,7 @@ services:
 
   rest-api-3:
     container_name: rest-api-3
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -91,7 +91,7 @@ services:
 
   rest-api-4:
     container_name: rest-api-4
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:v1
     expose:
       - 8008
     ports:
@@ -186,7 +186,7 @@ services:
 
 # -------------=== validators ===-------------
   validator-0:
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-0
     expose:
       - 4004
@@ -235,7 +235,7 @@ services:
     stop_signal: SIGKILL
 
   validator-1:
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-1
     volumes:
       - keys:/shared_keys
@@ -265,7 +265,7 @@ services:
 
 
   validator-2:
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-2
     expose:
       - 4004
@@ -295,7 +295,7 @@ services:
     stop_signal: SIGKILL
 
   validator-3:
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-3
     expose:
       - 4004
@@ -325,7 +325,7 @@ services:
     stop_signal: SIGKILL
 
   validator-4:
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:v1
     container_name: sawtooth-validator-4
     expose:
       - 4004
