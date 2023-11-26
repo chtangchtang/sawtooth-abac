@@ -4,6 +4,13 @@ import copy
 import json
 
 
+def get_other_peers(nums, my_num):
+    all_peers = ''
+    for i in range(nums):
+        if i != my_num:
+            all_peers += 'tcp://validator-' + str(i) + ':8800,'
+    return all_peers[:-1]
+
 # Read basic compose file
 f = open('5nodes.yaml', 'r')
 content = yaml.load(f.read(), Loader=yaml.FullLoader)
@@ -12,6 +19,7 @@ f.close()
 # Add services
 new_num = int(sys.argv[1])
 old_num = int(list(content['services'].keys())[-1][-1]) + 1
+
 for i in range(old_num, new_num):
     # abac-tp
     tmp = copy.deepcopy(content['services']['abac-tp-python-0'])
@@ -20,13 +28,15 @@ for i in range(old_num, new_num):
     tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
     content['services']['abac-tp-python-' + str(i)] = tmp
     # validator
-    tmp = copy.deepcopy(content['services']['validator-' + str(i-1)])
+    tmp = copy.deepcopy(content['services']['validator-1'])
     tmp['container_name'] = 'sawtooth-validator-default-' + str(i)
     tmp['hostname'] = 'sawtooth-validator-default-' + str(i)
-    tmp['command'] = tmp['command'].replace('validator-' + str(i-1), 'validator-' + str(i))
-    tmp['command'] = list(tmp['command'])
-    tmp['command'].insert(-3, ' \\\n    --peers tcp://validator-' + str(i-1) + ':8800')
-    tmp['command'] = ''.join(tmp['command'])
+    tmp['command'] = tmp['command'].replace('validator-1', 'validator-' + str(i))
+    index = tmp['command'].find('--peers')
+    s1 = tmp['command'][:index+8]
+    s3 = tmp['command'][index+99:]
+    s2 = get_other_peers(new_num, i)
+    tmp['command'] = s1 + s2 + s3
     content['services']['validator-' + str(i)] = tmp
     # rest-api
     tmp = copy.deepcopy(content['services']['rest-api-0'])
@@ -52,23 +62,28 @@ for i in range(old_num, new_num):
     content['services']['raft-' + str(i)] = tmp
 
 # validator-0
-index = content['services']['validator-0']['command'].find('/pbft-shared/validators/validator-4.pub')
+index = content['services']['validator-0']['command'].find('sawadm keygen &&')
 content['services']['validator-0']['command'] = list(content['services']['validator-0']['command'])
 data = ''
 for i in range(old_num, new_num):
-    data += ' || \\\n           ! -f /pbft-shared/validators/validator-' + str(i) + '.pub'
-content['services']['validator-0']['command'].insert(index + 39, data)
+    data += "sawadm keygen validator-" + str(i) + " && \\\n  "
+content['services']['validator-0']['command'].insert(index, data)
 content['services']['validator-0']['command'] = ''.join(content['services']['validator-0']['command'])
-index = content['services']['validator-0']['command'].find('cat /pbft-shared/validators/validator-4.pub')
+index = content['services']['validator-0']['command'].find('--peers')
+s1 = content['services']['validator-0']['command'][:index+8]
+s3 = content['services']['validator-0']['command'][index+99:]
+s2 = get_other_peers(new_num, 0)
+content['services']['validator-0']['command'] = s1 + s2 + s3
+index = content['services']['validator-0']['command'].find('cat /etc/sawtooth/keys/validator-4.pub')
 data = ''
 for i in range(old_num, new_num):
-    s1 = r",'\"'$$(cat /pbft-shared/validators/validator-4.pub)'"
+    s1 = r",'\"'$$(cat /etc/sawtooth/keys/validator-4.pub)'"
     s2 = r"\"'"
     s = s1 + s2
     s = s.replace('4', str(i))
     data += s
 content['services']['validator-0']['command'] = list(content['services']['validator-0']['command'])
-content['services']['validator-0']['command'].insert(index + 48, data)
+content['services']['validator-0']['command'].insert(index + 43, data)
 content['services']['validator-0']['command'] = ''.join(content['services']['validator-0']['command'])
 
 # Write new compose file

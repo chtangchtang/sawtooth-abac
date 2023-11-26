@@ -387,7 +387,7 @@ services:
                   -k /etc/sawtooth/keys/validator.priv \
                   sawtooth.consensus.algorithm.name=raft \
                   sawtooth.consensus.algorithm.version=0.1 \
-                  sawtooth.consensus.raft.peers=\\['\"'$$(cat /etc/sawtooth/keys/validator.pub )'\"','\"'$$(cat /etc/sawtooth/keys/validator-1.pub )'\"','\"'$$(cat /etc/sawtooth/keys/validator-2.pub )'\"','\"'$$(cat /etc/sawtooth/keys/validator-3.pub )'\"','\"'$$(cat /etc/sawtooth/keys/validator-4.pub )'\"'\\] \
+                  sawtooth.consensus.raft.peers=\\['\"'$$(cat /etc/sawtooth/keys/validator.pub)'\"','\"'$$(cat /etc/sawtooth/keys/validator-1.pub)'\"','\"'$$(cat /etc/sawtooth/keys/validator-2.pub)'\"','\"'$$(cat /etc/sawtooth/keys/validator-3.pub)'\"','\"'$$(cat /etc/sawtooth/keys/validator-4.pub)'\"'\\] \
                   sawtooth.consensus.raft.period=1 \
                   sawtooth.publisher.max_batches_per_block=100 \
                   sawtooth.validator.max_transactions_per_block=100 \
@@ -429,16 +429,15 @@ services:
       do if [ -e /shared_keys/validator-1.pub ];
       then mv /shared_keys/validator-1.priv /etc/sawtooth/keys/validator.priv &&
       mv /shared_keys/validator-1.pub /etc/sawtooth/keys/validator.pub;
-      break; fi; sleep 0.5; done; \
-      echo $$(cat /etc/sawtooth/keys/validator.pub); \
-              sawtooth-validator -v \
-                  --endpoint tcp://validator-1:8800 \
-                  --bind component:tcp://eth0:4004 \
-                  --bind network:tcp://eth0:8800 \
-                  --bind consensus:tcp://eth0:5050 \
-                  --peering static \
-                  --peers tcp://validator-0:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 \
-                  --scheduler parallel \
+      break; fi; sleep 0.5; done; 
+      sawtooth-validator -v \
+          --endpoint tcp://validator-1:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind network:tcp://eth0:8800 \
+          --bind consensus:tcp://eth0:5050 \
+          --peering static \
+          --peers tcp://validator-0:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 \
+          --scheduler parallel \
       "
     stop_signal: SIGKILL
 
@@ -466,9 +465,7 @@ services:
       do if [ -e /shared_keys/validator-2.pub ];
       then mv /shared_keys/validator-2.priv /etc/sawtooth/keys/validator.priv &&
       mv /shared_keys/validator-2.pub /etc/sawtooth/keys/validator.pub;
-      break; fi; sleep 0.5; done; \
-       echo $$(cat /etc/sawtooth/keys/validator.pub); \
-
+      break; fi; sleep 0.5; done;
       sawtooth-validator -v \
                  --endpoint tcp://validator-2:8800 \
                  --bind component:tcp://eth0:4004 \
@@ -505,9 +502,7 @@ services:
       do if [ -e /shared_keys/validator-3.pub ];
       then mv /shared_keys/validator-3.priv /etc/sawtooth/keys/validator.priv &&
       mv /shared_keys/validator-3.pub /etc/sawtooth/keys/validator.pub;
-      break; fi; sleep 0.5; done; \
-       echo $$(cat /etc/sawtooth/keys/validator.pub); \
-
+      break; fi; sleep 0.5; done;
       sawtooth-validator -v \
                  --endpoint tcp://validator-3:8800 \
                  --bind component:tcp://eth0:4004 \
@@ -544,9 +539,7 @@ services:
       do if [ -e /shared_keys/validator-4.pub ];
       then mv /shared_keys/validator-4.priv /etc/sawtooth/keys/validator.priv &&
       mv /shared_keys/validator-4.pub /etc/sawtooth/keys/validator.pub;
-      break; fi; sleep 0.5; done; \
-       echo $$(cat /etc/sawtooth/keys/validator.pub); \
-
+      break; fi; sleep 0.5; done;
       sawtooth-validator -v \
                  --endpoint tcp://validator-4:8800 \
                  --bind component:tcp://eth0:4004 \
