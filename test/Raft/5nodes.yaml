@@ -243,8 +243,8 @@ services:
 
   settings-tp-0:
     image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: sawtooth-settings-tp-0
-    hostname: sawtooth-settings-tp-0
+    container_name: settings-tp-0
+    hostname: settings-tp-0
     volumes:
       - /root:/root
     expose:
@@ -266,8 +266,8 @@ services:
 
   settings-tp-1:
     image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: sawtooth-settings-tp-1
-    hostname: sawtooth-settings-tp-1
+    container_name: settings-tp-1
+    hostname: settings-tp-1
     volumes:
       - /root:/root
     expose:
@@ -289,8 +289,8 @@ services:
 
   settings-tp-2:
     image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: sawtooth-settings-tp-2
-    hostname: sawtooth-settings-tp-2
+    container_name: settings-tp-2
+    hostname: settings-tp-2
     volumes:
       - /root:/root
     expose:
@@ -312,8 +312,8 @@ services:
 
   settings-tp-3:
     image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: sawtooth-settings-tp-3
-    hostname: sawtooth-settings-tp-3
+    container_name: settings-tp-3
+    hostname: settings-tp-3
     volumes:
       - /root:/root
     expose:
@@ -335,8 +335,8 @@ services:
 
   settings-tp-4:
     image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: sawtooth-settings-tp-4
-    hostname: sawtooth-settings-tp-4
+    container_name: settings-tp-4
+    hostname: settings-tp-4
     volumes:
       - /root:/root
     expose:
@@ -358,8 +358,8 @@ services:
 
   validator-0:
     image: hyperledger/sawtooth-validator:v1
-    container_name: sawtooth-validator-0
-    hostname: sawtooth-validator-0
+    container_name: sawtooth-validator-default-0
+    hostname: sawtooth-validator-default-0
     expose:
       - 4004
       - 8800
@@ -382,11 +382,7 @@ services:
         sawadm keygen validator-3 && \
         sawadm keygen validator-4 && \
         sawadm keygen && \
-
-        sawset genesis \
-                -k /etc/sawtooth/keys/validator.priv \
-                -o config-genesis.batch && \
-
+        sawset genesis -k /etc/sawtooth/keys/validator.priv -o config-genesis.batch && \
         sawset proposal create \
                   -k /etc/sawtooth/keys/validator.priv \
                   sawtooth.consensus.algorithm.name=raft \
@@ -395,28 +391,24 @@ services:
                   sawtooth.consensus.raft.period=1 \
                   sawtooth.publisher.max_batches_per_block=100 \
                   sawtooth.validator.max_transactions_per_block=100 \
-                  -o config.batch && \
-
-        sawadm genesis \
-                config-genesis.batch config.batch && \
-
-        mv /etc/sawtooth/keys/validator-* /shared_keys && \
-              echo $$(cat /etc/sawtooth/keys/validator.pub); \
-              sawtooth-validator -v \
-                  --endpoint tcp://validator-0:8800 \
-                  --bind component:tcp://eth0:4004 \
-                  --bind network:tcp://eth0:8800 \
-                  --bind consensus:tcp://eth0:5050 \
-                  --peering static \
-                  --peers tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 \
-                  --scheduler parallel \
+                  -o config.batch &&
+        sawadm genesis config-genesis.batch config.batch &&
+        mv /etc/sawtooth/keys/validator-* /shared_keys &&
+        sawtooth-validator -v \
+            --endpoint tcp://validator-0:8800 \
+            --bind component:tcp://eth0:4004 \
+            --bind network:tcp://eth0:8800 \
+            --bind consensus:tcp://eth0:5050 \
+            --peering static \
+            --peers tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 \
+            --scheduler parallel \
       "
     stop_signal: SIGKILL
 
   validator-1:
     image: hyperledger/sawtooth-validator:v1
-    container_name: sawtooth-validator-1
-    hostname: sawtooth-validator-1
+    container_name: sawtooth-validator-default-1
+    hostname: sawtooth-validator-default-1
     volumes:
       - keys:/shared_keys
       - /root:/root
@@ -452,8 +444,8 @@ services:
 
   validator-2:
     image: hyperledger/sawtooth-validator:v1
-    container_name: sawtooth-validator-2
-    hostname: sawtooth-validator-2
+    container_name: sawtooth-validator-default-2
+    hostname: sawtooth-validator-default-2
     expose:
       - 4004
       - 8800
@@ -491,8 +483,8 @@ services:
 
   validator-3:
     image: hyperledger/sawtooth-validator:v1
-    container_name: sawtooth-validator-3
-    hostname: sawtooth-validator-3
+    container_name: sawtooth-validator-default-3
+    hostname: sawtooth-validator-default-3
     expose:
       - 4004
       - 8800
@@ -530,8 +522,8 @@ services:
 
   validator-4:
     image: hyperledger/sawtooth-validator:v1
-    container_name: sawtooth-validator-4
-    hostname: sawtooth-validator-4
+    container_name: sawtooth-validator-default-4
+    hostname: sawtooth-validator-default-4
     expose:
       - 4004
       - 8800
@@ -567,10 +559,10 @@ services:
       "
     stop_signal: SIGKILL
 
-  raft-engine-0:
+  raft-0:
     image: hyperledger/sawtooth-raft-engine:chime
-    container_name: sawtooth-raft-engine-0
-    hostname: sawtooth-raft-engine-0
+    container_name: sawtooth-raft-engine-default-0
+    hostname: sawtooth-raft-engine-default-0
     volumes:
       - /root:/root
     command: |
@@ -589,10 +581,10 @@ services:
       RUST_BACKTRACE: full
 
 
-  raft-engine-1:
+  raft-1:
     image: hyperledger/sawtooth-raft-engine:chime
-    container_name: sawtooth-raft-engine-1
-    hostname: sawtooth-raft-engine-1
+    container_name: sawtooth-raft-engine-default-1
+    hostname: sawtooth-raft-engine-default-1
     volumes:
       - /root:/root
     command: |
@@ -610,10 +602,10 @@ services:
     environment:
       RUST_BACKTRACE: full
 
-  raft-engine-2:
+  raft-2:
     image: hyperledger/sawtooth-raft-engine:chime
-    container_name: sawtooth-raft-engine-2
-    hostname: sawtooth-raft-engine-2
+    container_name: sawtooth-raft-engine-default-2
+    hostname: sawtooth-raft-engine-default-2
     volumes:
       - /root:/root
     command: |
@@ -631,10 +623,10 @@ services:
     environment:
       RUST_BACKTRACE: full
 
-  raft-engine-3:
+  raft-3:
     image: hyperledger/sawtooth-raft-engine:chime
-    container_name: sawtooth-raft-engine-3
-    hostname: sawtooth-raft-engine-3
+    container_name: sawtooth-raft-engine-default-3
+    hostname: sawtooth-raft-engine-default-3
     volumes:
       - /root:/root
     command: |
@@ -652,10 +644,10 @@ services:
     environment:
       RUST_BACKTRACE: full
 
-  raft-engine-4:
+  raft-4:
     image: hyperledger/sawtooth-raft-engine:chime
-    container_name: sawtooth-raft-engine-4
-    hostname: sawtooth-raft-engine-4
+    container_name: sawtooth-raft-engine-default-4
+    hostname: sawtooth-raft-engine-default-4
     volumes:
       - /root:/root
     command: |
