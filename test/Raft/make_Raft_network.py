@@ -42,7 +42,10 @@ for i in range(old_num, new_num):
     tmp = copy.deepcopy(content['services']['rest-api-0'])
     tmp['container_name'] = 'rest-api-' + str(i)
     tmp['hostname'] = 'rest-api-' + str(i)
-    tmp['ports'][0] = '800' + str(i) + ':8008'
+    if i < 10:
+        tmp['ports'][0] = '800' + str(i) + ':8008'
+    else:
+        tmp['ports'][0] = '80' + str(i) + ':8008'
     tmp['depends_on'][0] = tmp['depends_on'][0].replace('0', str(i))
     tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
     tmp['command'] = tmp['command'].replace('rest-api-0', 'rest-api-' + str(i))

@@ -505,7 +505,7 @@ services:
     hostname: rest-api-10
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80010:8008
+    - 8010:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -525,7 +525,7 @@ services:
     hostname: rest-api-11
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80011:8008
+    - 8011:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -545,7 +545,7 @@ services:
     hostname: rest-api-12
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80012:8008
+    - 8012:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -565,7 +565,7 @@ services:
     hostname: rest-api-13
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80013:8008
+    - 8013:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -585,7 +585,7 @@ services:
     hostname: rest-api-14
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80014:8008
+    - 8014:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -605,7 +605,7 @@ services:
     hostname: rest-api-15
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80015:8008
+    - 8015:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -625,7 +625,7 @@ services:
     hostname: rest-api-16
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80016:8008
+    - 8016:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -645,7 +645,7 @@ services:
     hostname: rest-api-17
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80017:8008
+    - 8017:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -665,7 +665,7 @@ services:
     hostname: rest-api-18
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80018:8008
+    - 8018:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -685,7 +685,7 @@ services:
     hostname: rest-api-19
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80019:8008
+    - 8019:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root

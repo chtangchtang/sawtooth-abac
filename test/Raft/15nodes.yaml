@@ -425,7 +425,7 @@ services:
     hostname: rest-api-10
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80010:8008
+    - 8010:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -445,7 +445,7 @@ services:
     hostname: rest-api-11
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80011:8008
+    - 8011:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -465,7 +465,7 @@ services:
     hostname: rest-api-12
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80012:8008
+    - 8012:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -485,7 +485,7 @@ services:
     hostname: rest-api-13
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80013:8008
+    - 8013:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -505,7 +505,7 @@ services:
     hostname: rest-api-14
     image: hyperledger/sawtooth-rest-api:v1
     ports:
-    - 80014:8008
+    - 8014:8008
     stop_signal: SIGKILL
     volumes:
     - /root:/root
