@@ -172,13 +172,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-1 || true && \
         cp -a /etc/sawtooth/keys /poet-shared/validator-1/ && \
@@ -211,13 +204,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-2 && \
         cp -a /etc/sawtooth/keys /poet-shared/validator-2/ && \
@@ -250,13 +236,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-3 && \
         cp -a /etc/sawtooth/keys /poet-shared/validator-3/ && \
@@ -289,13 +268,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-4 && \
         cp -a /etc/sawtooth/keys /poet-shared/validator-4/ && \
@@ -325,13 +297,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawtooth-rest-api --connect tcp://validator-0:4004 --bind rest-api-0:8008
       "
     stop_signal: SIGKILL
@@ -346,13 +311,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawtooth-rest-api --connect tcp://validator-1:4004 --bind rest-api-1:8008
       "
     stop_signal: SIGKILL
@@ -367,13 +325,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawtooth-rest-api --connect tcp://validator-2:4004 --bind rest-api-2:8008
       "
     stop_signal: SIGKILL
@@ -388,13 +339,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawtooth-rest-api --connect tcp://validator-3:4004 --bind rest-api-3:8008
       "
     stop_signal: SIGKILL
@@ -409,13 +353,6 @@ services:
       - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         sawtooth-rest-api --connect tcp://validator-4:4004 --bind rest-api-4:8008
       "
     stop_signal: SIGKILL
@@ -430,13 +367,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         settings-tp -v -C tcp://validator-0:4004
       "
     stop_signal: SIGKILL
@@ -451,13 +381,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         settings-tp -v -C tcp://validator-1:4004
       "
     stop_signal: SIGKILL
@@ -472,13 +395,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         settings-tp -v -C tcp://validator-2:4004
       "
     stop_signal: SIGKILL
@@ -493,13 +409,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         settings-tp -v -C tcp://validator-3:4004
       "
     stop_signal: SIGKILL
@@ -514,13 +423,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         settings-tp -v -C tcp://validator-4:4004
       "
     stop_signal: SIGKILL
@@ -610,13 +512,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         poet-validator-registry-tp -C tcp://validator-0:4004
       "
     environment:
@@ -633,13 +528,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         poet-validator-registry-tp -C tcp://validator-1:4004
       "
     environment:
@@ -656,13 +544,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         poet-validator-registry-tp -C tcp://validator-2:4004
       "
     environment:
@@ -679,13 +560,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         poet-validator-registry-tp -C tcp://validator-3:4004
       "
     environment:
@@ -702,13 +576,6 @@ services:
       - 4004
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        telegraf &
         poet-validator-registry-tp -C tcp://validator-4:4004
       "
     environment:
