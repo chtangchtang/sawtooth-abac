@@ -343,7 +343,7 @@ services:
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
-        sawtooth-validator -vvv --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering static --peers tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 --seeds tcp://validator-0:8800 
+        sawtooth-validator -vvv --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering static --peers tcp://validator-0:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 --seeds tcp://validator-0:8800 
       "
     depends_on:
       - validator-0
@@ -369,7 +369,7 @@ services:
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
-        sawtooth-validator -vvv --endpoint tcp://validator-2:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering static --peers tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 --seeds tcp://validator-0:8800
+        sawtooth-validator -vvv --endpoint tcp://validator-2:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering static --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-3:8800,tcp://validator-4:8800 --seeds tcp://validator-0:8800
       "
     depends_on:
       - validator-0      
@@ -395,7 +395,7 @@ services:
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
-        sawtooth-validator -vvv --endpoint tcp://validator-3:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering static --peers tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 --seeds tcp://validator-0:8800
+        sawtooth-validator -vvv --endpoint tcp://validator-3:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering static --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-4:8800 --seeds tcp://validator-0:8800
       "
     depends_on:
       - validator-0
@@ -421,7 +421,7 @@ services:
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen
         fi;
-        sawtooth-validator -vvv --endpoint tcp://validator-4:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering static --peers tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800 --seeds tcp://validator-0:8800
+        sawtooth-validator -vvv --endpoint tcp://validator-4:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering static --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800 --seeds tcp://validator-0:8800
       "
     depends_on:
       - validator-0
