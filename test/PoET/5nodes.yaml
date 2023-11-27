@@ -19,103 +19,23 @@ volumes:
   poet-shared:
 
 services:
-
-  abac-client:
-    image: chtang/sawtooth-abac-cli:v1
-    container_name: abac-client
-    hostname: abac-client
+  shell:
+    image: hyperledger/sawtooth-shell:chime
+    container_name: sawtooth-shell-default
     entrypoint: "bash -c \"\
         sawtooth keygen && \
-        telegraf & \
         tail -f /dev/null \
         \""
-  
-  abac-listener:
-    image: chtang/sawtooth-abac-listener:v1
-    container_name: abac-listener
-    hostname: abac-listener
-    command: |
-      bash -c "
-        telegraf &
-        tail -f /dev/null
-      "
-
-  abac-tp-python-0:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-0
-    hostname: abac-tp-python-default-0
-    expose:
-      - 4004
-    command: |
-      bash -c "
-        telegraf &
-        abac-tp-python -v -C tcp://validator-0:4004
-      "
-    stop_signal: SIGKILL
-
-  abac-tp-python-1:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-1
-    hostname: abac-tp-python-default-1
-    expose:
-      - 4004
-    command: |
-      bash -c "
-        telegraf &
-        abac-tp-python -v -C tcp://validator-1:4004
-      "
-    stop_signal: SIGKILL
-
-  abac-tp-python-2:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-2
-    hostname: abac-tp-python-default-2
-    expose:
-      - 4004
-    command: |
-      bash -c "
-        telegraf &
-        abac-tp-python -v -C tcp://validator-2:4004
-      "
-    stop_signal: SIGKILL
-
-  abac-tp-python-3:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-3
-    hostname: abac-tp-python-default-3
-    expose:
-      - 4004
-    command: |
-      bash -c "
-        telegraf &
-        abac-tp-python -v -C tcp://validator-3:4004
-      "
-    stop_signal: SIGKILL
-
-  abac-tp-python-4:
-    image: chtang/sawtooth-abac-tp:v1
-    container_name: abac-tp-python-default-4
-    hostname: abac-tp-python-default-4
-    expose:
-      - 4004
-    command: |
-      bash -c "
-        telegraf &
-        abac-tp-python -v -C tcp://validator-4:4004
-      "
-    stop_signal: SIGKILL
 
   validator-0:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:chime
     container_name: sawtooth-validator-default-0
-    hostname: sawtooth-validator-default-0
     expose:
       - 4004
       - 5050
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: "bash -c \"\
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-0 || true && \
@@ -160,16 +80,14 @@ services:
     stop_signal: SIGKILL
 
   validator-1:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:chime
     container_name: sawtooth-validator-default-1
-    hostname: sawtooth-validator-default-1
     expose:
       - 4004
       - 5050
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
         sawadm keygen --force && \
@@ -192,16 +110,14 @@ services:
     stop_signal: SIGKILL
 
   validator-2:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:chime
     container_name: sawtooth-validator-default-2
-    hostname: sawtooth-validator-default-2
     expose:
       - 4004
       - 5050
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
         sawadm keygen --force && \
@@ -224,16 +140,14 @@ services:
     stop_signal: SIGKILL
 
   validator-3:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:chime
     container_name: sawtooth-validator-default-3
-    hostname: sawtooth-validator-default-3
     expose:
       - 4004
       - 5050
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
         sawadm keygen --force && \
@@ -256,16 +170,14 @@ services:
     stop_signal: SIGKILL
 
   validator-4:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:chime
     container_name: sawtooth-validator-default-4
-    hostname: sawtooth-validator-default-4
     expose:
       - 4004
       - 5050
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
         sawadm keygen --force && \
@@ -288,152 +200,195 @@ services:
     stop_signal: SIGKILL
 
   rest-api-0:
-    image: hyperledger/sawtooth-rest-api:v1
-    container_name: rest-api-0
-    hostname: rest-api-0
+    image: hyperledger/sawtooth-rest-api:chime
+    container_name: sawtooth-rest-api-default-0
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        sawtooth-rest-api --connect tcp://validator-0:4004 --bind rest-api-0:8008
+        sawtooth-rest-api \
+          --connect tcp://validator-0:4004 \
+          --bind rest-api-0:8008
       "
     stop_signal: SIGKILL
 
   rest-api-1:
-    image: hyperledger/sawtooth-rest-api:v1
-    container_name: rest-api-1
-    hostname: rest-api-1
+    image: hyperledger/sawtooth-rest-api:chime
+    container_name: sawtooth-rest-api-default-1
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        sawtooth-rest-api --connect tcp://validator-1:4004 --bind rest-api-1:8008
+        sawtooth-rest-api \
+          --connect tcp://validator-1:4004 \
+          --bind rest-api-1:8008
       "
     stop_signal: SIGKILL
 
   rest-api-2:
-    image: hyperledger/sawtooth-rest-api:v1
-    container_name: rest-api-2
-    hostname: rest-api-2
+    image: hyperledger/sawtooth-rest-api:chime
+    container_name: sawtooth-rest-api-default-2
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        sawtooth-rest-api --connect tcp://validator-2:4004 --bind rest-api-2:8008
+        sawtooth-rest-api \
+          --connect tcp://validator-2:4004 \
+          --bind rest-api-2:8008
       "
     stop_signal: SIGKILL
 
   rest-api-3:
-    image: hyperledger/sawtooth-rest-api:v1
-    container_name: rest-api-3
-    hostname: rest-api-3
+    image: hyperledger/sawtooth-rest-api:chime
+    container_name: sawtooth-rest-api-default-3
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        sawtooth-rest-api --connect tcp://validator-3:4004 --bind rest-api-3:8008
+        sawtooth-rest-api \
+          --connect tcp://validator-3:4004 \
+          --bind rest-api-3:8008
       "
     stop_signal: SIGKILL
 
   rest-api-4:
-    image: hyperledger/sawtooth-rest-api:v1
-    container_name: rest-api-4
-    hostname: rest-api-4
+    image: hyperledger/sawtooth-rest-api:chime
+    container_name: sawtooth-rest-api-default-4
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        sawtooth-rest-api --connect tcp://validator-4:4004 --bind rest-api-4:8008
+        sawtooth-rest-api \
+          --connect tcp://validator-4:4004 \
+          --bind rest-api-4:8008
       "
+    stop_signal: SIGKILL
+
+  intkey-tp-0:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-0
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-1:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-1
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-2:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-2
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-2:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-3:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-3
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-3:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-4:
+    image: hyperledger/sawtooth-intkey-tp-python:chime
+    container_name: sawtooth-intkey-tp-python-default-4
+    expose:
+      - 4004
+    command: intkey-tp-python -C tcp://validator-4:4004
+    stop_signal: SIGKILL
+
+  xo-tp-0:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-0
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+  xo-tp-1:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-1
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+  xo-tp-2:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-2
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-2:4004
+    stop_signal: SIGKILL
+
+  xo-tp-3:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-3
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-3:4004
+    stop_signal: SIGKILL
+
+  xo-tp-4:
+    image: hyperledger/sawtooth-xo-tp-python:chime
+    container_name: sawtooth-xo-tp-python-default-4
+    expose:
+      - 4004
+    command: xo-tp-python -vv -C tcp://validator-4:4004
     stop_signal: SIGKILL
 
   settings-tp-0:
-    image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: settings-tp-0
-    hostname: settings-tp-0
-    volumes:
-      - /root:/root
+    image: hyperledger/sawtooth-settings-tp:chime
+    container_name: sawtooth-settings-tp-default-0
     expose:
       - 4004
-    command: |
-      bash -c "
-        settings-tp -v -C tcp://validator-0:4004
-      "
+    command: settings-tp -v -C tcp://validator-0:4004
     stop_signal: SIGKILL
 
   settings-tp-1:
-    image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: settings-tp-1
-    hostname: settings-tp-1
-    volumes:
-      - /root:/root
+    image: hyperledger/sawtooth-settings-tp:chime
+    container_name: sawtooth-settings-tp-default-1
     expose:
       - 4004
-    command: |
-      bash -c "
-        settings-tp -v -C tcp://validator-1:4004
-      "
+    command: settings-tp -v -C tcp://validator-1:4004
     stop_signal: SIGKILL
 
   settings-tp-2:
-    image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: settings-tp-2
-    hostname: settings-tp-2
-    volumes:
-      - /root:/root
+    image: hyperledger/sawtooth-settings-tp:chime
+    container_name: sawtooth-settings-tp-default-2
     expose:
       - 4004
-    command: |
-      bash -c "
-        settings-tp -v -C tcp://validator-2:4004
-      "
+    command: settings-tp -v -C tcp://validator-2:4004
     stop_signal: SIGKILL
 
   settings-tp-3:
-    image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: settings-tp-3
-    hostname: settings-tp-3
-    volumes:
-      - /root:/root
+    image: hyperledger/sawtooth-settings-tp:chime
+    container_name: sawtooth-settings-tp-default-3
     expose:
       - 4004
-    command: |
-      bash -c "
-        settings-tp -v -C tcp://validator-3:4004
-      "
+    command: settings-tp -v -C tcp://validator-3:4004
     stop_signal: SIGKILL
 
   settings-tp-4:
-    image: hyperledger/sawtooth-settings-tp:1.2
-    container_name: settings-tp-4
-    hostname: settings-tp-4
-    volumes:
-      - /root:/root
+    image: hyperledger/sawtooth-settings-tp:chime
+    container_name: sawtooth-settings-tp-default-4
     expose:
       - 4004
-    command: |
-      bash -c "
-        settings-tp -v -C tcp://validator-4:4004
-      "
+    command: settings-tp -v -C tcp://validator-4:4004
     stop_signal: SIGKILL
 
   poet-engine-0:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:chime
     container_name: sawtooth-poet-engine-0
-    hostname: sawtooth-poet-engine-0
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: "bash -c \"\
         if [ ! -f /poet-shared/poet-enclave-measurement ]; then \
             poet enclave measurement >> /poet-shared/poet-enclave-measurement; \
@@ -451,12 +406,10 @@ services:
     \""
 
   poet-engine-1:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:chime
     container_name: sawtooth-poet-engine-1
-    hostname: sawtooth-poet-engine-1
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: "bash -c \"\
         while [ ! -f /poet-shared/validator-1/keys/validator.priv ]; do sleep 1; done && \
         cp -a /poet-shared/validator-1/keys /etc/sawtooth && \
@@ -464,12 +417,10 @@ services:
     \""
 
   poet-engine-2:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:chime
     container_name: sawtooth-poet-engine-2
-    hostname: sawtooth-poet-engine-2
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: "bash -c \"\
         while [ ! -f /poet-shared/validator-2/keys/validator.priv ]; do sleep 1; done && \
         cp -a /poet-shared/validator-2/keys /etc/sawtooth && \
@@ -477,12 +428,10 @@ services:
     \""
 
   poet-engine-3:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:chime
     container_name: sawtooth-poet-engine-3
-    hostname: sawtooth-poet-engine-3
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: "bash -c \"\
         while [ ! -f /poet-shared/validator-3/keys/validator.priv ]; do sleep 1; done && \
         cp -a /poet-shared/validator-3/keys /etc/sawtooth && \
@@ -490,12 +439,10 @@ services:
     \""
 
   poet-engine-4:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:chime
     container_name: sawtooth-poet-engine-4
-    hostname: sawtooth-poet-engine-4
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: "bash -c \"\
         while [ ! -f /poet-shared/validator-4/keys/validator.priv ]; do sleep 1; done && \
         cp -a /poet-shared/validator-4/keys /etc/sawtooth && \
@@ -503,81 +450,51 @@ services:
     \""
 
   poet-validator-registry-tp-0:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
     container_name: sawtooth-poet-validator-registry-tp-0
-    hostname: sawtooth-poet-validator-registry-tp-0
-    volumes:
-      - /root:/root
     expose:
       - 4004
-    command: |
-      bash -c "
-        poet-validator-registry-tp -C tcp://validator-0:4004
-      "
+    command: poet-validator-registry-tp -C tcp://validator-0:4004
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-1:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
     container_name: sawtooth-poet-validator-registry-tp-1
-    hostname: sawtooth-poet-validator-registry-tp-1
-    volumes:
-      - /root:/root
     expose:
       - 4004
-    command: |
-      bash -c "
-        poet-validator-registry-tp -C tcp://validator-1:4004
-      "
+    command: poet-validator-registry-tp -C tcp://validator-1:4004
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-2:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
     container_name: sawtooth-poet-validator-registry-tp-2
-    hostname: sawtooth-poet-validator-registry-tp-2
-    volumes:
-      - /root:/root
     expose:
       - 4004
-    command: |
-      bash -c "
-        poet-validator-registry-tp -C tcp://validator-2:4004
-      "
+    command: poet-validator-registry-tp -C tcp://validator-2:4004
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-3:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
     container_name: sawtooth-poet-validator-registry-tp-3
-    hostname: sawtooth-poet-validator-registry-tp-3
-    volumes:
-      - /root:/root
     expose:
       - 4004
-    command: |
-      bash -c "
-        poet-validator-registry-tp -C tcp://validator-3:4004
-      "
+    command: poet-validator-registry-tp -C tcp://validator-3:4004
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-4:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
     container_name: sawtooth-poet-validator-registry-tp-4
-    hostname: sawtooth-poet-validator-registry-tp-4
-    volumes:
-      - /root:/root
     expose:
       - 4004
-    command: |
-      bash -c "
-        poet-validator-registry-tp -C tcp://validator-4:4004
-      "
+    command: poet-validator-registry-tp -C tcp://validator-4:4004
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
