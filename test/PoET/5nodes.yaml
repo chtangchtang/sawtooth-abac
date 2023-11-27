@@ -116,8 +116,7 @@ services:
     volumes:
       - poet-shared:/poet-shared
       - /root:/root
-    command: |
-      bash -c "
+    command: "bash -c \"\
         dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
         echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
         echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
@@ -160,7 +159,7 @@ services:
           --endpoint tcp://validator-0:8800 \
           --scheduler parallel \
           --network-auth trust
-      "
+    \""
     environment:
       PYTHONPATH: "/project/sawtooth-core/consensus/poet/common:\
         /project/sawtooth-core/consensus/poet/simulator:\
