@@ -242,7 +242,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-0:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: settings-tp-0
     hostname: settings-tp-0
     volumes:
@@ -265,7 +265,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-1:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: settings-tp-1
     hostname: settings-tp-1
     volumes:
@@ -288,7 +288,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-2:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: settings-tp-2
     hostname: settings-tp-2
     volumes:
@@ -311,7 +311,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-3:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: settings-tp-3
     hostname: settings-tp-3
     volumes:
@@ -334,7 +334,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-4:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: settings-tp-4
     hostname: settings-tp-4
     volumes:
@@ -553,7 +553,7 @@ services:
     stop_signal: SIGKILL
 
   raft-0:
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     container_name: sawtooth-raft-engine-default-0
     hostname: sawtooth-raft-engine-default-0
     volumes:
@@ -575,7 +575,7 @@ services:
 
 
   raft-1:
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     container_name: sawtooth-raft-engine-default-1
     hostname: sawtooth-raft-engine-default-1
     volumes:
@@ -596,7 +596,7 @@ services:
       RUST_BACKTRACE: full
 
   raft-2:
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     container_name: sawtooth-raft-engine-default-2
     hostname: sawtooth-raft-engine-default-2
     volumes:
@@ -617,7 +617,7 @@ services:
       RUST_BACKTRACE: full
 
   raft-3:
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     container_name: sawtooth-raft-engine-default-3
     hostname: sawtooth-raft-engine-default-3
     volumes:
@@ -638,7 +638,7 @@ services:
       RUST_BACKTRACE: full
 
   raft-4:
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     container_name: sawtooth-raft-engine-default-4
     hostname: sawtooth-raft-engine-default-4
     volumes:

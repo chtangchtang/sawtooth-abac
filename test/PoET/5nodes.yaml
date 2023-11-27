@@ -115,14 +115,7 @@ services:
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: "bash -c \"\
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-0 || true && \
@@ -176,15 +169,8 @@ services:
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-1 || true && \
@@ -215,15 +201,8 @@ services:
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-2 && \
@@ -254,15 +233,8 @@ services:
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-3 && \
@@ -293,15 +265,8 @@ services:
       - 8800
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawadm keygen --force && \
         mkdir -p /poet-shared/validator-4 && \
@@ -328,16 +293,8 @@ services:
     hostname: sawtooth-rest-api-default-0
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-0:4004 \
@@ -351,16 +308,8 @@ services:
     hostname: sawtooth-rest-api-default-1
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-1:4004 \
@@ -374,16 +323,8 @@ services:
     hostname: sawtooth-rest-api-default-2
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-2:4004 \
@@ -397,16 +338,8 @@ services:
     hostname: sawtooth-rest-api-default-3
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-3:4004 \
@@ -420,16 +353,8 @@ services:
     hostname: sawtooth-rest-api-default-4
     expose:
       - 8008
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-4:4004 \
@@ -438,125 +363,78 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-0:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: sawtooth-settings-tp-default-0
     hostname: sawtooth-settings-tp-default-0
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         settings-tp -v -C tcp://validator-0:4004
       "
     stop_signal: SIGKILL
 
   settings-tp-1:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: sawtooth-settings-tp-default-1
     hostname: sawtooth-settings-tp-default-1
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         settings-tp -v -C tcp://validator-1:4004
       "
     stop_signal: SIGKILL
 
   settings-tp-2:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: sawtooth-settings-tp-default-2
     hostname: sawtooth-settings-tp-default-2
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         settings-tp -v -C tcp://validator-2:4004
       "
     stop_signal: SIGKILL
 
   settings-tp-3:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: sawtooth-settings-tp-default-3
     hostname: sawtooth-settings-tp-default-3
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         settings-tp -v -C tcp://validator-3:4004
       "
     stop_signal: SIGKILL
 
   settings-tp-4:
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     container_name: sawtooth-settings-tp-default-4
     hostname: sawtooth-settings-tp-default-4
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         settings-tp -v -C tcp://validator-4:4004
       "
     stop_signal: SIGKILL
 
   poet-engine-0:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:v1
     container_name: sawtooth-poet-engine-0
     hostname: sawtooth-poet-engine-0
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         if [ ! -f /poet-shared/poet-enclave-measurement ]; then \
             poet enclave measurement >> /poet-shared/poet-enclave-measurement; \
@@ -574,20 +452,13 @@ services:
       "
 
   poet-engine-1:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:v1
     container_name: sawtooth-poet-engine-1
     hostname: sawtooth-poet-engine-1
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         while [ ! -f /poet-shared/validator-1/keys/validator.priv ]; do sleep 1; done && \
         cp -a /poet-shared/validator-1/keys /etc/sawtooth && \
@@ -595,20 +466,13 @@ services:
       "
 
   poet-engine-2:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:v1
     container_name: sawtooth-poet-engine-2
     hostname: sawtooth-poet-engine-2
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         while [ ! -f /poet-shared/validator-2/keys/validator.priv ]; do sleep 1; done && \
         cp -a /poet-shared/validator-2/keys /etc/sawtooth && \
@@ -616,20 +480,13 @@ services:
       "
 
   poet-engine-3:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:v1
     container_name: sawtooth-poet-engine-3
     hostname: sawtooth-poet-engine-3
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         while [ ! -f /poet-shared/validator-3/keys/validator.priv ]; do sleep 1; done && \
         cp -a /poet-shared/validator-3/keys /etc/sawtooth && \
@@ -637,20 +494,13 @@ services:
       "
 
   poet-engine-4:
-    image: hyperledger/sawtooth-poet-engine:1.1
+    image: hyperledger/sawtooth-poet-engine:v1
     container_name: sawtooth-poet-engine-4
     hostname: sawtooth-poet-engine-4
     volumes:
       - poet-shared:/poet-shared
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         while [ ! -f /poet-shared/validator-4/keys/validator.priv ]; do sleep 1; done && \
         cp -a /poet-shared/validator-4/keys /etc/sawtooth && \
@@ -658,21 +508,13 @@ services:
       "
 
   poet-validator-registry-tp-0:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-0
     hostname: sawtooth-poet-validator-registry-tp-0
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         poet-validator-registry-tp -C tcp://validator-0:4004
       "
@@ -681,21 +523,13 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-1:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-1
     hostname: sawtooth-poet-validator-registry-tp-1
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         poet-validator-registry-tp -C tcp://validator-1:4004
       "
@@ -704,21 +538,13 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-2:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-2
     hostname: sawtooth-poet-validator-registry-tp-2
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         poet-validator-registry-tp -C tcp://validator-2:4004
       "
@@ -727,21 +553,13 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-3:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-3
     hostname: sawtooth-poet-validator-registry-tp-3
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         poet-validator-registry-tp -C tcp://validator-3:4004
       "
@@ -750,21 +568,13 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-4:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-4
     hostname: sawtooth-poet-validator-registry-tp-4
     expose:
       - 4004
-    volumes:
-      - /root:/root
     command: |
       bash -c "
-        dpkg -i /root/telegraf_1.28.4-1_amd64.deb &&
-        echo '[[outputs.influxdb]]' >> /etc/telegraf/telegraf.conf &&
-        echo '  urls = [\"http://172.21.105.144:8086\"]' >> /etc/telegraf/telegraf.conf &&
-        echo '  database = \"metrics\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  username = \"admin\"' >> /etc/telegraf/telegraf.conf &&
-        echo '  password = \"admin\"' >> /etc/telegraf/telegraf.conf &&
         telegraf &
         poet-validator-registry-tp -C tcp://validator-4:4004
       "

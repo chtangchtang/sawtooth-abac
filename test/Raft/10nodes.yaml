@@ -110,7 +110,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-0
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -125,7 +125,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-1
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -140,7 +140,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-2
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -155,7 +155,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-3
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -170,7 +170,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-4
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -185,7 +185,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-5
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -200,7 +200,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-6
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -215,7 +215,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-7
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -230,7 +230,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-8
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -245,7 +245,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-9
-    image: hyperledger/sawtooth-raft-engine:chime
+    image: hyperledger/sawtooth-raft-engine:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -462,7 +462,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-0
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -479,7 +479,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-1
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -496,7 +496,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-2
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -513,7 +513,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-3
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -530,7 +530,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-4
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -547,7 +547,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-5
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -564,7 +564,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-6
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -581,7 +581,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-7
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -598,7 +598,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-8
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
@@ -615,7 +615,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-9
-    image: hyperledger/sawtooth-settings-tp:1.2
+    image: hyperledger/sawtooth-settings-tp:v1
     stop_signal: SIGKILL
     volumes:
     - /root:/root
