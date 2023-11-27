@@ -324,7 +324,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-0:
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-0
     hostname: sawtooth-rest-api-default-0
     expose:
@@ -347,7 +347,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-1:
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-1
     hostname: sawtooth-rest-api-default-1
     expose:
@@ -370,7 +370,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-2:
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-2
     hostname: sawtooth-rest-api-default-2
     expose:
@@ -393,7 +393,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-3:
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-3
     hostname: sawtooth-rest-api-default-3
     expose:
@@ -416,7 +416,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api-4:
-    image: hyperledger/sawtooth-rest-api:chime
+    image: hyperledger/sawtooth-rest-api:v1
     container_name: sawtooth-rest-api-default-4
     hostname: sawtooth-rest-api-default-4
     expose:
@@ -439,7 +439,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-0:
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tp:1.2
     container_name: sawtooth-settings-tp-default-0
     hostname: sawtooth-settings-tp-default-0
     expose:
@@ -460,7 +460,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-1:
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tp:1.2
     container_name: sawtooth-settings-tp-default-1
     hostname: sawtooth-settings-tp-default-1
     expose:
@@ -481,7 +481,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-2:
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tp:1.2
     container_name: sawtooth-settings-tp-default-2
     hostname: sawtooth-settings-tp-default-2
     expose:
@@ -502,7 +502,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-3:
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tp:1.2
     container_name: sawtooth-settings-tp-default-3
     hostname: sawtooth-settings-tp-default-3
     expose:
@@ -523,7 +523,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-4:
-    image: hyperledger/sawtooth-settings-tp:chime
+    image: hyperledger/sawtooth-settings-tp:1.2
     container_name: sawtooth-settings-tp-default-4
     hostname: sawtooth-settings-tp-default-4
     expose:
@@ -544,7 +544,7 @@ services:
     stop_signal: SIGKILL
 
   poet-engine-0:
-    image: hyperledger/sawtooth-poet-engine:chime
+    image: hyperledger/sawtooth-poet-engine:1.1
     container_name: sawtooth-poet-engine-0
     hostname: sawtooth-poet-engine-0
     volumes:
@@ -575,7 +575,7 @@ services:
       "
 
   poet-engine-1:
-    image: hyperledger/sawtooth-poet-engine:chime
+    image: hyperledger/sawtooth-poet-engine:1.1
     container_name: sawtooth-poet-engine-1
     hostname: sawtooth-poet-engine-1
     volumes:
@@ -596,7 +596,7 @@ services:
       "
 
   poet-engine-2:
-    image: hyperledger/sawtooth-poet-engine:chime
+    image: hyperledger/sawtooth-poet-engine:1.1
     container_name: sawtooth-poet-engine-2
     hostname: sawtooth-poet-engine-2
     volumes:
@@ -617,7 +617,7 @@ services:
       "
 
   poet-engine-3:
-    image: hyperledger/sawtooth-poet-engine:chime
+    image: hyperledger/sawtooth-poet-engine:1.1
     container_name: sawtooth-poet-engine-3
     hostname: sawtooth-poet-engine-3
     volumes:
@@ -638,7 +638,7 @@ services:
       "
 
   poet-engine-4:
-    image: hyperledger/sawtooth-poet-engine:chime
+    image: hyperledger/sawtooth-poet-engine:1.1
     container_name: sawtooth-poet-engine-4
     hostname: sawtooth-poet-engine-4
     volumes:
@@ -659,7 +659,7 @@ services:
       "
 
   poet-validator-registry-tp-0:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
     container_name: sawtooth-poet-validator-registry-tp-0
     hostname: sawtooth-poet-validator-registry-tp-0
     expose:
@@ -682,7 +682,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-1:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
     container_name: sawtooth-poet-validator-registry-tp-1
     hostname: sawtooth-poet-validator-registry-tp-1
     expose:
@@ -705,7 +705,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-2:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
     container_name: sawtooth-poet-validator-registry-tp-2
     hostname: sawtooth-poet-validator-registry-tp-2
     expose:
@@ -728,7 +728,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-3:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
     container_name: sawtooth-poet-validator-registry-tp-3
     hostname: sawtooth-poet-validator-registry-tp-3
     expose:
@@ -751,7 +751,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-4:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:chime
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
     container_name: sawtooth-poet-validator-registry-tp-4
     hostname: sawtooth-poet-validator-registry-tp-4
     expose:
