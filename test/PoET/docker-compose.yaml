@@ -273,7 +273,7 @@ services:
   validator-0:
     container_name: validator-0
     hostname: validator-0
-    image: hyperledger/sawtooth-validator:1.1
+    image: hyperledger/sawtooth-validator:1.0
     volumes:
       - /root:/root
     expose:
@@ -325,7 +325,7 @@ services:
   validator-1:
     container_name: validator-1
     hostname: validator-1
-    image: hyperledger/sawtooth-validator:1.1
+    image: hyperledger/sawtooth-validator:1.0
     volumes:
       - /root:/root
     expose:
@@ -351,7 +351,7 @@ services:
   validator-2:
     container_name: validator-2
     hostname: validator-2
-    image: hyperledger/sawtooth-validator:1.1
+    image: hyperledger/sawtooth-validator:1.0
     volumes:
       - /root:/root
     expose:
@@ -377,7 +377,7 @@ services:
   validator-3:
     container_name: validator-3
     hostname: validator-3
-    image: hyperledger/sawtooth-validator:1.1
+    image: hyperledger/sawtooth-validator:1.0
     volumes:
       - /root:/root
     expose:
@@ -403,7 +403,7 @@ services:
   validator-4:
     container_name: validator-4
     hostname: validator-4
-    image: hyperledger/sawtooth-validator:1.1
+    image: hyperledger/sawtooth-validator:1.0
     volumes:
       - /root:/root
     expose:
