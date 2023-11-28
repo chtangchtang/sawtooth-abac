@@ -1,0 +1,730 @@
+services:
+  abac-client:
+    container_name: abac-client
+    entrypoint: bash -c "sawtooth keygen && telegraf & tail -f /dev/null "
+    hostname: abac-client
+    image: chtang/sawtooth-abac-cli:v1
+  abac-listener:
+    command: "bash -c \"\n  telegraf &\n  tail -f /dev/null\n\"\n"
+    container_name: abac-listener
+    hostname: abac-listener
+    image: chtang/sawtooth-abac-listener:v1
+  abac-tp-python-0:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-0:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-0
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-0
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-1:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-1:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-1
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-1
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-2:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-2:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-2
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-2
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-3:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-3:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-3
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-3
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-4:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-4:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-4
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-4
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-5:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-5:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-5
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-5
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-6:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-6:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-6
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-6
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-7:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-7:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-7
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-7
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-8:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-8:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-8
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-8
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  abac-tp-python-9:
+    command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-9:4004\n\
+      \"\n"
+    container_name: abac-tp-python-default-9
+    expose:
+    - 4004
+    hostname: abac-tp-python-default-9
+    image: chtang/sawtooth-abac-tp:v1
+    stop_signal: SIGKILL
+  poet-engine-0:
+    command: bash -c "telegraf & if [ ! -f /poet-shared/poet-enclave-measurement ];
+      then poet enclave measurement >> /poet-shared/poet-enclave-measurement; fi &&
+      if [ ! -f /poet-shared/poet-enclave-basename ]; then poet enclave basename >>
+      /poet-shared/poet-enclave-basename; fi && if [ ! -f /poet-shared/simulator_rk_pub.pem
+      ]; then cp /etc/sawtooth/simulator_rk_pub.pem /poet-shared; fi && while [ !
+      -f /poet-shared/validator-0/keys/validator.priv ]; do sleep 1; done && cp -a
+      /poet-shared/validator-0/keys /etc/sawtooth && poet registration create -k /etc/sawtooth/keys/validator.priv
+      -o /poet-shared/poet.batch && poet-engine -C tcp://validator-0:5050 --component
+      tcp://validator-0:4004 "
+    container_name: poet-engine-0
+    hostname: poet-engine-0
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-1:
+    command: bash -c "telegraf & while [ ! -f /poet-shared/validator-1/keys/validator.priv
+      ]; do sleep 1; done && cp -a /poet-shared/validator-1/keys /etc/sawtooth &&
+      poet-engine -C tcp://validator-1:5050 --component tcp://validator-1:4004 "
+    container_name: poet-engine-1
+    hostname: poet-engine-1
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-2:
+    command: bash -c "telegraf & while [ ! -f /poet-shared/validator-2/keys/validator.priv
+      ]; do sleep 1; done && cp -a /poet-shared/validator-2/keys /etc/sawtooth &&
+      poet-engine -C tcp://validator-2:5050 --component tcp://validator-2:4004 "
+    container_name: poet-engine-2
+    hostname: poet-engine-2
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-3:
+    command: bash -c "telegraf & while [ ! -f /poet-shared/validator-3/keys/validator.priv
+      ]; do sleep 1; done && cp -a /poet-shared/validator-3/keys /etc/sawtooth &&
+      poet-engine -C tcp://validator-3:5050 --component tcp://validator-3:4004 "
+    container_name: poet-engine-3
+    hostname: poet-engine-3
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-4:
+    command: bash -c "telegraf & while [ ! -f /poet-shared/validator-4/keys/validator.priv
+      ]; do sleep 1; done && cp -a /poet-shared/validator-4/keys /etc/sawtooth &&
+      poet-engine -C tcp://validator-4:5050 --component tcp://validator-4:4004 "
+    container_name: poet-engine-4
+    hostname: poet-engine-4
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-5:
+    command: bash -c "telegraf & if [ ! -f /poet-shared/poet-enclave-measurement ];
+      then poet enclave measurement >> /poet-shared/poet-enclave-measurement; fi &&
+      if [ ! -f /poet-shared/poet-enclave-basename ]; then poet enclave basename >>
+      /poet-shared/poet-enclave-basename; fi && if [ ! -f /poet-shared/simulator_rk_pub.pem
+      ]; then cp /etc/sawtooth/simulator_rk_pub.pem /poet-shared; fi && while [ !
+      -f /poet-shared/validator-5/keys/validator.priv ]; do sleep 1; done && cp -a
+      /poet-shared/validator-5/keys /etc/sawtooth && poet registration create -k /etc/sawtooth/keys/validator.priv
+      -o /poet-shared/poet.batch && poet-engine -C tcp://validator-5:5050 --component
+      tcp://validator-5:4004 "
+    container_name: poet-engine-5
+    hostname: poet-engine-5
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-6:
+    command: bash -c "telegraf & if [ ! -f /poet-shared/poet-enclave-measurement ];
+      then poet enclave measurement >> /poet-shared/poet-enclave-measurement; fi &&
+      if [ ! -f /poet-shared/poet-enclave-basename ]; then poet enclave basename >>
+      /poet-shared/poet-enclave-basename; fi && if [ ! -f /poet-shared/simulator_rk_pub.pem
+      ]; then cp /etc/sawtooth/simulator_rk_pub.pem /poet-shared; fi && while [ !
+      -f /poet-shared/validator-6/keys/validator.priv ]; do sleep 1; done && cp -a
+      /poet-shared/validator-6/keys /etc/sawtooth && poet registration create -k /etc/sawtooth/keys/validator.priv
+      -o /poet-shared/poet.batch && poet-engine -C tcp://validator-6:5050 --component
+      tcp://validator-6:4004 "
+    container_name: poet-engine-6
+    hostname: poet-engine-6
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-7:
+    command: bash -c "telegraf & if [ ! -f /poet-shared/poet-enclave-measurement ];
+      then poet enclave measurement >> /poet-shared/poet-enclave-measurement; fi &&
+      if [ ! -f /poet-shared/poet-enclave-basename ]; then poet enclave basename >>
+      /poet-shared/poet-enclave-basename; fi && if [ ! -f /poet-shared/simulator_rk_pub.pem
+      ]; then cp /etc/sawtooth/simulator_rk_pub.pem /poet-shared; fi && while [ !
+      -f /poet-shared/validator-7/keys/validator.priv ]; do sleep 1; done && cp -a
+      /poet-shared/validator-7/keys /etc/sawtooth && poet registration create -k /etc/sawtooth/keys/validator.priv
+      -o /poet-shared/poet.batch && poet-engine -C tcp://validator-7:5050 --component
+      tcp://validator-7:4004 "
+    container_name: poet-engine-7
+    hostname: poet-engine-7
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-8:
+    command: bash -c "telegraf & if [ ! -f /poet-shared/poet-enclave-measurement ];
+      then poet enclave measurement >> /poet-shared/poet-enclave-measurement; fi &&
+      if [ ! -f /poet-shared/poet-enclave-basename ]; then poet enclave basename >>
+      /poet-shared/poet-enclave-basename; fi && if [ ! -f /poet-shared/simulator_rk_pub.pem
+      ]; then cp /etc/sawtooth/simulator_rk_pub.pem /poet-shared; fi && while [ !
+      -f /poet-shared/validator-8/keys/validator.priv ]; do sleep 1; done && cp -a
+      /poet-shared/validator-8/keys /etc/sawtooth && poet registration create -k /etc/sawtooth/keys/validator.priv
+      -o /poet-shared/poet.batch && poet-engine -C tcp://validator-8:5050 --component
+      tcp://validator-8:4004 "
+    container_name: poet-engine-8
+    hostname: poet-engine-8
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-engine-9:
+    command: bash -c "telegraf & if [ ! -f /poet-shared/poet-enclave-measurement ];
+      then poet enclave measurement >> /poet-shared/poet-enclave-measurement; fi &&
+      if [ ! -f /poet-shared/poet-enclave-basename ]; then poet enclave basename >>
+      /poet-shared/poet-enclave-basename; fi && if [ ! -f /poet-shared/simulator_rk_pub.pem
+      ]; then cp /etc/sawtooth/simulator_rk_pub.pem /poet-shared; fi && while [ !
+      -f /poet-shared/validator-9/keys/validator.priv ]; do sleep 1; done && cp -a
+      /poet-shared/validator-9/keys /etc/sawtooth && poet registration create -k /etc/sawtooth/keys/validator.priv
+      -o /poet-shared/poet.batch && poet-engine -C tcp://validator-9:5050 --component
+      tcp://validator-9:4004 "
+    container_name: poet-engine-9
+    hostname: poet-engine-9
+    image: hyperledger/sawtooth-poet-engine:v1
+    volumes:
+    - poet-shared:/poet-shared
+  poet-validator-registry-tp-0:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-0:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-0
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-0
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-1:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-1:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-1
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-2:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-2:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-2
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-2
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-3:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-3:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-3
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-3
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-4:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-4:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-4
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-4
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-5:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-5:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-5
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-5
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-6:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-6:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-6
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-6
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-7:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-7:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-7
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-7
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-8:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-8:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-8
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-8
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  poet-validator-registry-tp-9:
+    command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -C tcp://validator-9:4004\n\
+      \"\n"
+    container_name: poet-validator-registry-tp-9
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    expose:
+    - 4004
+    hostname: poet-validator-registry-tp-9
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    stop_signal: SIGKILL
+  rest-api-0:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-0:4004\
+      \ \\\n    --bind rest-api-0:8008\n\"\n"
+    container_name: rest-api-0
+    expose:
+    - 8008
+    hostname: rest-api-0
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-1:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-1:4004\
+      \ \\\n    --bind rest-api-1:8008\n\"\n"
+    container_name: rest-api-1
+    expose:
+    - 8008
+    hostname: rest-api-1
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-2:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-2:4004\
+      \ \\\n    --bind rest-api-2:8008\n\"\n"
+    container_name: rest-api-2
+    expose:
+    - 8008
+    hostname: rest-api-2
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-3:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-3:4004\
+      \ \\\n    --bind rest-api-3:8008\n\"\n"
+    container_name: rest-api-3
+    expose:
+    - 8008
+    hostname: rest-api-3
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-4:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-4:4004\
+      \ \\\n    --bind rest-api-4:8008\n\"\n"
+    container_name: rest-api-4
+    expose:
+    - 8008
+    hostname: rest-api-4
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-5:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-5:4004\
+      \ \\\n    --bind rest-api-5:8008\n\"\n"
+    container_name: rest-api-5
+    expose:
+    - 8008
+    hostname: rest-api-5
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-6:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-6:4004\
+      \ \\\n    --bind rest-api-6:8008\n\"\n"
+    container_name: rest-api-6
+    expose:
+    - 8008
+    hostname: rest-api-6
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-7:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-7:4004\
+      \ \\\n    --bind rest-api-7:8008\n\"\n"
+    container_name: rest-api-7
+    expose:
+    - 8008
+    hostname: rest-api-7
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-8:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-8:4004\
+      \ \\\n    --bind rest-api-8:8008\n\"\n"
+    container_name: rest-api-8
+    expose:
+    - 8008
+    hostname: rest-api-8
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  rest-api-9:
+    command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-9:4004\
+      \ \\\n    --bind rest-api-9:8008\n\"\n"
+    container_name: rest-api-9
+    expose:
+    - 8008
+    hostname: rest-api-9
+    image: hyperledger/sawtooth-rest-api:v1
+    stop_signal: SIGKILL
+  settings-tp-0:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-0:4004\n\
+      \"\n"
+    container_name: settings-tp-0
+    expose:
+    - 4004
+    hostname: settings-tp-0
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-1:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-1:4004\n\
+      \"\n"
+    container_name: settings-tp-1
+    expose:
+    - 4004
+    hostname: settings-tp-1
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-2:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-2:4004\n\
+      \"\n"
+    container_name: settings-tp-2
+    expose:
+    - 4004
+    hostname: settings-tp-2
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-3:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-3:4004\n\
+      \"\n"
+    container_name: settings-tp-3
+    expose:
+    - 4004
+    hostname: settings-tp-3
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-4:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-4:4004\n\
+      \"\n"
+    container_name: settings-tp-4
+    expose:
+    - 4004
+    hostname: settings-tp-4
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-5:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-5:4004\n\
+      \"\n"
+    container_name: settings-tp-5
+    expose:
+    - 4004
+    hostname: settings-tp-5
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-6:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-6:4004\n\
+      \"\n"
+    container_name: settings-tp-6
+    expose:
+    - 4004
+    hostname: settings-tp-6
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-7:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-7:4004\n\
+      \"\n"
+    container_name: settings-tp-7
+    expose:
+    - 4004
+    hostname: settings-tp-7
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-8:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-8:4004\n\
+      \"\n"
+    container_name: settings-tp-8
+    expose:
+    - 4004
+    hostname: settings-tp-8
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  settings-tp-9:
+    command: "bash -c \"\n  telegraf &\n  settings-tp -v -C tcp://validator-9:4004\n\
+      \"\n"
+    container_name: settings-tp-9
+    expose:
+    - 4004
+    hostname: settings-tp-9
+    image: hyperledger/sawtooth-settings-tp:v1
+    stop_signal: SIGKILL
+  validator-0:
+    command: bash -c "telegraf & sawadm keygen --force && mkdir -p /poet-shared/validator-0
+      || true && cp -a /etc/sawtooth/keys /poet-shared/validator-0/ && while [ ! -f
+      /poet-shared/poet-enclave-measurement ]; do sleep 1; done && while [ ! -f /poet-shared/poet-enclave-basename
+      ]; do sleep 1; done && while [ ! -f /poet-shared/poet.batch ]; do sleep 1; done
+      && cp /poet-shared/poet.batch / && sawset genesis -k /etc/sawtooth/keys/validator.priv
+      -o config-genesis.batch && sawset proposal create -k /etc/sawtooth/keys/validator.priv
+      sawtooth.consensus.algorithm.name=PoET sawtooth.consensus.algorithm.version=0.1
+      sawtooth.poet.report_public_key_pem=\"$$(cat /poet-shared/simulator_rk_pub.pem)\"
+      sawtooth.poet.valid_enclave_measurements=$$(cat /poet-shared/poet-enclave-measurement)
+      sawtooth.poet.valid_enclave_basenames=$$(cat /poet-shared/poet-enclave-basename)
+      -o config.batch && sawset proposal create -k /etc/sawtooth/keys/validator.priv
+      sawtooth.poet.target_wait_time=5 sawtooth.poet.initial_wait_time=25 sawtooth.publisher.max_batches_per_block=100
+      -o poet-settings.batch && sawadm genesis config-genesis.batch config.batch poet.batch
+      poet-settings.batch && sawtooth-validator -v --bind network:tcp://eth0:8800
+      --bind component:tcp://eth0:4004 --bind consensus:tcp://eth0:5050 --peering
+      static --endpoint tcp://validator-0:8800 --scheduler parallel --network-auth
+      trust "
+    container_name: sawtooth-validator-default-0
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-0
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-1:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-1 || true && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-1/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-1:8800 \\\n\
+      \      --peers tcp://validator-0:8800 \\\n      --scheduler parallel \\\n  \
+      \    --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-1
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-1
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-2:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-2 && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-2/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-2:8800 \\\n\
+      \      --peers tcp://validator-0:8800,tcp://validator-1:8800 \\\n      --scheduler\
+      \ parallel \\\n      --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-2
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-2
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-3:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-3 && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-3/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-3:8800 \\\n\
+      \      --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800\
+      \ \\\n      --scheduler parallel \\\n      --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-3
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-3
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-4:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-4 && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-4/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-4:8800 \\\n\
+      \      --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800\
+      \ \\\n      --scheduler parallel \\\n      --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-4
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-4
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-5:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-5 && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-5/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-5:8800 \\\n\
+      \      --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800\
+      \ \\\n      --scheduler parallel \\\n      --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-5
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-5
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-6:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-6 && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-6/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-6:8800 \\\n\
+      \      --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800,tcp://validator-5:8800\
+      \ \\\n      --scheduler parallel \\\n      --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-6
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-6
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-7:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-7 && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-7/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-7:8800 \\\n\
+      \      --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800,tcp://validator-5:8800,tcp://validator-6:8800\
+      \ \\\n      --scheduler parallel \\\n      --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-7
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-7
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-8:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-8 && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-8/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-8:8800 \\\n\
+      \      --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800,tcp://validator-5:8800,tcp://validator-6:8800,tcp://validator-7:8800\
+      \ \\\n      --scheduler parallel \\\n      --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-8
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-8
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+  validator-9:
+    command: "bash -c \"\n  telegraf &\n  sawadm keygen --force && \\\n  mkdir -p\
+      \ /poet-shared/validator-9 && \\\n  cp -a /etc/sawtooth/keys /poet-shared/validator-9/\
+      \ && \\\n  sawtooth-validator -v \\\n      --bind network:tcp://eth0:8800 \\\
+      \n      --bind component:tcp://eth0:4004 \\\n      --bind consensus:tcp://eth0:5050\
+      \ \\\n      --peering static \\\n      --endpoint tcp://validator-9:8800 \\\n\
+      \      --peers tcp://validator-0:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800,tcp://validator-4:8800,tcp://validator-5:8800,tcp://validator-6:8800,tcp://validator-7:8800,tcp://validator-8:8800\
+      \ \\\n      --scheduler parallel \\\n      --network-auth trust\n\"\n"
+    container_name: sawtooth-validator-default-9
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common:/project/sawtooth-core/consensus/poet/simulator:/project/sawtooth-core/consensus/poet/core
+    expose:
+    - 4004
+    - 5050
+    - 8800
+    hostname: sawtooth-validator-default-9
+    image: hyperledger/sawtooth-validator:v1
+    stop_signal: SIGKILL
+    volumes:
+    - poet-shared:/poet-shared
+version: '2.1'
+volumes:
+  poet-shared: null

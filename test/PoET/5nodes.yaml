@@ -286,8 +286,8 @@ services:
 
   rest-api-0:
     image: hyperledger/sawtooth-rest-api:v1
-    container_name: sawtooth-rest-api-default-0
-    hostname: sawtooth-rest-api-default-0
+    container_name: rest-api-0
+    hostname: rest-api-0
     expose:
       - 8008
     command: |
@@ -301,8 +301,8 @@ services:
 
   rest-api-1:
     image: hyperledger/sawtooth-rest-api:v1
-    container_name: sawtooth-rest-api-default-1
-    hostname: sawtooth-rest-api-default-1
+    container_name: rest-api-1
+    hostname: rest-api-1
     expose:
       - 8008
     command: |
@@ -316,8 +316,8 @@ services:
 
   rest-api-2:
     image: hyperledger/sawtooth-rest-api:v1
-    container_name: sawtooth-rest-api-default-2
-    hostname: sawtooth-rest-api-default-2
+    container_name: rest-api-2
+    hostname: rest-api-2
     expose:
       - 8008
     command: |
@@ -331,8 +331,8 @@ services:
 
   rest-api-3:
     image: hyperledger/sawtooth-rest-api:v1
-    container_name: sawtooth-rest-api-default-3
-    hostname: sawtooth-rest-api-default-3
+    container_name: rest-api-3
+    hostname: rest-api-3
     expose:
       - 8008
     command: |
@@ -346,8 +346,8 @@ services:
 
   rest-api-4:
     image: hyperledger/sawtooth-rest-api:v1
-    container_name: sawtooth-rest-api-default-4
-    hostname: sawtooth-rest-api-default-4
+    container_name: rest-api-4
+    hostname: rest-api-4
     expose:
       - 8008
     command: |
@@ -361,8 +361,8 @@ services:
 
   settings-tp-0:
     image: hyperledger/sawtooth-settings-tp:v1
-    container_name: sawtooth-settings-tp-default-0
-    hostname: sawtooth-settings-tp-default-0
+    container_name: settings-tp-0
+    hostname: settings-tp-0
     expose:
       - 4004
     command: |
@@ -374,8 +374,8 @@ services:
 
   settings-tp-1:
     image: hyperledger/sawtooth-settings-tp:v1
-    container_name: sawtooth-settings-tp-default-1
-    hostname: sawtooth-settings-tp-default-1
+    container_name: settings-tp-1
+    hostname: settings-tp-1
     expose:
       - 4004
     command: |
@@ -387,8 +387,8 @@ services:
 
   settings-tp-2:
     image: hyperledger/sawtooth-settings-tp:v1
-    container_name: sawtooth-settings-tp-default-2
-    hostname: sawtooth-settings-tp-default-2
+    container_name: settings-tp-2
+    hostname: settings-tp-2
     expose:
       - 4004
     command: |
@@ -400,8 +400,8 @@ services:
 
   settings-tp-3:
     image: hyperledger/sawtooth-settings-tp:v1
-    container_name: sawtooth-settings-tp-default-3
-    hostname: sawtooth-settings-tp-default-3
+    container_name: settings-tp-3
+    hostname: settings-tp-3
     expose:
       - 4004
     command: |
@@ -413,8 +413,8 @@ services:
 
   settings-tp-4:
     image: hyperledger/sawtooth-settings-tp:v1
-    container_name: sawtooth-settings-tp-default-4
-    hostname: sawtooth-settings-tp-default-4
+    container_name: settings-tp-4
+    hostname: settings-tp-4
     expose:
       - 4004
     command: |
@@ -426,8 +426,8 @@ services:
 
   poet-engine-0:
     image: hyperledger/sawtooth-poet-engine:v1
-    container_name: sawtooth-poet-engine-0
-    hostname: sawtooth-poet-engine-0
+    container_name: poet-engine-0
+    hostname: poet-engine-0
     volumes:
       - poet-shared:/poet-shared
     command: "bash -c \"\
@@ -449,8 +449,8 @@ services:
 
   poet-engine-1:
     image: hyperledger/sawtooth-poet-engine:v1
-    container_name: sawtooth-poet-engine-1
-    hostname: sawtooth-poet-engine-1
+    container_name: poet-engine-1
+    hostname: poet-engine-1
     volumes:
       - poet-shared:/poet-shared
     command: "bash -c \"\
@@ -462,8 +462,8 @@ services:
 
   poet-engine-2:
     image: hyperledger/sawtooth-poet-engine:v1
-    container_name: sawtooth-poet-engine-2
-    hostname: sawtooth-poet-engine-2
+    container_name: poet-engine-2
+    hostname: poet-engine-2
     volumes:
       - poet-shared:/poet-shared
     command: "bash -c \"\
@@ -475,8 +475,8 @@ services:
 
   poet-engine-3:
     image: hyperledger/sawtooth-poet-engine:v1
-    container_name: sawtooth-poet-engine-3
-    hostname: sawtooth-poet-engine-3
+    container_name: poet-engine-3
+    hostname: poet-engine-3
     volumes:
       - poet-shared:/poet-shared
     command: "bash -c \"\
@@ -488,8 +488,8 @@ services:
 
   poet-engine-4:
     image: hyperledger/sawtooth-poet-engine:v1
-    container_name: sawtooth-poet-engine-4
-    hostname: sawtooth-poet-engine-4
+    container_name: poet-engine-4
+    hostname: poet-engine-4
     volumes:
       - poet-shared:/poet-shared
     command: "bash -c \"\
@@ -501,8 +501,8 @@ services:
 
   poet-validator-registry-tp-0:
     image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: sawtooth-poet-validator-registry-tp-0
-    hostname: sawtooth-poet-validator-registry-tp-0
+    container_name: poet-validator-registry-tp-0
+    hostname: poet-validator-registry-tp-0
     expose:
       - 4004
     command: |
@@ -516,8 +516,8 @@ services:
 
   poet-validator-registry-tp-1:
     image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: sawtooth-poet-validator-registry-tp-1
-    hostname: sawtooth-poet-validator-registry-tp-1
+    container_name: poet-validator-registry-tp-1
+    hostname: poet-validator-registry-tp-1
     expose:
       - 4004
     command: |
@@ -531,8 +531,8 @@ services:
 
   poet-validator-registry-tp-2:
     image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: sawtooth-poet-validator-registry-tp-2
-    hostname: sawtooth-poet-validator-registry-tp-2
+    container_name: poet-validator-registry-tp-2
+    hostname: poet-validator-registry-tp-2
     expose:
       - 4004
     command: |
@@ -546,8 +546,8 @@ services:
 
   poet-validator-registry-tp-3:
     image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: sawtooth-poet-validator-registry-tp-3
-    hostname: sawtooth-poet-validator-registry-tp-3
+    container_name: poet-validator-registry-tp-3
+    hostname: poet-validator-registry-tp-3
     expose:
       - 4004
     command: |
@@ -561,8 +561,8 @@ services:
 
   poet-validator-registry-tp-4:
     image: hyperledger/sawtooth-poet-validator-registry-tp:v1
-    container_name: sawtooth-poet-validator-registry-tp-4
-    hostname: sawtooth-poet-validator-registry-tp-4
+    container_name: poet-validator-registry-tp-4
+    hostname: poet-validator-registry-tp-4
     expose:
       - 4004
     command: |
