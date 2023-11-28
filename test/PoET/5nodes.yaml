@@ -500,7 +500,7 @@ services:
       \""
 
   poet-validator-registry-tp-0:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:nightly
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-0
     hostname: sawtooth-poet-validator-registry-tp-0
     expose:
@@ -515,7 +515,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-1:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:nightly
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-1
     hostname: sawtooth-poet-validator-registry-tp-1
     expose:
@@ -530,7 +530,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-2:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:nightly
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-2
     hostname: sawtooth-poet-validator-registry-tp-2
     expose:
@@ -545,7 +545,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-3:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:nightly
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-3
     hostname: sawtooth-poet-validator-registry-tp-3
     expose:
@@ -560,7 +560,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-4:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:nightly
+    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
     container_name: sawtooth-poet-validator-registry-tp-4
     hostname: sawtooth-poet-validator-registry-tp-4
     expose:
