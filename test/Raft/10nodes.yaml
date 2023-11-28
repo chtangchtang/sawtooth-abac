@@ -462,7 +462,6 @@ services:
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
-    working_dir: /root
   validator-1:
     command: "bash -c \"\n  telegraf &\n while true;\ndo if [ -e /shared_keys/validator-1.pub\
       \ ];\nthen mv /shared_keys/validator-1.priv /etc/sawtooth/keys/validator.priv\
