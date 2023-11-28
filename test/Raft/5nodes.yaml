@@ -286,7 +286,6 @@ services:
       - 5050
     volumes:
       - keys:/shared_keys
-    working_dir: /root
     command: |
       bash -c "
         telegraf &
