@@ -156,7 +156,7 @@ services:
       "
 
   poet-validator-registry-tp-0:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
     container_name: poet-validator-registry-tp-0
     hostname: poet-validator-registry-tp-0
     expose:
@@ -167,7 +167,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-1:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
     container_name: poet-validator-registry-tp-1
     hostname: poet-validator-registry-tp-1
     expose:
@@ -178,7 +178,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-2:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
     container_name: poet-validator-registry-tp-2
     hostname: poet-validator-registry-tp-2
     expose:
@@ -189,7 +189,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-3:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
     container_name: poet-validator-registry-tp-3
     hostname: poet-validator-registry-tp-3
     expose:
@@ -200,7 +200,7 @@ services:
     stop_signal: SIGKILL
 
   poet-validator-registry-tp-4:
-    image: hyperledger/sawtooth-poet-validator-registry-tp:v1
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
     container_name: poet-validator-registry-tp-4
     hostname: poet-validator-registry-tp-4
     expose:
@@ -213,7 +213,7 @@ services:
   validator-0:
     container_name: validator-0
     hostname: validator-0
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.0
     expose:
       - 4004
       - 8800
@@ -256,7 +256,7 @@ services:
   validator-1:
     container_name: validator-1
     hostname: validator-1
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.0
     expose:
       - 4004
       - 8800
@@ -275,7 +275,7 @@ services:
   validator-2:
     container_name: validator-2
     hostname: validator-2
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.0
     expose:
       - 4004
       - 8800
@@ -293,7 +293,7 @@ services:
   validator-3:
     container_name: validator-3
     hostname: validator-3
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.0
     expose:
       - 4004
       - 8800
@@ -311,7 +311,7 @@ services:
   validator-4:
     container_name: validator-4
     hostname: validator-4
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.0
     expose:
       - 4004
       - 8800
