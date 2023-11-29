@@ -20,19 +20,19 @@ for i in range(old_num, new_num):
     tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
     content['services']['abac-tp-python-' + str(i)] = tmp
     # validator
-    tmp = copy.deepcopy(content['services']['validator-' + str(i-1)])
+    tmp = copy.deepcopy(content['services']['validator-1'])
     tmp['container_name'] = 'sawtooth-validator-default-' + str(i)
     tmp['hostname'] = 'sawtooth-validator-default-' + str(i)
-    tmp['command'] = tmp['command'].replace('validator-' + str(i-1), 'validator-' + str(i))
-    index = tmp['command'].find('validator-' + str(i - 2))
-    tmp['command'] = list(tmp['command'])
-    tmp['command'].insert(index + 16, ',tcp://validator-' + str(i-1) + ':8800')
-    tmp['command'] = ''.join(tmp['command'])
+    tmp['command'] = tmp['command'].replace('validator-1', 'validator-' + str(i))
     content['services']['validator-' + str(i)] = tmp
     # rest-api
     tmp = copy.deepcopy(content['services']['rest-api-0'])
     tmp['container_name'] = 'rest-api-' + str(i)
     tmp['hostname'] = 'rest-api-' + str(i)
+    if i < 10:
+        tmp['ports'][0] = '800' + str(i) + ':8008'
+    else:
+        tmp['ports'][0] = '80' + str(i) + ':8008'
     tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
     tmp['command'] = tmp['command'].replace('rest-api-0', 'rest-api-' + str(i))
     content['services']['rest-api-' + str(i)] = tmp
