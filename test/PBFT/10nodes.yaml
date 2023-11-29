@@ -104,70 +104,70 @@ services:
       \"\n"
     container_name: sawtooth-pbft-engine-default-0
     hostname: sawtooth-pbft-engine-default-0
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-1:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-1:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-1
     hostname: sawtooth-pbft-engine-default-1
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-2:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-2:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-2
     hostname: sawtooth-pbft-engine-default-2
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-3:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-3:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-3
     hostname: sawtooth-pbft-engine-default-3
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-4:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-4:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-4
     hostname: sawtooth-pbft-engine-default-4
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-5:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-5:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-5
     hostname: sawtooth-pbft-engine-default-5
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-6:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-6:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-6
     hostname: sawtooth-pbft-engine-default-6
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-7:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-7:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-7
     hostname: sawtooth-pbft-engine-default-7
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-8:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-8:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-8
     hostname: sawtooth-pbft-engine-default-8
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   pbft-9:
     command: "bash -c \"\n  telegraf &\n  pbft-engine -vv --connect tcp://validator-9:5050\n\
       \"\n"
     container_name: sawtooth-pbft-engine-default-9
     hostname: sawtooth-pbft-engine-default-9
-    image: hyperledger/sawtooth-pbft-engine:v1
+    image: hyperledger/sawtooth-pbft-engine:1.0pro
     stop_signal: SIGKILL
   rest-api-0:
     command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-0:4004\
@@ -178,7 +178,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-0
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8000:8008
     stop_signal: SIGKILL
@@ -191,7 +191,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-1
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8001:8008
     stop_signal: SIGKILL
@@ -204,7 +204,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-2
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8002:8008
     stop_signal: SIGKILL
@@ -217,7 +217,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-3
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8003:8008
     stop_signal: SIGKILL
@@ -230,7 +230,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-4
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8004:8008
     stop_signal: SIGKILL
@@ -243,7 +243,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-5
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8005:8008
     stop_signal: SIGKILL
@@ -256,7 +256,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-6
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8006:8008
     stop_signal: SIGKILL
@@ -269,7 +269,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-7
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8007:8008
     stop_signal: SIGKILL
@@ -282,7 +282,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-8
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8008:8008
     stop_signal: SIGKILL
@@ -295,7 +295,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-9
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8009:8008
     stop_signal: SIGKILL
@@ -304,61 +304,61 @@ services:
       \"\n"
     container_name: settings-tp-0
     hostname: settings-tp-0
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-1:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-1:4004\n\
       \"\n"
     container_name: settings-tp-1
     hostname: settings-tp-1
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-2:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-2:4004\n\
       \"\n"
     container_name: settings-tp-2
     hostname: settings-tp-2
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-3:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-3:4004\n\
       \"\n"
     container_name: settings-tp-3
     hostname: settings-tp-3
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-4:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-4:4004\n\
       \"\n"
     container_name: settings-tp-4
     hostname: settings-tp-4
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-5:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-5:4004\n\
       \"\n"
     container_name: settings-tp-5
     hostname: settings-tp-5
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-6:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-6:4004\n\
       \"\n"
     container_name: settings-tp-6
     hostname: settings-tp-6
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-7:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-7:4004\n\
       \"\n"
     container_name: settings-tp-7
     hostname: settings-tp-7
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-8:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-8:4004\n\
       \"\n"
     container_name: settings-tp-8
     hostname: settings-tp-8
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   settings-tp-9:
     command: "bash -c \"\n  telegraf &\n  settings-tp -v --connect tcp://validator-9:4004\n\
       \"\n"
     container_name: settings-tp-9
     hostname: settings-tp-9
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
   validator-0:
     command: "bash -c \"\n  telegraf &\n  if [ -e /pbft-shared/validators/validator-0.priv\
       \ ]; then\n    cp /pbft-shared/validators/validator-0.pub /etc/sawtooth/keys/validator.pub\n\
@@ -398,7 +398,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-0
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-1:
@@ -419,7 +419,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-1
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-2:
@@ -441,7 +441,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-2
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-3:
@@ -463,7 +463,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-3
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-4:
@@ -486,7 +486,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-4
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-5:
@@ -509,7 +509,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-5
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-6:
@@ -533,7 +533,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-6
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-7:
@@ -557,7 +557,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-7
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-8:
@@ -582,7 +582,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-8
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
   validator-9:
@@ -607,7 +607,7 @@ services:
     - 5050
     - 8800
     hostname: sawtooth-validator-default-9
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     volumes:
     - pbft-shared:/pbft-shared
 version: '2.1'

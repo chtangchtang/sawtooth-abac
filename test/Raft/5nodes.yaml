@@ -108,7 +108,7 @@ services:
   rest-api-0:
     container_name: rest-api-0
     hostname: rest-api-0
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     expose:
       - 8008
     ports:
@@ -127,7 +127,7 @@ services:
   rest-api-1:
     container_name: rest-api-1
     hostname: rest-api-1
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     expose:
       - 8008
     ports:
@@ -147,7 +147,7 @@ services:
   rest-api-2:
     container_name: rest-api-2
     hostname: rest-api-2
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     expose:
       - 8008
     ports:
@@ -166,7 +166,7 @@ services:
   rest-api-3:
     container_name: rest-api-3
     hostname: rest-api-3
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     expose:
       - 8008
     ports:
@@ -185,7 +185,7 @@ services:
   rest-api-4:
     container_name: rest-api-4
     hostname: rest-api-4
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     expose:
       - 8008
     ports:
@@ -202,7 +202,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-0:
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     container_name: settings-tp-0
     hostname: settings-tp-0
     expose:
@@ -217,7 +217,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-1:
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     container_name: settings-tp-1
     hostname: settings-tp-1
     expose:
@@ -232,7 +232,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-2:
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     container_name: settings-tp-2
     hostname: settings-tp-2
     expose:
@@ -247,7 +247,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-3:
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     container_name: settings-tp-3
     hostname: settings-tp-3
     expose:
@@ -262,7 +262,7 @@ services:
     stop_signal: SIGKILL
 
   settings-tp-4:
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     container_name: settings-tp-4
     hostname: settings-tp-4
     expose:
@@ -277,7 +277,7 @@ services:
     stop_signal: SIGKILL
 
   validator-0:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-0
     hostname: sawtooth-validator-default-0
     expose:
@@ -318,7 +318,7 @@ services:
     stop_signal: SIGKILL
 
   validator-1:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-1
     hostname: sawtooth-validator-default-1
     volumes:
@@ -347,7 +347,7 @@ services:
     stop_signal: SIGKILL
 
   validator-2:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-2
     hostname: sawtooth-validator-default-2
     expose:
@@ -377,7 +377,7 @@ services:
     stop_signal: SIGKILL
 
   validator-3:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-3
     hostname: sawtooth-validator-default-3
     expose:
@@ -407,7 +407,7 @@ services:
     stop_signal: SIGKILL
 
   validator-4:
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-4
     hostname: sawtooth-validator-default-4
     expose:
@@ -437,7 +437,7 @@ services:
     stop_signal: SIGKILL
 
   raft-0:
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     container_name: sawtooth-raft-engine-default-0
     hostname: sawtooth-raft-engine-default-0
     command: |
@@ -451,7 +451,7 @@ services:
 
 
   raft-1:
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     container_name: sawtooth-raft-engine-default-1
     hostname: sawtooth-raft-engine-default-1
     command: |
@@ -464,7 +464,7 @@ services:
       RUST_BACKTRACE: full
 
   raft-2:
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     container_name: sawtooth-raft-engine-default-2
     hostname: sawtooth-raft-engine-default-2
     command: |
@@ -477,7 +477,7 @@ services:
       RUST_BACKTRACE: full
 
   raft-3:
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     container_name: sawtooth-raft-engine-default-3
     hostname: sawtooth-raft-engine-default-3
     command: |
@@ -490,7 +490,7 @@ services:
       RUST_BACKTRACE: full
 
   raft-4:
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     container_name: sawtooth-raft-engine-default-4
     hostname: sawtooth-raft-engine-default-4
     command: |

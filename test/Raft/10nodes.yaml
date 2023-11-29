@@ -106,7 +106,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-0
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-1:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-1:5050\
@@ -115,7 +115,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-1
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-2:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-2:5050\
@@ -124,7 +124,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-2
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-3:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-3:5050\
@@ -133,7 +133,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-3
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-4:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-4:5050\
@@ -142,7 +142,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-4
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-5:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-5:5050\
@@ -151,7 +151,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-5
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-6:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-6:5050\
@@ -160,7 +160,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-6
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-7:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-7:5050\
@@ -169,7 +169,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-7
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-8:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-8:5050\
@@ -178,7 +178,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-8
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   raft-9:
     command: "bash -c \"\n  telegraf &\n  raft-engine --connect tcp://validator-9:5050\
@@ -187,7 +187,7 @@ services:
     environment:
       RUST_BACKTRACE: full
     hostname: sawtooth-raft-engine-default-9
-    image: hyperledger/sawtooth-raft-engine:v1
+    image: hyperledger/sawtooth-raft-engine:0.1pro
     stop_signal: SIGKILL
   rest-api-0:
     command: "bash -c \"\n  telegraf &\n  sawtooth-rest-api \\\n    --connect tcp://validator-0:4004\
@@ -198,7 +198,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-0
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8000:8008
     stop_signal: SIGKILL
@@ -211,7 +211,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-1
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8001:8008
     stop_signal: SIGKILL
@@ -224,7 +224,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-2
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8002:8008
     stop_signal: SIGKILL
@@ -237,7 +237,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-3
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8003:8008
     stop_signal: SIGKILL
@@ -250,7 +250,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-4
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8004:8008
     stop_signal: SIGKILL
@@ -263,7 +263,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-5
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8005:8008
     stop_signal: SIGKILL
@@ -276,7 +276,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-6
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8006:8008
     stop_signal: SIGKILL
@@ -289,7 +289,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-7
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8007:8008
     stop_signal: SIGKILL
@@ -302,7 +302,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-8
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8008:8008
     stop_signal: SIGKILL
@@ -315,7 +315,7 @@ services:
     expose:
     - 8008
     hostname: rest-api-9
-    image: hyperledger/sawtooth-rest-api:v1
+    image: hyperledger/sawtooth-rest-api:1.2pro
     ports:
     - 8009:8008
     stop_signal: SIGKILL
@@ -328,7 +328,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-0
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-1:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-1:4004\n\
@@ -339,7 +339,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-1
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-2:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-2:4004\n\
@@ -350,7 +350,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-2
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-3:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-3:4004\n\
@@ -361,7 +361,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-3
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-4:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-4:4004\n\
@@ -372,7 +372,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-4
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-5:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-5:4004\n\
@@ -383,7 +383,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-5
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-6:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-6:4004\n\
@@ -394,7 +394,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-6
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-7:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-7:4004\n\
@@ -405,7 +405,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-7
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-8:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-8:4004\n\
@@ -416,7 +416,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-8
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   settings-tp-9:
     command: "bash -c \"\n  telegraf &\n  settings-tp -vvv -C tcp://validator-9:4004\n\
@@ -427,7 +427,7 @@ services:
     expose:
     - 4004
     hostname: settings-tp-9
-    image: hyperledger/sawtooth-settings-tp:v1
+    image: hyperledger/sawtooth-settings-tp:1.2pro
     stop_signal: SIGKILL
   validator-0:
     command: "bash -c \"\n  telegraf &\n  sawadm keygen validator-1 && \\\n  sawadm\
@@ -458,7 +458,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-0
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -477,7 +477,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-1
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -496,7 +496,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-2
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -515,7 +515,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-3
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -534,7 +534,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-4
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -553,7 +553,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-5
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -572,7 +572,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-6
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -591,7 +591,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-7
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -610,7 +610,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-8
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys
@@ -629,7 +629,7 @@ services:
     - 8800
     - 5050
     hostname: sawtooth-validator-default-9
-    image: hyperledger/sawtooth-validator:v1
+    image: hyperledger/sawtooth-validator:1.2pro
     stop_signal: SIGKILL
     volumes:
     - keys:/shared_keys

@@ -42,12 +42,6 @@ for i in range(old_num, new_num):
     tmp['hostname'] = 'settings-tp-' + str(i)
     tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
     content['services']['settings-tp-' + str(i)] = tmp
-    # poet-engine
-    tmp = copy.deepcopy(content['services']['poet-engine-0'])
-    tmp['container_name'] = 'poet-engine-' + str(i)
-    tmp['hostname'] = 'poet-engine-' + str(i)
-    tmp['command'] = tmp['command'].replace('validator-0', 'validator-' + str(i))
-    content['services']['poet-engine-' + str(i)] = tmp
     # poet-validator-registry-tp
     tmp = copy.deepcopy(content['services']['poet-validator-registry-tp-0'])
     tmp['container_name'] = 'poet-validator-registry-tp-' + str(i)
