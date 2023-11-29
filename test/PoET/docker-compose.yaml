@@ -20,14 +20,6 @@ volumes:
 
 services:
 
-  shell:
-    image: hyperledger/sawtooth-all:1.0
-    container_name: shell-default
-    entrypoint: "bash -c \"\
-        sawtooth keygen && \
-        tail -f /dev/null \
-        \""
-
   settings-tp-0:
     container_name: settings-tp-0
     image: hyperledger/sawtooth-settings-tp:1.0
@@ -55,60 +47,90 @@ services:
     image: hyperledger/sawtooth-settings-tp:1.0
     command: settings-tp -v --connect tcp://validator-4:4004
 
+  abac-client:
+    image: chtang/sawtooth-abac-cli:v1
+    container_name: abac-client
+    hostname: abac-client
+    entrypoint: "bash -c \"\
+        sawtooth keygen && \
+        telegraf & \
+        tail -f /dev/null \
+        \""
+  
+  abac-listener:
+    image: chtang/sawtooth-abac-listener:v1
+    container_name: abac-listener
+    hostname: abac-listener
+    command: |
+      bash -c "
+        telegraf &
+        tail -f /dev/null
+      "
 
-
-  simple-tp-python-0:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-0
+  abac-tp-python-0:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-0
+    hostname: abac-tp-python-default-0
     expose:
       - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -vv -C tcp://validator-0:4004
+    command: |
+      bash -c "
+        telegraf &
+        abac-tp-python -v -C tcp://validator-0:4004
+      "
     stop_signal: SIGKILL
 
-
-  simple-tp-python-1:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-1
+  abac-tp-python-1:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-1
+    hostname: abac-tp-python-default-1
     expose:
       - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -v -C tcp://validator-1:4004
+    command: |
+      bash -c "
+        telegraf &
+        abac-tp-python -v -C tcp://validator-1:4004
+      "
     stop_signal: SIGKILL
 
-  simple-tp-python-2:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-2
+  abac-tp-python-2:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-2
+    hostname: abac-tp-python-default-2
     expose:
       - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -v -C tcp://validator-2:4004
+    command: |
+      bash -c "
+        telegraf &
+        abac-tp-python -v -C tcp://validator-2:4004
+      "
     stop_signal: SIGKILL
 
-
-  simple-tp-python-3:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-3
+  abac-tp-python-3:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-3
+    hostname: abac-tp-python-default-3
     expose:
       - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -v -C tcp://validator-3:4004
+    command: |
+      bash -c "
+        telegraf &
+        abac-tp-python -v -C tcp://validator-3:4004
+      "
     stop_signal: SIGKILL
 
-  simple-tp-python-4:
-    image: szeshun/sawtooth-simple-tp:latest
-    container_name: simple-tp-python-default-4
+  abac-tp-python-4:
+    image: chtang/sawtooth-abac-tp:v1
+    container_name: abac-tp-python-default-4
+    hostname: abac-tp-python-default-4
     expose:
       - 4004
-    volumes:
-      - '../../../src/:/project/'
-    entrypoint: simple-tp-python -v -C tcp://validator-4:4004
+    command: |
+      bash -c "
+        telegraf &
+        abac-tp-python -v -C tcp://validator-4:4004
+      "
     stop_signal: SIGKILL
-
 
   poet-validator-registry-tp-0:
     image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
