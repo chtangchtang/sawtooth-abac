@@ -221,6 +221,7 @@ services:
       - '4004:4004'
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -262,6 +263,7 @@ services:
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -281,6 +283,7 @@ services:
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -299,6 +302,7 @@ services:
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
@@ -317,6 +321,7 @@ services:
       - 8800
     command: |
       bash -c "
+        telegraf &
         if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
           sawadm keygen &&
           sawtooth keygen my_key
