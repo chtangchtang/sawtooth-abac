@@ -2,8 +2,7 @@
 FROM ubuntu:bionic
 
 # Install necessary tools, libraries, and C dependencies
-RUN apt-get update \
- && apt-get install -y python3 python3-pip libffi-dev python3-dev
+RUN apt-get update && apt-get install -y python3 python3-pip libffi-dev python3-dev
 
 # Set the working directory in the container
 WORKDIR /app
@@ -12,8 +11,7 @@ WORKDIR /app
 COPY . .
 
 # Install Python 3 specific dependencies
-RUN python3 -m pip install --upgrade pip \
-    && python3 -m pip install lru-dict==1.2 marshmallow-annotations marshmallow~=3.2
+RUN python3 -m pip install --upgrade pip && python3 -m pip install lru-dict==1.2 marshmallow-annotations marshmallow~=3.2
 
 # Make the log directory
 RUN mkdir /var/log/sawtooth
