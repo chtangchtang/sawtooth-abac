@@ -13,14 +13,5 @@ COPY . .
 # Install Python 3 specific dependencies
 RUN python3 -m pip install --upgrade pip && python3 -m pip install lru-dict==1.2 marshmallow-annotations marshmallow~=3.2
 
-# Make the log directory
-RUN mkdir /var/log/sawtooth
-
-# Install the package using Python 3
-RUN python3 setup.py install
-
-# Expose necessary port
-# EXPOSE 4004/tcp
-
-# Set the default command for the container
-# CMD ["abac-tp-python", "-vv"]
+# Make the log directory and Install the package using Python 3
+RUN mkdir /var/log/sawtooth && python3 setup.py install
