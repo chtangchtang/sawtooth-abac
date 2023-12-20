@@ -2,6 +2,7 @@ import sys
 import os
 import time
 
+
 DEFAULT_TXS = 100
 
 send_rate = int(sys.argv[1])
