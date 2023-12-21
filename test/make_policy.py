@@ -5,34 +5,34 @@ import sys
 
 policy = {
     "uid": "0",
-    "description": "Max and Nina are allowed to create, delete, get any resources only if the client IP matches.",
+    "description": "Users with level not less than 5 can only use administrator applications to delete or add the flow between 8 AM and 5 PM.",
     "effect": "allow",
     "rules": {
         "subject": [
             {
-                "$.name": {
-                    "condition": "Equals",
-                    "value": "Max"
+                "$.user-level": {
+                    "condition": "Gte",
+                    "value": 5
                 }
             },
             {
-                "$.name": {
+                "$.type": {
                     "condition": "Equals",
-                    "value": "Nina"
+                    "value": "admin"
                 }
             }
         ],
         "resource": {
-            "$.name": {
-                "condition": "RegexMatch",
-                "value": ".*"
+            "$.type": {
+                "condition": "Equals",
+                "value": "flow"
             }
         },
         "action": [
             {
                 "$.method": {
                     "condition": "Equals",
-                    "value": "create"
+                    "value": "add"
                 }
             },
             {
@@ -40,18 +40,16 @@ policy = {
                     "condition": "Equals",
                     "value": "delete"
                 }
-            },
-            {
-                "$.method": {
-                    "condition": "Equals",
-                    "value": "get"
-                }
             }
         ],
         "context": {
-            "$.ip": {
-                "condition": "CIDR",
-                "value": "127.0.0.1/32"
+            "$.time": {
+                "condition": "Gte",
+                "value": 8
+            },
+            "$.time": {
+                "condition": "Lte",
+                "value": 17
             }
         }
     },

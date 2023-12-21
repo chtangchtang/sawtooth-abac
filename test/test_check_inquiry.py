@@ -9,5 +9,5 @@ send_rate = int(sys.argv[1])
 url = sys.argv[2]
 
 for i in range(DEFAULT_TXS):
-    os.system("abac check example/inquiry.json --url " + url)
+    os.system("abac check inquiry.json --url " + url)
     time.sleep(1 / send_rate)

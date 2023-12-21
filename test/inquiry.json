@@ -2,22 +2,23 @@
     "subject": {
         "id": "",
         "attributes": {
-            "name": "Max"
+            "user-level": 6,
+            "type": "admin"
         }
     },
     "resource": {
         "id": "",
         "attributes": {
-            "name": "myrn:example.com:resource:123"
+            "type": "flow"
         }
     },
     "action": {
         "id": "",
         "attributes": {
-            "method": "get"
+            "method": "add"
         }
     },
     "context": {
-        "ip": "127.0.0.1"
+        "time": 10
     }
 }
