@@ -37,20 +37,16 @@
                 }
             }
         ],
-        "context": [
-            {
-                "$.time": {
-                    "condition": "Gte",
-                    "value": 8
-                }
+        "context": {
+            "$.time": {
+                "condition": "Gte",
+                "value": 8
             },
-            {
-                "$.time": {
-                    "condition": "Lte",
-                    "value": 17
-                }
+            "$.time": {
+                "condition": "Lte",
+                "value": 17
             }
-        ]
+        }
     },
     "targets": {},
     "priority": 0
