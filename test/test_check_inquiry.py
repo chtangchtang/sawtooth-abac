@@ -1,6 +1,7 @@
 import sys
 import os
 import time
+from influxdb import InfluxDBClient
 
 
 DEFAULT_TXS = 100
@@ -8,8 +9,11 @@ DEFAULT_TXS = 100
 send_rate = int(sys.argv[1])
 url = sys.argv[2]
 
+# write start epoch time.
+client = InfluxDBClient(host='172.21.105.144', port='8086', username='admin', password='admin', database='metrics')
+points = []
+points.append({"measurement": "start_test_check_inquiry", "fields": {'epoch_time': time.time_ns()}})
+
 for i in range(DEFAULT_TXS):
     os.system("abac check inquiry.json --url " + url)
     time.sleep(1 / send_rate)
-
-print(time.time_ns())
