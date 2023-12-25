@@ -11,3 +11,5 @@ url = sys.argv[2]
 for i in range(DEFAULT_TXS):
     os.system("abac add data/policy" + str(i) + ".json --url " + url)
     time.sleep(1 / send_rate)
+
+print(time.time_ns())
