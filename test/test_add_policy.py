@@ -17,4 +17,4 @@ print(time.time_ns())
 client = InfluxDBClient(host='172.21.105.144', port='8086', username='admin', password='admin', database='metrics')
 points = []
 points.append({"measurement": "start test add policy", "fields": time.time_ns()})
-client.write_points()
+client.write_points(points)
