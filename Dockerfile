@@ -5,7 +5,7 @@ FROM ubuntu:bionic
 RUN apt-get update && apt-get install -y python3 python3-pip libffi-dev python3-dev
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /sawtooth-abac
 
 # Copy the contents of the current directory into the container
 COPY . .
