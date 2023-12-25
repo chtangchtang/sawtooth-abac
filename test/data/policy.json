@@ -1,5 +1,5 @@
 {
-    "uid": "2",
+    "uid": "0",
     "description": "Users with level not less than 5 can only use administrator applications to delete or add the flow between 8 AM and 5 PM.",
     "effect": "allow",
     "rules": {
