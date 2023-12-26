@@ -12,7 +12,7 @@ url = sys.argv[2]
 # write start epoch time
 client = InfluxDBClient(host='172.21.105.144', port='8086', username='admin', password='admin', database='metrics')
 points = []
-points.append({"measurement": "start_test_check_inquiry", "fields": {'epoch_time': time.time_ns()}})
+points.append({"measurement": "start_test_check_inquiry", "fields": {'epoch_time': time.time()}})
 client.write_points(points)
 
 # start test
