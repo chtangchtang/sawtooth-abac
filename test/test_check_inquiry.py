@@ -17,5 +17,5 @@ client.write_points(points)
 
 # start test
 for i in range(DEFAULT_TXS):
-    os.system("abac check inquiry.json --url " + url)
+    os.system("abac check data/inquiry.json --url " + url)
     time.sleep(1 / send_rate)
