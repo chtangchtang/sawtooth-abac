@@ -19,45 +19,6 @@ volumes:
   pbft-shared:
 
 services:
-  intkey-tp-0:
-    image: hyperledger/sawtooth-intkey-tp-python:chime
-    container_name: sawtooth-intkey-tp-python-default-0
-    expose:
-      - 4004
-    command: intkey-tp-python -C tcp://validator-0:4004
-    stop_signal: SIGKILL
-
-  intkey-tp-1:
-    image: hyperledger/sawtooth-intkey-tp-python:chime
-    container_name: sawtooth-intkey-tp-python-default-1
-    expose:
-      - 4004
-    command: intkey-tp-python -C tcp://validator-1:4004
-    stop_signal: SIGKILL
-
-  intkey-tp-2:
-    image: hyperledger/sawtooth-intkey-tp-python:chime
-    container_name: sawtooth-intkey-tp-python-default-2
-    expose:
-      - 4004
-    command: intkey-tp-python -C tcp://validator-2:4004
-    stop_signal: SIGKILL
-
-  intkey-tp-3:
-    image: hyperledger/sawtooth-intkey-tp-python:chime
-    container_name: sawtooth-intkey-tp-python-default-3
-    expose:
-      - 4004
-    command: intkey-tp-python -C tcp://validator-3:4004
-    stop_signal: SIGKILL
-
-  intkey-tp-4:
-    image: hyperledger/sawtooth-intkey-tp-python:chime
-    container_name: sawtooth-intkey-tp-python-default-4
-    expose:
-      - 4004
-    command: intkey-tp-python -C tcp://validator-4:4004
-    stop_signal: SIGKILL
 
   abac-client:
     image: chtang/sawtooth-abac-cli:v1
@@ -65,7 +26,7 @@ services:
     hostname: abac-client
     entrypoint: "bash -c \"\
         sawtooth keygen && \
-         \
+        telegraf & \
         tail -f /dev/null \
         \""
   
@@ -75,7 +36,7 @@ services:
     hostname: abac-listener
     command: |
       bash -c "
-        
+        telegraf &
         tail -f /dev/null
       "
 
@@ -87,7 +48,7 @@ services:
       - 4004
     command: |
       bash -c "
-        
+        telegraf &
         abac-tp-python -v -C tcp://validator-0:4004
       "
     stop_signal: SIGKILL
@@ -100,7 +61,7 @@ services:
       - 4004
     command: |
       bash -c "
-        
+        telegraf &
         abac-tp-python -v -C tcp://validator-1:4004
       "
     stop_signal: SIGKILL
@@ -113,7 +74,7 @@ services:
       - 4004
     command: |
       bash -c "
-        
+        telegraf &
         abac-tp-python -v -C tcp://validator-2:4004
       "
     stop_signal: SIGKILL
@@ -126,7 +87,7 @@ services:
       - 4004
     command: |
       bash -c "
-        
+        telegraf &
         abac-tp-python -v -C tcp://validator-3:4004
       "
     stop_signal: SIGKILL
@@ -139,7 +100,7 @@ services:
       - 4004
     command: |
       bash -c "
-        
+        telegraf &
         abac-tp-python -v -C tcp://validator-4:4004
       "
     stop_signal: SIGKILL
@@ -156,7 +117,7 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
-        
+        telegraf &
         if [ -e /pbft-shared/validators/validator-0.priv ]; then
           cp /pbft-shared/validators/validator-0.pub /etc/sawtooth/keys/validator.pub
           cp /pbft-shared/validators/validator-0.priv /etc/sawtooth/keys/validator.priv
@@ -209,7 +170,7 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
-        
+        telegraf &
         if [ -e /pbft-shared/validators/validator-1.priv ]; then
           cp /pbft-shared/validators/validator-1.pub /etc/sawtooth/keys/validator.pub
           cp /pbft-shared/validators/validator-1.priv /etc/sawtooth/keys/validator.priv
@@ -243,7 +204,7 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
-        
+        telegraf &
         if [ -e /pbft-shared/validators/validator-2.priv ]; then
           cp /pbft-shared/validators/validator-2.pub /etc/sawtooth/keys/validator.pub
           cp /pbft-shared/validators/validator-2.priv /etc/sawtooth/keys/validator.priv
@@ -278,7 +239,7 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
-        
+        telegraf &
         if [ -e /pbft-shared/validators/validator-3.priv ]; then
          cp /pbft-shared/validators/validator-3.pub /etc/sawtooth/keys/validator.pub
          cp /pbft-shared/validators/validator-3.priv /etc/sawtooth/keys/validator.priv
@@ -314,7 +275,7 @@ services:
       - pbft-shared:/pbft-shared
     command: |
       bash -c "
-        
+        telegraf &
         if [ -e /pbft-shared/validators/validator-4.priv ]; then
           cp /pbft-shared/validators/validator-4.pub /etc/sawtooth/keys/validator.pub
           cp /pbft-shared/validators/validator-4.priv /etc/sawtooth/keys/validator.priv
@@ -351,7 +312,7 @@ services:
       - validator-0
     command: |
       bash -c "
-        
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-0:4004 \
           --bind rest-api-0:8008
@@ -370,7 +331,7 @@ services:
       - validator-1
     command: |
       bash -c "
-        
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-1:4004 \
           --bind rest-api-1:8008
@@ -389,7 +350,7 @@ services:
       - validator-2
     command: |
       bash -c "
-        
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-2:4004 \
           --bind rest-api-2:8008
@@ -408,7 +369,7 @@ services:
       - validator-3
     command: |
       bash -c "
-        
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-3:4004 \
           --bind rest-api-3:8008
@@ -427,7 +388,7 @@ services:
       - validator-4
     command: |
       bash -c "
-        
+        telegraf &
         sawtooth-rest-api \
           --connect tcp://validator-4:4004 \
           --bind rest-api-4:8008
@@ -440,7 +401,7 @@ services:
     image: hyperledger/sawtooth-settings-tp:1.2pro
     command: |
       bash -c "
-        
+        telegraf &
         settings-tp -v --connect tcp://validator-0:4004
       "
 
@@ -450,7 +411,7 @@ services:
     image: hyperledger/sawtooth-settings-tp:1.2pro
     command: |
       bash -c "
-        
+        telegraf &
         settings-tp -v --connect tcp://validator-1:4004
       "
 
@@ -460,7 +421,7 @@ services:
     image: hyperledger/sawtooth-settings-tp:1.2pro
     command: |
       bash -c "
-        
+        telegraf &
         settings-tp -v --connect tcp://validator-2:4004
       "
 
@@ -470,7 +431,7 @@ services:
     image: hyperledger/sawtooth-settings-tp:1.2pro
     command: |
       bash -c "
-        
+        telegraf &
         settings-tp -v --connect tcp://validator-3:4004
       "
 
@@ -480,7 +441,7 @@ services:
     image: hyperledger/sawtooth-settings-tp:1.2pro
     command: |
       bash -c "
-        
+        telegraf &
         settings-tp -v --connect tcp://validator-4:4004
       "
 
@@ -490,7 +451,7 @@ services:
     hostname: sawtooth-pbft-engine-default-0
     command: |
       bash -c "
-        
+        telegraf &
         pbft-engine -vv --connect tcp://validator-0:5050
       "
     stop_signal: SIGKILL
@@ -501,7 +462,7 @@ services:
     hostname: sawtooth-pbft-engine-default-1
     command: |
       bash -c "
-        
+        telegraf &
         pbft-engine -vv --connect tcp://validator-1:5050
       "
     stop_signal: SIGKILL
@@ -512,7 +473,7 @@ services:
     hostname: sawtooth-pbft-engine-default-2
     command: |
       bash -c "
-        
+        telegraf &
         pbft-engine -vv --connect tcp://validator-2:5050
       "
     stop_signal: SIGKILL
@@ -523,7 +484,7 @@ services:
     hostname: sawtooth-pbft-engine-default-3
     command: |
       bash -c "
-        
+        telegraf &
         pbft-engine -vv --connect tcp://validator-3:5050
       "
     stop_signal: SIGKILL
@@ -534,7 +495,7 @@ services:
     hostname: sawtooth-pbft-engine-default-4
     command: |
       bash -c "
-        
+        telegraf &
         pbft-engine -vv --connect tcp://validator-4:5050
       "
     stop_signal: SIGKILL
