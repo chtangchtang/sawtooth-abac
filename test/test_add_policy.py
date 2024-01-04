@@ -4,7 +4,7 @@ import time
 from influxdb import InfluxDBClient
 
 
-DEFAULT_TXS = 2000
+DEFAULT_TXS = 100
 
 send_rate = int(sys.argv[1])
 url = sys.argv[2]
