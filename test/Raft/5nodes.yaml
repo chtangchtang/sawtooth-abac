@@ -21,7 +21,7 @@ volumes:
 services:
 
   abac-client:
-    image: chtang/sawtooth-abac-cli:v1
+    image: chtang/sawtooth-abac-cli:1.0pro
     container_name: abac-client
     hostname: abac-client
     entrypoint: "bash -c \"\
@@ -31,7 +31,7 @@ services:
         \""
   
   abac-listener:
-    image: chtang/sawtooth-abac-listener:v1
+    image: chtang/sawtooth-abac-listener:1.0pro
     container_name: abac-listener
     hostname: abac-listener
     command: |
@@ -41,7 +41,7 @@ services:
       "
 
   abac-tp-python-0:
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     container_name: abac-tp-python-default-0
     hostname: abac-tp-python-default-0
     expose:
@@ -54,7 +54,7 @@ services:
     stop_signal: SIGKILL
 
   abac-tp-python-1:
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     container_name: abac-tp-python-default-1
     hostname: abac-tp-python-default-1
     expose:
@@ -67,7 +67,7 @@ services:
     stop_signal: SIGKILL
 
   abac-tp-python-2:
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     container_name: abac-tp-python-default-2
     hostname: abac-tp-python-default-2
     expose:
@@ -80,7 +80,7 @@ services:
     stop_signal: SIGKILL
 
   abac-tp-python-3:
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     container_name: abac-tp-python-default-3
     hostname: abac-tp-python-default-3
     expose:
@@ -93,7 +93,7 @@ services:
     stop_signal: SIGKILL
 
   abac-tp-python-4:
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     container_name: abac-tp-python-default-4
     hostname: abac-tp-python-default-4
     expose:

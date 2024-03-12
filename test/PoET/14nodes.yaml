@@ -3,12 +3,12 @@ services:
     container_name: abac-client
     entrypoint: bash -c "sawtooth keygen && telegraf & tail -f /dev/null "
     hostname: abac-client
-    image: chtang/sawtooth-abac-cli:v1
+    image: chtang/sawtooth-abac-cli:1.0pro
   abac-listener:
     command: "bash -c \"\n  telegraf &\n  tail -f /dev/null\n\"\n"
     container_name: abac-listener
     hostname: abac-listener
-    image: chtang/sawtooth-abac-listener:v1
+    image: chtang/sawtooth-abac-listener:1.0pro
   abac-tp-python-0:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-0:4004\n\
       \"\n"
@@ -16,7 +16,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-0
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-1:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-1:4004\n\
@@ -25,7 +25,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-1
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-10:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-10:4004\n\
@@ -34,7 +34,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-10
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-11:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-11:4004\n\
@@ -43,7 +43,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-11
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-12:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-12:4004\n\
@@ -52,7 +52,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-12
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-13:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-13:4004\n\
@@ -61,7 +61,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-13
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-2:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-2:4004\n\
@@ -70,7 +70,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-2
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-3:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-3:4004\n\
@@ -79,7 +79,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-3
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-4:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-4:4004\n\
@@ -88,7 +88,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-4
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-5:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-5:4004\n\
@@ -97,7 +97,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-5
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-6:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-6:4004\n\
@@ -106,7 +106,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-6
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-7:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-7:4004\n\
@@ -115,7 +115,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-7
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-8:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-8:4004\n\
@@ -124,7 +124,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-8
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   abac-tp-python-9:
     command: "bash -c \"\n  telegraf &\n  abac-tp-python -v -C tcp://validator-9:4004\n\
@@ -133,7 +133,7 @@ services:
     expose:
     - 4004
     hostname: abac-tp-python-default-9
-    image: chtang/sawtooth-abac-tp:v1
+    image: chtang/sawtooth-abac-tp:1.0pro
     stop_signal: SIGKILL
   poet-validator-registry-tp-0:
     command: "bash -c \"\n  telegraf &\n  poet-validator-registry-tp -v -C tcp://validator-0:4004\n\
