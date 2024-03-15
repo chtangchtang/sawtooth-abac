@@ -106,7 +106,7 @@ services:
     stop_signal: SIGKILL
 
   validator-0:
-    image: hyperledger/sawtooth-validator:1.2pro
+    image: szeshun/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-0
     hostname: sawtooth-validator-default-0
     expose:
@@ -159,7 +159,7 @@ services:
       "
 
   validator-1:
-    image: hyperledger/sawtooth-validator:1.2pro
+    image: szeshun/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-1
     hostname: sawtooth-validator-default-1
     expose:
@@ -193,7 +193,7 @@ services:
       "
 
   validator-2:
-    image: hyperledger/sawtooth-validator:1.2pro
+    image: szeshun/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-2
     hostname: sawtooth-validator-default-2
     expose:
@@ -228,7 +228,7 @@ services:
       "
 
   validator-3:
-    image: hyperledger/sawtooth-validator:1.2pro
+    image: szeshun/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-3
     hostname: sawtooth-validator-default-3
     expose:
@@ -264,7 +264,7 @@ services:
       "
 
   validator-4:
-    image: hyperledger/sawtooth-validator:1.2pro
+    image: szeshun/sawtooth-validator:1.2pro
     container_name: sawtooth-validator-default-4
     hostname: sawtooth-validator-default-4
     expose:
