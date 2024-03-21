@@ -18,5 +18,5 @@ client.write_points(points)
 
 # start test
 for i in range(DEFAULT_TXS):
-    os.system("abac add data/policy" + str(i) + ".json --url " + " &")
+    os.system("abac add data/policy" + str(i) + ".json --url " + url + " &")
     time.sleep(1 / send_rate)
