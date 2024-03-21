@@ -11,6 +11,7 @@ send_rate = int(sys.argv[1])
 url = sys.argv[2]
 
 # write start epoch time
+print(socket.gethostbyname(socket.gethostname())
 client = InfluxDBClient(host=socket.gethostbyname(socket.gethostname()), port='8086', username='admin', password='admin', database='metrics')
 points = []
 points.append({"measurement": "start_test_add_policy", "fields": {'epoch_time': time.time()}})
