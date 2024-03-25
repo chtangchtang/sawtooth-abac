@@ -2,7 +2,7 @@ import csv
 
 
 f = open('output', 'w')
-csv_reader = csv.reader(open("pbft/pbft_5node_100rate_100policy"))
+csv_reader = csv.reader(open("metrics"))
 for row in csv_reader:
     try:
         if row[0] == 'sawtooth_validator.chain.ChainController.committed_transactions_count':
