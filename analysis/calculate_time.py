@@ -1,9 +1,11 @@
 import csv
+import sys
 
 
+filename = sys.argv[1]
 flags = [False, False, False, False, False]
 times = []
-csv_reader = csv.reader(open("metrics"))
+csv_reader = csv.reader(open(filename))
 for row in csv_reader:
     try:
         if row[0].find('start') > -1:
