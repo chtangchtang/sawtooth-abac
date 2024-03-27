@@ -3,8 +3,24 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <influxdblpt.h>
+#include <influxdb.h>
+#include <chrono>
+#include <ctime>
 
 int main() {
+    // 创建InfluxDB客户端
+    influxdb::InfluxDB db("http://172.21.105.145:8086", "metrics", "admin", "admin");
+    // 获取当前的epoch时间
+    auto epoch_time = std::chrono::system_clock::now().time_since_epoch();
+    long long epoch_seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch_time).count();
+    // 创建数据点
+    std::string measurement = "start_test_add_policy";
+    std::map<std::string, std::string> fields = {{"epoch_time", std::to_string(epoch_seconds)}};
+    influxdb::Point point(measurement, fields);
+    // 写入数据点到数据库
+    db.writePoint(point);
+
     int maxConcurrentProcesses;
     std::cout << "请输入并发进程数：";
     std::cin >> maxConcurrentProcesses;
