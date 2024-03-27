@@ -7,6 +7,7 @@
 // #include <influxdb.h>
 #include <chrono>
 #include <ctime>
+#include <vector>
 
 int main() {
     // 创建InfluxDB客户端
