@@ -5,7 +5,7 @@ import socket
 from influxdb import InfluxDBClient
 
 
-DEFAULT_TXS = 100
+DEFAULT_TXS = 1000
 
 send_rate = int(sys.argv[1])
 url = sys.argv[2]

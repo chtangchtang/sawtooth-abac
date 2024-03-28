@@ -65,5 +65,11 @@ int main() {
         waitpid(childPid, &status, 0);
     }
 
+    std::cout << "epoch_seconds: " << std::to_string(epoch_seconds) << std::endl;
+    
+    auto epoch_time = std::chrono::system_clock::now().time_since_epoch();
+    long long epoch_seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch_time).count();
+    std::cout << "epoch_seconds: " << std::to_string(epoch_seconds) << std::endl;
+    
     return 0;
 }
