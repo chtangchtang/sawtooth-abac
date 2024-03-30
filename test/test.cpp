@@ -12,7 +12,7 @@ int main() {
     long long epoch_seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch_time).count();
     
     int parallelProcesses = 1000; // 设置并行进程数
-    const char* command = "abac check data/inquiry.json --url http://192.168.176.27:8008"; // 要执行的Linux终端命令
+    const char* command = "abac check data/inquiry.json --url 192.168.176.27:8008"; // 要执行的Linux终端命令
 
     for (int i = 0; i < parallelProcesses; ++i) {
         pid_t pid = fork();
