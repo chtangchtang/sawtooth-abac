@@ -21,10 +21,11 @@ void readFromFile(const string& filename) {
 }
 
 int main() {
-    string filename = "yourfile.txt";
+    string filename = "data/inquiry.json";
 
     int numProcesses = 1000;
-
+    auto epoch_time = std::chrono::system_clock::now().time_since_epoch();
+    long long epoch_seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch_time).count();
     // 创建一千个子进程来读取文件的全部内容
     for (int i = 0; i < numProcesses; ++i) {
         pid_t pid = fork();
@@ -42,6 +43,8 @@ int main() {
     for (int i = 0; i < numProcesses; ++i) {
         wait(NULL);
     }
-
+    auto epoch_time1 = std::chrono::system_clock::now().time_since_epoch();
+    long long epoch_seconds1 = std::chrono::duration_cast<std::chrono::seconds>(epoch_time1).count();
+    cout << "Time elapsed: " << epoch_seconds1 - epoch_seconds << " seconds" << endl;
     return 0;
 }
