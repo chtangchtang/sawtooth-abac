@@ -19,7 +19,7 @@ int main() {
     const char* filename = "data/inquiry.json";
     const int numProcesses = 1000;
     auto epoch_time = std::chrono::system_clock::now().time_since_epoch();
-    long long epoch_seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch_time).count();
+    long long epoch_seconds = std::chrono::duration_cast<std::chrono::milliseconds>(epoch_time).count();
     for (int i = 0; i < numProcesses; ++i) {
         pid_t pid = fork();
 
@@ -36,7 +36,7 @@ int main() {
     while (wait(nullptr) > 0) {}
     
     auto epoch_time1 = std::chrono::system_clock::now().time_since_epoch();
-    long long epoch_seconds1 = std::chrono::duration_cast<std::chrono::seconds>(epoch_time1).count();
+    long long epoch_seconds1 = std::chrono::duration_cast<std::chrono::milliseconds>(epoch_time1).count();
     std::cout << "Time elapsed: " << epoch_seconds1 - epoch_seconds << " seconds" << std::endl;
     return 0;
 }
