@@ -37,6 +37,6 @@ int main() {
     
     auto epoch_time1 = std::chrono::system_clock::now().time_since_epoch();
     long long epoch_seconds1 = std::chrono::duration_cast<std::chrono::milliseconds>(epoch_time1).count();
-    std::cout << "Time elapsed: " << epoch_seconds1 - epoch_seconds << " seconds" << std::endl;
+    std::cout << "Time elapsed: " << epoch_seconds1 - epoch_seconds << " milliseconds" << std::endl;
     return 0;
 }
