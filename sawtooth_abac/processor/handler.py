@@ -30,6 +30,16 @@ LOGGER = logging.getLogger(__name__)
 
 class abacTransactionHandler(TransactionHandler):
     # Disable invalid-overridden-method. The sawtooth-sdk expects these to be properties. pylint: disable=invalid-overridden-method
+
+    def __init__(self):
+        self._pdp = PDP(MemoryStorage())
+
+    def _add_policy(self, policy):
+        self._pdp.storage.add(policy)
+
+    def _delete_policy(self, policy_uid):
+        self._pdp.storage.delete(policy_uid)
+
     @property
     def family_name(self):
         return 'abac'
@@ -52,29 +62,20 @@ class abacTransactionHandler(TransactionHandler):
             if abac_state.get_policy(abac_payload.uid) is None:
                 raise InvalidTransaction('Invalid action: policy does not exist')
             abac_state.delete_policy(abac_payload.uid)
+            self._delete_policy(abac_payload.uid)
         elif abac_payload.action == 'add':
             if abac_state.get_policy(abac_payload.uid) is not None:
                 raise InvalidTransaction('Invalid action: Policy already exists: {}'.format(abac_payload.uid))
             abac_state.set_policy(abac_payload.uid, abac_payload.inq)
+            abac_payload.inq["uid"] = abac_payload.uid
+            self._add_policy(abac_payload.inq)
         elif abac_payload.action == 'check':
-            # Setup policy storage
-            storage = MemoryStorage()
-            # Get all policies of all uids
-            policies = abac_state.get_all_policies()
-            for uid, policy in policies.items():
-                policy["uid"] = uid
-                # Parse JSON and create policy objects
-                policy = Policy.from_json(policy)
-                # Add policy to storage
-                storage.add(policy)
-            # Create policy decision point
-            pdp = PDP(storage)
             # Access request JSON
             request_json = abac_payload.inq
             # Parse JSON and create access request object
             request = AccessRequest.from_json(request_json)
             # Check if access request is allowed
-            if pdp.is_allowed(request):
+            if self._pdp.is_allowed(request):
                 abac_state.set_check_result(request_json, "1")
                 LOGGER.debug("User {} inquiry {} check result: ".format(signer[:6], json.dumps(request_json)) + 'allow\n')
             else:
