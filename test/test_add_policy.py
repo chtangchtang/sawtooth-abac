@@ -1,7 +1,6 @@
 import sys
-import os
 import time
-import socket
+import subprocess
 from influxdb import InfluxDBClient
 
 
@@ -18,5 +17,5 @@ client.write_points(points)
 
 # start test
 for i in range(DEFAULT_TXS):
-    os.system("abac add data/policy" + str(i) + ".json --url " + url + " &")
+    subprocess.run("abac add data/policy" + str(i) + ".json --url " + url + " &")
     time.sleep(1 / send_rate)
