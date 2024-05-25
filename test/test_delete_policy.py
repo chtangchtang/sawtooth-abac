@@ -17,5 +17,6 @@ client.write_points(points)
 
 # start test
 for i in range(DEFAULT_TXS):
-    subprocess.run("abac delete data/policy" + str(i) + ".json --url " + url + " &")
+    command = "abac delete data/policy" + str(i) + ".json --url " + url + " &"
+    subprocess.run(command, shell=True)
     time.sleep(1 / send_rate)
