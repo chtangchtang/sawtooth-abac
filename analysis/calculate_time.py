@@ -15,27 +15,27 @@ for row in csv_reader:
         if row[0] == 'sawtooth_validator.chain.ChainController.committed_transactions_count':
             data = row[1].split(' ')
             if data[0] == 'host=sawtooth-validator-default-0':
-                if data[1] == 'count=100':
+                if data[1] == 'count=1000':
                     if not flags[0]:
                         times.append(data[2])
                         flags[0] = True
             if data[0] == 'host=sawtooth-validator-default-1':
-                if data[1] == 'count=100':
+                if data[1] == 'count=1000':
                     if not flags[1]:
                         times.append(data[2])
                         flags[1] = True
             if data[0] == 'host=sawtooth-validator-default-2':
-                if data[1] == 'count=100':
+                if data[1] == 'count=1000':
                     if not flags[2]:
                         times.append(data[2])
                         flags[2] = True
             if data[0] == 'host=sawtooth-validator-default-3':
-                if data[1] == 'count=100':
+                if data[1] == 'count=1000':
                     if not flags[3]:
                         times.append(data[2])
                         flags[3] = True
             if data[0] == 'host=sawtooth-validator-default-4':
-                 if data[1] == 'count=100':
+                 if data[1] == 'count=1000':
                      if not flags[4]:
                          times.append(data[2])
                          flags[4] = True
