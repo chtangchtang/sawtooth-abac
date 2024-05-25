@@ -48,3 +48,4 @@ for row in csv_reader:
 
 time_usage = (int(end_time) - int(start_time)) / 1000000000
 print('time_usage = ', time_usage)
+print('throughput = ', 1000 / time_usage)
