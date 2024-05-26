@@ -11,10 +11,10 @@ condition = 'count=' + str(count)
 # start_time = ''
 for row in csv_reader:
     try:
-        # if row[0].find('start') > -1:
-        #     data = row[0].split(' ')
-        #     start_time = data[2]
-        #     print('start_time:', start_time, end=',')
+        if row[0].find('start') > -1:
+            data = row[0].split(' ')
+            start_time = data[2]
+            print('start_time:', start_time, end=',')
         #     flags = [False, False, False, False, False]
         if row[0] == 'sawtooth_validator.chain.ChainController.committed_transactions_count':
             data = row[1].split(' ')
