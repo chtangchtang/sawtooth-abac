@@ -12,7 +12,7 @@ start_time = ''
 for row in csv_reader:
     try:
         print(row[0], type(row[0]))
-        if row[0] == 'start_test_check_inquiry' > -1:
+        if row[0] == 'start_test_check_inquiry':
             data = row[0].split(' ')
             start_time = data[2]
             print('start_time:', start_time, end=',')
@@ -47,9 +47,9 @@ for row in csv_reader:
         if flags[0] and flags[1] and flags[2] and flags[3] and flags[4]:
            end_time = max(times)
            print('end_time:', end_time, end=',')
-           time_usage = (int(end_time) - int(start_time)) / 1000000000
-           print('time_usage:', time_usage, end=',')
-           print('throughput:', 1000 / time_usage)
+        #    time_usage = (int(end_time) - int(start_time)) / 1000000000
+        #    print('time_usage:', time_usage, end=',')
+        #    print('throughput:', 1000 / time_usage)
            count += 1000
            condition = 'count=' + str(count)
     finally:
