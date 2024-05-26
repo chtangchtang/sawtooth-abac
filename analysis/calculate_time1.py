@@ -12,6 +12,7 @@ start_time = ''
 for row in csv_reader:
     try:
         print(row[0], type(row[0]))
+        print(row[0].find('start'))
         if row[0] == 'start_test_check_inquiry':
             data = row[0].split(' ')
             start_time = data[2]
