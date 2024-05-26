@@ -10,7 +10,7 @@ count = 1001
 condition = 'count=' + str(count)
 for row in csv_reader:
     try:
-        if row[0].find('start_test_check_inquiry') > -1:
+        if row[0].find('start') > -1:
             data = row[0].split(' ')
             start_time = data[2]
             print(start_time, end=',')
