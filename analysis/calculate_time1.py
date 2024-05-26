@@ -6,7 +6,7 @@ filename = sys.argv[1]
 flags = [False, False, False, False, False]
 times = []
 csv_reader = csv.reader(open(filename))
-count = 1000
+count = 1001
 condition = 'count=' + str(count)
 for row in csv_reader:
     try:
@@ -14,8 +14,7 @@ for row in csv_reader:
             data = row[0].split(' ')
             start_time = data[2]
             print(start_time, end=',')
-            for i in flags:
-                i = False
+            flags = [False, False, False, False, False]
         if row[0] == 'sawtooth_validator.chain.ChainController.committed_transactions_count':
             data = row[1].split(' ')
             if data[0] == 'host=sawtooth-validator-default-0':
