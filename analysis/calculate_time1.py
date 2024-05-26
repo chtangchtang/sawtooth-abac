@@ -8,6 +8,7 @@ times = []
 csv_reader = csv.reader(open(filename))
 count = 1001
 condition = 'count=' + str(count)
+start_time = ''
 for row in csv_reader:
     try:
         if row[0].find('start') > -1:
