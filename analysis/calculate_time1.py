@@ -14,7 +14,7 @@ for row in csv_reader:
         if row[0].find('start') > -1:
             data = row[0].split(' ')
             start_time = data[2]
-            print(start_time, end=',')
+            print('start_time:', start_time, end=',')
             flags = [False, False, False, False, False]
         if row[0] == 'sawtooth_validator.chain.ChainController.committed_transactions_count':
             data = row[1].split(' ')
@@ -45,10 +45,10 @@ for row in csv_reader:
                          flags[4] = True
         if flags[0] and flags[1] and flags[2] and flags[3] and flags[4]:
            end_time = max(times)
-           print(end_time, end=',')
+           print('end_time:', end_time, end=',')
            time_usage = (int(end_time) - int(start_time)) / 1000000000
-           print(time_usage, end=',')
-           print(1000 / time_usage)
+           print('time_usage:', time_usage, end=',')
+           print('throughput:', 1000 / time_usage)
            count += 1000
            condition = 'count=' + str(count)
     finally:
