@@ -49,5 +49,6 @@ for row in csv_reader:
            print(time_usage, end=',')
            print(1000 / time_usage)
            count += 1000
+           condition = 'count=' + str(count)
     finally:
         pass
