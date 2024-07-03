@@ -8,11 +8,10 @@ times = []
 csv_reader = csv.reader(open(filename))
 for row in csv_reader:
     try:
-        # if row[0].find('start') > -1:
-        #     data = row[0].split(' ')
-        #     start_time = data[2]
-        #     print(start_time, end=',')
-        #     break
+        if row[0].find('start') > -1:
+            data = row[0].split(' ')
+            start_time = data[2]
+            print(start_time, end=',')
         if row[0] == 'sawtooth_validator.chain.ChainController.committed_transactions_count':
             data = row[1].split(' ')
             if data[0] == 'host=sawtooth-validator-default-0':
@@ -47,6 +46,6 @@ for row in csv_reader:
     finally:
         pass
 
-# time_usage = (int(end_time) - int(start_time)) / 1000000000
-# print(time_usage, end=',')
-# print(1000 / time_usage)
+time_usage = (int(end_time) - int(start_time)) / 1000000000
+print(time_usage, end=',')
+print(1000 / time_usage)
