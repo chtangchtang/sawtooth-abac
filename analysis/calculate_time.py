@@ -10,6 +10,7 @@ for row in csv_reader:
         print(start_time, end=',')
         break
 
+csv_reader = csv.reader(open(filename))
 flags = [False, False, False, False, False]
 times = []
 for row in csv_reader:
