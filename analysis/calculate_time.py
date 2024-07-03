@@ -47,7 +47,7 @@ for row in csv_reader:
             print(time_usage, end=',')
             print(1000 / time_usage)
             break
-        finally:
+        except:
             pass
     finally:
         pass
