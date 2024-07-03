@@ -40,12 +40,14 @@ for row in csv_reader:
                          times.append(data[2])
                          flags[4] = True
         if flags[0] and flags[1] and flags[2] and flags[3] and flags[4]:
-           end_time = max(times)
-           print(end_time, end=',')
-           break
+            end_time = max(times)
+            print(end_time, end=',')
+        if start_time in globals() and end_time in globals():
+            time_usage = (int(end_time) - int(start_time)) / 1000000000
+            print(time_usage, end=',')
+            print(1000 / time_usage)
+            break
+        else:
+            continue
     finally:
         pass
-
-time_usage = (int(end_time) - int(start_time)) / 1000000000
-print(time_usage, end=',')
-print(1000 / time_usage)
