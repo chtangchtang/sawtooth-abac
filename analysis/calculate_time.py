@@ -49,3 +49,17 @@ for row in csv_reader:
 time_usage = (int(end_time) - int(start_time)) / 1000000000
 print(time_usage, end=',')
 print(1000 / time_usage)
+
+filename = filename.split('/')
+for i in range(len(filename)):
+    if filename[i] == 'data':
+        algorithm = filename[i+1]
+        node = int(filename[i+2][0])
+        s = filename[i+3].split('_')
+        function = s[0]
+        rate = int(s[1][0])
+        times = int(s[2])
+        print(algorithm, node, function, rate, times, end=',')
+        break
+with open('/root/results.csv', 'a') as f:
+    f.write(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}\n')
