@@ -7,7 +7,7 @@ csv_reader = csv.reader(open(filename))
 for row in csv_reader:
     if row[0].find('start') > -1:
         start_time = row[0].split(' ')[2]
-        print(start_time, end=',')
+        # print(start_time, end=',')
         break
 
 csv_reader = csv.reader(open(filename))
@@ -43,12 +43,12 @@ for row in csv_reader:
                         flags[4] = True
     if flags[0] and flags[1] and flags[2] and flags[3] and flags[4]:
         end_time = max(times)
-        print(end_time, end=',')
+        # print(end_time, end=',')
         break
 
 time_usage = (int(end_time) - int(start_time)) / 1000000000
-print(time_usage, end=',')
-print(1000 / time_usage)
+# print(time_usage, end=',')
+# print(1000 / time_usage)
 
 filename = filename.split('/')
 for i in range(len(filename)):
@@ -63,3 +63,4 @@ for i in range(len(filename)):
         break
 with open('/root/results.csv', 'a') as f:
     f.write(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}\n')
+    print(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}\n')
