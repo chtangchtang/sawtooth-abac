@@ -59,8 +59,7 @@ for i in range(len(filename)):
         function = s[0]
         rate = int(s[1][0])
         times = int(s[2])
-        print(algorithm, node, function, rate, times, end=',')
         break
 with open('/root/results.csv', 'a') as f:
     f.write(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}\n')
-    print(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}\n')
+    print(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}')
