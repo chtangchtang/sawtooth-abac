@@ -66,7 +66,7 @@ for i in range(len(filename)):
         function = 'check'
         break
 with open('/root/results.csv', 'a') as f:
-    for i in range(50):
+    for i in range(10, 50):
         rate = (i // 5 + 1) * 2 + 1
         times = i % 5
         f.write(f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{1000/time_usage[i]}\n')
