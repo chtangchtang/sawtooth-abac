@@ -53,8 +53,10 @@ for i in range(50):
 end_time.sort()
 
 time_usage = [0] * 50
+throughtput = [0] * 50
 for i in range(50):
     time_usage[i] = (end_time[i] - start_time[i]) / 1000000000
+    throughtput[i] = 1000 / time_usage[i]
 # print(time_usage, end=',')
 # print(1000 / time_usage)
 
@@ -66,8 +68,8 @@ for i in range(len(filename)):
         function = 'check'
         break
 with open('/root/results.csv', 'a') as f:
-    for i in range(10, 50):
+    for i in range(50):
         rate = (i // 5 + 1) * 2 + 1
         times = i % 5
-        f.write(f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{1000/time_usage[i]}\n')
-        print(f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{1000/time_usage[i]}')
+        f.write(f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{throughtput[i]}\n')
+        print(f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{throughtput[i]}')
