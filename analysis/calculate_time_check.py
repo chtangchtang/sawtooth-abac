@@ -8,12 +8,12 @@ for row in csv_reader:
     if row[0].find('start') > -1:
         start_time.append(int(row[0].split(' ')[2]))
         # print(start_time, end=',')
-        if len(start_time) == 10:
+        if len(start_time) == 50:
             break
 start_time.sort()
 
 end_time = []
-for i in range(10):
+for i in range(50):
     flag = 'count=' + str(i + 1) + '001'
     csv_reader = csv.reader(open(filename))
     flags = [False, False, False, False, False]
@@ -52,8 +52,8 @@ for i in range(10):
             break
 end_time.sort()
 
-time_usage = [0] * 10
-for i in range(10):
+time_usage = [0] * 50
+for i in range(50):
     time_usage[i] = (end_time[i] - start_time[i]) / 1000000000
 # print(time_usage, end=',')
 # print(1000 / time_usage)
@@ -66,7 +66,7 @@ for i in range(len(filename)):
         function = 'check'
         break
 with open('/root/results.csv', 'a') as f:
-    for i in range(10):
+    for i in range(50):
         rate = (i // 5 + 1) * 2 + 1
         times = i % 5
         f.write(f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{1000/time_usage[i]}\n')
