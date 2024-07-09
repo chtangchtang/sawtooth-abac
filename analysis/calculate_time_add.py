@@ -50,7 +50,7 @@ time_usage = (int(end_time) - int(start_time)) / 1000000000
 # print(time_usage, end=',')
 # print(1000 / time_usage)
 
-filename = filename.split('/')
+filename = filename.split('\\')
 for i in range(len(filename)):
     if filename[i] == 'data':
         algorithm = filename[i+1]
@@ -60,6 +60,6 @@ for i in range(len(filename)):
         rate = int(s[1][:-4])
         times = int(s[2])
         break
-with open('/root/results.csv', 'a') as f:
-    f.write(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}\n')
-    print(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}')
+# with open('/root/results.csv', 'a') as f:
+#     f.write(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}\n')
+print(f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{1000/time_usage}')
