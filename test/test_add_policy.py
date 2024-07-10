@@ -7,6 +7,7 @@ from influxdb import InfluxDBClient
 send_rate = int(sys.argv[1])
 url = sys.argv[2]
 policy_range = range(int(sys.argv[3]), int(sys.argv[3]) + 1000)
+
 # write start epoch time
 client = InfluxDBClient(host='172.21.105.145', port='8086', username='admin', password='admin', database='metrics')
 points = []
