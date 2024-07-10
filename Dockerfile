@@ -2,7 +2,7 @@
 FROM ubuntu:bionic
 
 # Install necessary tools, libraries, and C dependencies
-RUN apt update && apt install -y python3 python3-pip libffi-dev python3-dev &&  apt install software-properties-common && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD && add-apt-repository 'deb [arch=amd64] http://repo.sawtooth.me/ubuntu/chime/stable bionic universe' && apt install python3-sawtooth-cli
+RUN apt update && apt install -y python3 python3-pip libffi-dev python3-dev &&  apt install -y software-properties-common && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD && add-apt-repository 'deb [arch=amd64] http://repo.sawtooth.me/ubuntu/chime/stable bionic universe' && apt install -y python3-sawtooth-cli
 
 # Set the working directory in the container
 WORKDIR /sawtooth-abac
