@@ -13,7 +13,7 @@ filename = sys.argv[1]
 index = filename.split('/').index('data')
 algorithm = filename.split('/')[index+1]
 node = int(filename.split('/')[index+2][:-4])
-function = 'check'
+function = filename.split('/')[index+3]
 
 csv_reader = csv.reader(open(filename))
 for row in csv_reader:
@@ -24,7 +24,10 @@ for row in csv_reader:
 start_time.sort()
 
 for i in range(50):
-    flag = 'count=' + str(i + 1) + '001'
+    if function == 'check':
+        flag = 'count=' + str(i + 1) + '001'
+    else:
+        flag = 'count=' + str(i + 1) + '000'
     csv_reader = csv.reader(open(filename))
     flags = [False] * node
     times = []
