@@ -60,13 +60,10 @@ for i in range(50):
 # print(time_usage, end=',')
 # print(1000 / time_usage)
 
-filename = filename.split('/')
-for i in range(len(filename)):
-    if filename[i] == 'data':
-        algorithm = filename[i+1]
-        node = int(filename[i+2][:-4])
-        function = 'check'
-        break
+index = filename.split('/').index('data')
+algorithm = filename[index+1]
+node = int(filename[index+2][:-4])
+function = 'check'
 with open('/root/results.csv', 'a') as f:
     for i in range(50):
         rate = (i // 5 + 1) * 2 + 1
