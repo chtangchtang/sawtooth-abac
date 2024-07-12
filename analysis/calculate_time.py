@@ -52,7 +52,7 @@ with open('/root/results.csv', 'a') as f:
         time_usage.append((end_time[i] - start_time[i]) / 1000000000)
         throughtput.append(1000 / time_usage[i])
         result = f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{throughtput[i]}\n'
-        f.write(result)
+        # f.write(result)
         print(result)
 
 e = time.time()
