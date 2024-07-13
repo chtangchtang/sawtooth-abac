@@ -18,6 +18,6 @@ client.write_points(points)
 # start test
 for i in range(DEFAULT_TXS):
     command = "abac check data/inquiry.json --url " + url + " &"
-    if subprocess.run(command, shell=True):
+    if subprocess.run(command, shell=True).returncode:
         raise RuntimeError("Error executing abac check command")
     time.sleep(1 / send_rate)
