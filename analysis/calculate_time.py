@@ -2,6 +2,8 @@ import csv
 import sys
 import time
 
+round = 1
+
 s = time.time()
 
 start_time = []
@@ -19,11 +21,11 @@ csv_reader = csv.reader(open(filename))
 for row in csv_reader:
     if row[0].find('start') > -1:
         start_time.append(int(row[0].split(' ')[2]))
-        if len(start_time) == 50:
+        if len(start_time) == round:
             break
 start_time.sort()
 
-for i in range(50):
+for i in range(round):
     if function == 'check':
         flag = 'count=' + str(i + 1) + '001'
     else:
@@ -46,7 +48,7 @@ for i in range(50):
 end_time.sort()
 
 with open('/root/results.csv', 'a') as f:
-    for i in range(50):
+    for i in range(round):
         rate = (i // 5 + 1) * 2 + 1
         times = i % 5
         time_usage.append((end_time[i] - start_time[i]) / 1000000000)
