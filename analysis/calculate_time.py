@@ -2,7 +2,7 @@ import csv
 import sys
 import time
 
-round = 1
+round = 50
 
 s = time.time()
 
@@ -45,6 +45,8 @@ for i in range(round):
         if False not in flags:
             end_time.append(int(max(times)))
             break
+    if False in flags:
+        raise RuntimeError('Round ' + str(i) + ' Cannot find end time for all nodes')
 end_time.sort()
 
 with open('/root/results.csv', 'a') as f:
