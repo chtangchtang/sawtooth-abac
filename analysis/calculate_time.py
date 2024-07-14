@@ -4,8 +4,6 @@ import time
 
 round = 50
 
-s = time.time()
-
 start_time = []
 end_time = []
 time_usage = []
@@ -44,20 +42,14 @@ for i in range(round):
                             flags[j] = True
         if False not in flags:
             end_time.append(int(max(times)))
+            time_usage.append((end_time[i] - start_time[i]) / 1000000000)
+            throughtput.append(1000 / time_usage[i])
+            rate = (i // 5 + 1) * 2 + 1
+            times = i % 5
+            result = f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{throughtput[i]}\n'
+            print(result)
+            with open('/root/results.csv', 'a') as f:
+                f.write(result)
             break
     if False in flags:
         raise RuntimeError('Round ' + str(i) + ' Cannot find end time for all nodes')
-end_time.sort()
-
-with open('/root/results.csv', 'a') as f:
-    for i in range(round):
-        rate = (i // 5 + 1) * 2 + 1
-        times = i % 5
-        time_usage.append((end_time[i] - start_time[i]) / 1000000000)
-        throughtput.append(1000 / time_usage[i])
-        result = f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{throughtput[i]}\n'
-        f.write(result)
-        print(result)
-
-e = time.time()
-print('Runtime: ', e-s)
