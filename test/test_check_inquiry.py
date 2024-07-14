@@ -11,13 +11,13 @@ url = sys.argv[2]
 
 # write start epoch time
 client = InfluxDBClient(host='172.21.105.145', port='8086', username='admin', password='admin', database='metrics')
-points = []
-points.append({"measurement": "start_test_check_inquiry", "fields": {'epoch_time': time.time()}})
-client.write_points(points)
+client.write_points([{"measurement": "start_test_check_inquiry", "fields": {'epoch_time': time.time()}}])
 
 # start test
 for i in range(DEFAULT_TXS):
     command = "abac check data/inquiry.json --url " + url + " &"
     if subprocess.run(command, shell=True).returncode:
-        raise RuntimeError("Error executing abac check command")
+        client.write_points([{"measurement": "error_test_check_inquiry", "fields": {'epoch_time': time.time()}}])
+        client.close()
+        raise RuntimeError("error_test_check_inquiry")
     time.sleep(1 / send_rate)
