@@ -47,8 +47,8 @@ for i in range(round):
             times = i % 5
             result = f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{throughtput[i]}\n'
             print(result)
-            with open('/root/results.csv', 'a') as f:
-                f.write(result)
+            # with open('/root/results.csv', 'a') as f:
+            #     f.write(result)
             break
     if False in flags:
         result = f'Rate {rate} Times {times} cannot find end time for all nodes\n'
