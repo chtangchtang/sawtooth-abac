@@ -54,5 +54,5 @@ for i in range(30, round):
             finally:
                 pass
     if False in flags:
-        result = f'Rate {rate} Times {times} cannot find end time for all nodes\n'
+        result = f'Round {i} cannot find end time for all nodes\n'
         print(result)
