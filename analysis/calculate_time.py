@@ -1,6 +1,5 @@
 import csv
 import sys
-import time
 
 round = 50
 
