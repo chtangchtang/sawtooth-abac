@@ -51,4 +51,5 @@ for i in range(round):
                 f.write(result)
             break
     if False in flags:
-        raise RuntimeError('Round ' + str(i) + ' Cannot find end time for all nodes')
+        result = f'Rate {rate} Times {times} cannot find end time for all nodes\n'
+        print(result)
