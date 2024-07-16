@@ -19,7 +19,7 @@ for row in csv_reader:
             break
 start_time.sort()
 
-for i in range(31, round):
+for i in range(round):
     if function == 'check':
         flag = 'count=' + str(i + 1) + '001'
     else:
@@ -42,9 +42,9 @@ for i in range(31, round):
             throughtput = 1000 / time_usage
             rate = (i // 5 + 1) * 2 + 1
             times = i % 5
-            result = f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time},{time_usage},{throughtput}\n'
+            result = f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time},{time_usage},{throughtput}'
             print(result)
             break
     if False in flags:
-        result = f'Round {i} cannot find end time for all nodes\n'
+        result = f'Round {i} cannot find end time for all nodes'
         print(result)
