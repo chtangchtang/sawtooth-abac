@@ -4,9 +4,6 @@ import sys
 round = 50
 
 start_time = []
-end_time = []
-time_usage = []
-throughtput = []
 
 filename = sys.argv[1]
 index = filename.split('/').index('data')
@@ -22,7 +19,7 @@ for row in csv_reader:
             break
 start_time.sort()
 
-for i in range(30, round):
+for i in range(round):
     if function == 'check':
         flag = 'count=' + str(i + 1) + '001'
     else:
@@ -40,19 +37,16 @@ for i in range(30, round):
                             times.append(data[2])
                             flags[j] = True
         if False not in flags:
-            try:
-                end_time.append(int(max(times)))
-                time_usage.append((end_time[i] - start_time[i]) / 1000000000)
-                throughtput.append(1000 / time_usage[i])
-                rate = (i // 5 + 1) * 2 + 1
-                times = i % 5
-                result = f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time[i]},{time_usage[i]},{throughtput[i]}\n'
-                print(result)
-                # with open('/root/results.csv', 'a') as f:
-                #     f.write(result)
-                break
-            finally:
-                pass
+            end_time = int(max(times))
+            time_usage = (end_time - start_time[i]) / 1000000000
+            throughtput = 1000 / time_usage
+            rate = (i // 5 + 1) * 2 + 1
+            times = i % 5
+            result = f'{algorithm},{node},{function},{rate},{times},{start_time[i]},{end_time},{time_usage},{throughtput}\n'
+            print(result)
+            with open('/root/results.csv', 'a') as f:
+                f.write(result)
+            break
     if False in flags:
         result = f'Round {i} cannot find end time for all nodes\n'
         print(result)
