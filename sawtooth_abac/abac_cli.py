@@ -132,7 +132,7 @@ def do_add(args):
         response = client.add(policy, wait=args.wait, auth_user=auth_user, auth_password=auth_password)
     else:
         response = client.add(policy, auth_user=auth_user, auth_password=auth_password)
-    print("Response: {}".format(response))
+    # print("Response: {}".format(response))
 
 
 def do_delete(args):
@@ -147,7 +147,7 @@ def do_delete(args):
         response = client.delete(policy, wait=args.wait, auth_user=auth_user, auth_password=auth_password)
     else:
         response = client.delete(policy, auth_user=auth_user, auth_password=auth_password)
-    print("Response: {}".format(response))
+    # print("Response: {}".format(response))
 
 
 def do_check(args):
@@ -162,7 +162,7 @@ def do_check(args):
         response = client.check(inquiry, wait=args.wait, auth_user=auth_user, auth_password=auth_password)
     else:
         response = client.check(inquiry, auth_user=auth_user, auth_password=auth_password)
-    print("Response: {}".format(response))
+    # print("Response: {}".format(response))
 
 
 def do_get(args):

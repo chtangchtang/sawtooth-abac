@@ -17,8 +17,5 @@ client.close()
 # start test
 for i in range(DEFAULT_TXS):
     command = "abac check data/inquiry.json --url " + url + " &"
-    if subprocess.run(command, shell=True).returncode:
-        client = InfluxDBClient(host='172.21.105.145', port='8086', username='admin', password='admin', database='metrics')
-        client.write_points([{"measurement": "error_test_check_inquiry", "fields": {'epoch_time': time.time()}}])
-        client.close()
+    subprocess.run(command, shell=True)
     time.sleep(1 / send_rate)
