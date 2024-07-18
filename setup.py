@@ -47,7 +47,7 @@ setup(
     entry_points={
         'console_scripts': [
             'abac = sawtooth_abac.abac_cli:main_wrapper',
-            # 'abac-tp-python = sawtooth_abac.processor.main:main',
-            # 'abac-listener = sawtooth_abac.abac_listener:main'
+            'abac-tp-python = sawtooth_abac.processor.main:main',
+            'abac-listener = sawtooth_abac.abac_listener:main'
         ]
     })
