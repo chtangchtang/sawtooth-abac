@@ -6,4 +6,4 @@ for i in range(10):
     for j in range(5):
         print('Test rate: ', i * 2 + 3, 'Times: ', j)
         subprocess.run('python3 test_add_policy.py '+ str(i * 2 + 3) + ' ' + ip + ':8008' +' ' + str((i * 5 + j) * 1000), shell=True)
-        time.sleep(60)
+        time.sleep(30)
