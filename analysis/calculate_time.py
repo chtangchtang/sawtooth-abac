@@ -1,15 +1,15 @@
 import csv
 import sys
 
-round = 50
+round = 1
 
 start_time = []
 
 filename = sys.argv[1]
-index = filename.split('/').index('data')
+index = filename.split('/').index('output')
 algorithm = filename.split('/')[index+1]
 node = int(filename.split('/')[index+2][:-4])
-function = filename.split('/')[index+3]
+function = filename.split('/')[index+3].split('_')[0]
 
 csv_reader = csv.reader(open(filename))
 for row in csv_reader:
