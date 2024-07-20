@@ -17,7 +17,7 @@ for row in csv_reader:
         break
 
 if function == 'check':
-    condition = 'count=1000'
+    condition = 'count=1001'
 else:
     condition = 'count=1000'
 csv_reader = csv.reader(open(filename))
