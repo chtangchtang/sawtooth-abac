@@ -5,7 +5,7 @@ from influxdb import InfluxDBClient
 
 
 # get arguments
-frequency = 1 / int(sys.argv[1])
+time_interval = 1 / int(sys.argv[1])
 url = sys.argv[2]
 
 # write start epoch time
@@ -17,4 +17,4 @@ client.close()
 for i in range(1000):
     command = "abac check data/inquiry.json --url " + url + " &"
     subprocess.run(command, shell=True)
-    time.sleep(frequency)
+    time.sleep(time_interval)
