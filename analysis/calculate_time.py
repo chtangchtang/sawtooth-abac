@@ -7,8 +7,8 @@ index = filename.split('/').index('output')
 algorithm = filename.split('/')[index+1]
 node = int(filename.split('/')[index+2][:-4])
 function = filename.split('/')[index+3].split('_')[0]
-rate = int(filename.split('/')[index+4].split('_')[1][:-4])
-times = int(filename.split('/')[index+5].split('_')[2])
+rate = int(filename.split('/')[index+3].split('_')[1][:-4])
+times = int(filename.split('/')[index+3].split('_')[2])
 
 csv_reader = csv.reader(open(filename))
 for row in csv_reader:
