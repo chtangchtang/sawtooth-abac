@@ -3,6 +3,7 @@
 for rate in 3 5 7 9 11 13 15 17 19 21
 do
     for times in 0 1 2 3 4
+    do
         # Stop and remove all containers and volumes
         docker stop $(docker ps -a -q)
         docker rm $(docker ps -a -q)
@@ -32,4 +33,5 @@ do
         influx_inspect export -datadir '/mnt/influxdb/data' -waldir '/mnt/influxdb/wal' -database metrics -out '/mnt/influxdb/output/pbft/5node/check_$rate\rate_$times'
         # Analyse results
         python3 /root/sawtooth-abac/analysis/calculate_time.py /mnt/influxdb/output/pbft/5node/check_$rate\rate_$times
+    done
 done
