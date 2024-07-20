@@ -4,9 +4,8 @@ import subprocess
 from influxdb import InfluxDBClient
 
 
-DEFAULT_TXS = 1000
-
-send_rate = int(sys.argv[1])
+# get arguments
+frequency = 1 / int(sys.argv[1])
 url = sys.argv[2]
 
 # write start epoch time
@@ -15,7 +14,7 @@ client.write_points([{"measurement": "start_test_check_inquiry", "fields": {'epo
 client.close()
 
 # start test
-for i in range(DEFAULT_TXS):
+for i in range(1000):
     command = "abac check data/inquiry.json --url " + url + " &"
     subprocess.run(command, shell=True)
-    time.sleep(1 / send_rate)
+    time.sleep(frequency)
