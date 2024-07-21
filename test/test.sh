@@ -21,13 +21,9 @@ do
 
         # Run test
         # Add a policy for testing check inquiry
-        docker exec -it abac-client bash -c "cd test && abac add data/policy0.json --url rest-api-0:8008"
-        # Wait for network to complete consensus
-        sleep 30
+        docker exec -it abac-client bash -c "cd test && abac add data/policy0.json --url rest-api-0:8008 && sleep 60"
         # Test check inquiry
-        docker exec -it abac-client bash -c "cd test && python3 test_check_inquiry.py $rate rest-api-0:8008"
-        # Wait for network to complete consensus
-        sleep 60
+        docker exec -it abac-client bash -c "cd test && python3 test_check_inquiry.py $rate rest-api-0:8008 && sleep 60"
 
         # Export InfluxDB database
         influx_inspect export -datadir '/mnt/influxdb/data' -waldir '/mnt/influxdb/wal' -database metrics -out "/mnt/influxdb/output/pbft/5node/check_${rate}rate_${times}" > /dev/null
