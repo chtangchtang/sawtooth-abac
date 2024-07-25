@@ -42,7 +42,7 @@ if False in flags:
     time_usage = None
     throughtput = None
 
-result = f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{throughtput}\n'
+result = f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{throughtput}'
 print(result)
-with open('/root/results.csv', 'a') as f:
-    f.write(result)
+# with open('/root/results.csv', 'a') as f:
+#     f.write(result)
