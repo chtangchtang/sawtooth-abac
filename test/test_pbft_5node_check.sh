@@ -28,6 +28,6 @@ do
         # Export InfluxDB database
         influx_inspect export -datadir '/mnt/influxdb/data' -waldir '/mnt/influxdb/wal' -database metrics -out "/mnt/influxdb/output/pbft/5node/check_${rate}rate_${times}" > /dev/null
         # Analyse results
-        python3 /root/sawtooth-abac/analysis/calculate_time.py /mnt/influxdb/output/pbft/5node/check_${rate}rate_${times}
+        python3 /root/sawtooth-abac/analysis/calculate_time.py /mnt/influxdb/output/pbft/5node/check_${rate}rate_${times} /root/pbft_5node_check_result.csv
     done
 done

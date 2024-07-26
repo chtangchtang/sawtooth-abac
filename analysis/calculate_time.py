@@ -3,6 +3,7 @@ import sys
 
 
 filename = sys.argv[1]
+output_file = sys.argv[2]
 index = filename.split('/').index('output')
 algorithm = filename.split('/')[index+1]
 node = int(filename.split('/')[index+2][:-4])
@@ -42,7 +43,6 @@ if False in flags:
     time_usage = None
     throughtput = None
 
-result = f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{throughtput}'
-print(result)
-# with open('/root/results.csv', 'a') as f:
-#     f.write(result)
+result = f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{throughtput}\n'
+with open(output_file, 'a') as f:
+    f.write(result)
