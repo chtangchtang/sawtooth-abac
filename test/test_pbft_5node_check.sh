@@ -5,10 +5,22 @@ do
     for times in 0 1 2 3 4 5 6
     do
         # Stop and remove all containers and volumes
-        docker stop $(docker ps -a -q) > /dev/null
-        docker rm $(docker ps -a -q) > /dev/null
-        docker volume rm pbft_pbft-shared > /dev/null
-        docker network rm pbft_default > /dev/null
+        running_containers=$(docker ps -q)
+        if [ -n "$running_containers" ]; then
+            docker stop $running_containers > /dev/null
+        fi
+        all_containers=$(docker ps -a -q)
+        if [ -n "$all_containers" ]; then
+            docker rm $all_containers > /dev/null
+        fi
+        all_volumes=$(docker volume ls -q)
+        if [ -n "$all_volumes" ]; then
+            docker volume rm $all_volumes > /dev/null
+        fi
+        all_networks=$(docker network ls -q)
+        if [ -n "$all_networks" ]; then
+            docker network rm $all_networks > /dev/null
+        fi
 
         # Remove and create InfluxDB database
         influx -username 'admin' -password 'admin' -execute 'drop database metrics'
@@ -29,5 +41,11 @@ do
         influx_inspect export -datadir '/mnt/influxdb/data' -waldir '/mnt/influxdb/wal' -database metrics -out "/mnt/influxdb/output/pbft/5node/check_${rate}rate_${times}" > /dev/null
         # Analyse results
         python3 /root/sawtooth-abac/analysis/calculate_time.py /mnt/influxdb/output/pbft/5node/check_${rate}rate_${times} /root/pbft_5node_check_result.csv
+
+        # Stop and remove all containers and volumes
+        docker stop $(docker ps -q) > /dev/null
+        docker rm $(docker ps -a -q) > /dev/null
+        docker volume rm $(docker volume ls -q) > /dev/null
+        docker network rm $(docker network ls -q) > /dev/null
     done
 done
