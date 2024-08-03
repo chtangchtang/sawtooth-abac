@@ -27,7 +27,7 @@ do
         influx -username 'admin' -password 'admin' -execute 'create database metrics'
 
         # Start network
-        nohup docker-compose -f /root/sawtooth-abac/test/pbft/5nodes.yaml up > /dev/null 2>&1 &
+        docker-compose -f /root/sawtooth-abac/test/pbft/5nodes.yaml up > /dev/null 2>&1 &
         # Wait for network to start
         sleep 30
 
