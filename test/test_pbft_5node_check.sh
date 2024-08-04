@@ -4,23 +4,8 @@ for rate in 21 19 17 15 13 11 9 7 5 3
 do
     for times in {0..6}
     do
-        # Stop and remove all containers and volumes
-        running_containers=$(docker ps -q)
-        if [ -n "$running_containers" ]; then
-            docker stop $running_containers
-        fi
-        all_containers=$(docker ps -a -q)
-        if [ -n "$all_containers" ]; then
-            docker rm $all_containers
-        fi
-        all_volumes=$(docker volume ls -q)
-        if [ -n "$all_volumes" ]; then
-            docker volume rm $all_volumes
-        fi
-        all_networks=$(docker network ls -q)
-        if [ -n "$all_networks" ]; then
-            docker network rm $all_networks
-        fi
+        ## Down network
+        docker-compose -f sawtooth-abac/test/pbft/5nodes.yaml down -v
 
         # Remove and create InfluxDB database
         influx -username 'admin' -password 'admin' -execute 'drop database metrics'
