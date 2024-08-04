@@ -5,7 +5,7 @@ do
     for times in {0..6}
     do
         ## Down network
-        docker-compose -f sawtooth-abac/test/pbft/5nodes.yaml down -v
+        docker-compose -f /root/sawtooth-abac/test/pbft/5nodes.yaml down -v
 
         # Remove and create InfluxDB database
         influx -username 'admin' -password 'admin' -execute 'drop database metrics'
@@ -25,6 +25,6 @@ do
         python3 /root/sawtooth-abac/analysis/calculate_time.py /mnt/influxdb/output/pbft/5node/check_${rate}rate_${times} /root/pbft_5node_check_result.csv
 
         # Down network
-        docker-compose -f sawtooth-abac/test/pbft/5nodes.yaml down -v
+        docker-compose -f /root/sawtooth-abac/test/pbft/5nodes.yaml down -v
     done
 done
