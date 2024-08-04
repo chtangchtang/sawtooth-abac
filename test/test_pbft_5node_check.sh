@@ -2,7 +2,7 @@
 
 for rate in 21 19 17 15 13 11 9 7 5 3 
 do
-    for times in 0 1 2 3 4 5 6
+    for times in {0..6}
     do
         # Stop and remove all containers and volumes
         running_containers=$(docker ps -q)
@@ -26,7 +26,7 @@ do
         influx -username 'admin' -password 'admin' -execute 'drop database metrics'
         influx -username 'admin' -password 'admin' -execute 'create database metrics'
 
-        # Start network
+        # Up network
         docker-compose -f /root/sawtooth-abac/test/pbft/5nodes.yaml up &
         # Wait for network to start
         sleep 30
@@ -39,10 +39,7 @@ do
         # Analyse results
         python3 /root/sawtooth-abac/analysis/calculate_time.py /mnt/influxdb/output/pbft/5node/check_${rate}rate_${times} /root/pbft_5node_check_result.csv
 
-        # Stop and remove all containers and volumes
-        docker stop $(docker ps -q)
-        docker rm $(docker ps -a -q)
-        docker volume rm $(docker volume ls -q)
-        docker network rm $(docker network ls -q)
+        # Down network
+        docker-compose -f sawtooth-abac/test/pbft/5nodes.yaml down -v
     done
 done
