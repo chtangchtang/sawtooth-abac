@@ -2,6 +2,7 @@
 
 for node in 5 7 9 11 13
 do
+    docker-compose -f /root/sawtooth-abac/test/pbft/${node}nodes.yaml up
     for function in add check
     do
         for rate in 21 19 17 15 13 11 9 7 5 3 
