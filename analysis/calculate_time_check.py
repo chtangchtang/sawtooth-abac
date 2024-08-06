@@ -17,10 +17,6 @@ for row in csv_reader:
         start_time = int(row[0].split(' ')[2])
         break
 
-if function == 'check':
-    condition = 'count=1001'
-else:
-    condition = 'count=1000'
 csv_reader = csv.reader(open(filename))
 flags = [False] * node
 end_times = []
@@ -29,7 +25,7 @@ for row in csv_reader:
         data = row[1].split(' ')
         for j in range(node):
             if data[0] == 'host=sawtooth-validator-default-' + str(j):
-                if data[1] == condition:
+                if data[1] == 'count=1001':
                     if not flags[j]:
                         end_times.append(data[2])
                         flags[j] = True
