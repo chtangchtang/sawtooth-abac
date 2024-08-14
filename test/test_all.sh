@@ -2,7 +2,7 @@
 
 for algorithm in pbft raft poet
 do
-    for node in 5 7 9 11 13
+    for node in 7 9 11 13
     do
         for function in add+delete check
         do
@@ -25,7 +25,7 @@ do
                     sleep 60
                     if [ "$function" == "add+delete" ]; then
                         # Test add and delete policy
-                        docker exec -it abac-client bash -c "cd test && python3 test_add_policy.py $rate rest-api-0:8008 && sleep 60 && python3 test_delete_policy.py $rate rest-api-0:8008 && sleep 60"
+                        docker exec -it abac-client bash -c "cd test && python3 test_add_policy.py $rate rest-api-0:8008 && sleep 120 && python3 test_delete_policy.py $rate rest-api-0:8008 && sleep 120"
                         # Export InfluxDB database
                         influx_inspect export -datadir '/mnt/influxdb/data' -waldir '/mnt/influxdb/wal' -database metrics -out "/mnt/influxdb/output/${algorithm}/${node}node/add+delete_${rate}rate_${times}"
                         # Analyse results

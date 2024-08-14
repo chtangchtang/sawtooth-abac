@@ -43,7 +43,7 @@ if False in flags:
     time_usage = None
     throughtput = None
 
-result = f'{algorithm},{node},{function},{rate},{times},{start_times[0]},{end_time},{time_usage},{throughtput}\n'
+result = f'{algorithm},{node},{"add"},{rate},{times},{start_times[0]},{end_time},{time_usage},{throughtput}\n'
 with open(output_file, 'a') as f:
     f.write(result)
 
@@ -70,6 +70,6 @@ if False in flags:
     time_usage = None
     throughtput = None
 
-result = f'{algorithm},{node},{function},{rate},{times},{start_times[1]},{end_time},{time_usage},{throughtput}\n'
+result = f'{algorithm},{node},{"delete"},{rate},{times},{start_times[1]},{end_time},{time_usage},{throughtput}\n'
 with open(output_file, 'a') as f:
     f.write(result)
