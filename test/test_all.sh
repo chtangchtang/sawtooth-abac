@@ -1,12 +1,12 @@
 #!/bin/bash
 
-for algorithm in pbft raft poet
+for algorithm in pbft raft
 do
-    for node in 7 9 11 13
+    for node in 5 7 9 11 13
     do
         for function in add+delete check
         do
-            for rate in 21 19 17 15 13 11 9 7 5 3 
+            for rate in {1..20} 
             do
                 for times in {0..6}
                 do
