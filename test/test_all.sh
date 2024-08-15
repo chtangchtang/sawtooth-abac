@@ -44,5 +44,7 @@ do
                 done
             done
         done
+        tar -czvf /mnt/influxdb/output/${algorithm}_${node}node_result.tar.gz /mnt/influxdb/output/${algorithm}/${node}node/
+        rm /mnt/influxdb/output/${algorithm}/${node}node/*
     done
 done
