@@ -1,0 +1,4 @@
+opentsdb_url = "http://172.21.105.145:8086"
+opentsdb_db = "metrics"
+opentsdb_username = "admin"
+opentsdb_password = "admin"

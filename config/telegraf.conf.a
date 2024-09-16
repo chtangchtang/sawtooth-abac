@@ -1,0 +1,6 @@
+[[outputs.influxdb]]
+  urls = ["http://172.21.105.145:8086"]
+  database = "metrics"
+  username = "admin"
+  password = "admin"
+
