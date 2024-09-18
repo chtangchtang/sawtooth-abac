@@ -10,3 +10,7 @@ Key commands:
 7. docker exec -it abac-client bash
 8. cd test/
 9. python3 test_xxx.py ip
+
+# docker-tc使用
+# cpu和mem数据处理
+# 画图
