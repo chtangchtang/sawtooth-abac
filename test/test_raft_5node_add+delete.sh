@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-for rate in 1 3 5 7 9 11 13 15 17 19 21 
+for rate in 20 15 10 7 5 3 1
 do
     for times in 0 1 2 3 4 5
     do
@@ -19,7 +19,7 @@ do
         # Wait for network to start
         sleep 60
         # Test add and delete policy
-        docker exec -it abac-client bash -c "cd test && python3 test_add_policy.py $rate rest-api-0:8008 && sleep 200 && python3 test_delete_policy.py $rate rest-api-0:8008 && sleep 200"
+        docker exec -it abac-client bash -c "cd test && python3 test_add_policy.py $rate rest-api-0:8008 && sleep 300 && python3 test_delete_policy.py $rate rest-api-0:8008 && sleep 300"
         # Export InfluxDB database
         influx_inspect export -datadir '/mnt/influxdb/data' -waldir '/mnt/influxdb/wal' -database metrics -out "/mnt/influxdb/output/raft/5node/add+delete_${rate}rate_${times}"
         # Analyse results
