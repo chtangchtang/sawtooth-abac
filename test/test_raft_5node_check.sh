@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-for rate in 1 3 5 7 9 11 13 15 17 19 21 
+for rate in 21 19 17 15 13 11 9 7 5 3 1
 do
     for times in 0 1 2 3 4 5
     do
