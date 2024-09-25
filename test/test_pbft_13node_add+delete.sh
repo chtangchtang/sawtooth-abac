@@ -19,7 +19,7 @@ do
         # Wait for network to start
         sleep 60
         # Test add and delete policy
-        docker exec -it abac-client bash -c "cd test && python3 test_add_policy.py $rate rest-api-0:8008 && sleep 300 && python3 test_delete_policy.py $rate rest-api-0:8008 && sleep 300"
+        docker exec -it abac-client bash -c "cd test && python3 test_add_policy.py $rate rest-api-0:8008 && sleep 600 && python3 test_delete_policy.py $rate rest-api-0:8008 && sleep 600"
         # Export InfluxDB database
         influx_inspect export -datadir '/mnt/influxdb/data' -waldir '/mnt/influxdb/wal' -database metrics -out "/mnt/influxdb/output/pbft/13node/add+delete_${rate}rate_${times}"
         # Analyse results
