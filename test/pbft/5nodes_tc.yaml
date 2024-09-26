@@ -109,7 +109,7 @@ services:
     image: hyperledger/sawtooth-validator:1.2pro
     labels:
       - "com.docker-tc.enabled=1"
-      - "com.docker-tc.delay=40ms"
+      - "com.docker-tc.delay=20ms"
     container_name: sawtooth-validator-default-0
     hostname: sawtooth-validator-default-0
     expose:
@@ -165,7 +165,7 @@ services:
     image: hyperledger/sawtooth-validator:1.2pro
     labels:
       - "com.docker-tc.enabled=1"
-      - "com.docker-tc.delay=40ms"
+      - "com.docker-tc.delay=20ms"
     container_name: sawtooth-validator-default-1
     hostname: sawtooth-validator-default-1
     expose:
@@ -202,7 +202,7 @@ services:
     image: hyperledger/sawtooth-validator:1.2pro
     labels:
       - "com.docker-tc.enabled=1"
-      - "com.docker-tc.delay=40ms"
+      - "com.docker-tc.delay=20ms"
     container_name: sawtooth-validator-default-2
     hostname: sawtooth-validator-default-2
     expose:
@@ -240,7 +240,7 @@ services:
     image: hyperledger/sawtooth-validator:1.2pro
     labels:
       - "com.docker-tc.enabled=1"
-      - "com.docker-tc.delay=40ms"
+      - "com.docker-tc.delay=20ms"
     container_name: sawtooth-validator-default-3
     hostname: sawtooth-validator-default-3
     expose:
@@ -279,7 +279,7 @@ services:
     image: hyperledger/sawtooth-validator:1.2pro
     labels:
       - "com.docker-tc.enabled=1"
-      - "com.docker-tc.delay=40ms"
+      - "com.docker-tc.delay=20ms"
     container_name: sawtooth-validator-default-4
     hostname: sawtooth-validator-default-4
     expose:
