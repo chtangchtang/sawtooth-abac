@@ -10,7 +10,14 @@ Key commands:
 7. docker exec -it abac-client bash
 8. cd test/
 9. python3 test_xxx.py ip
-
+docker run -d \
+    --name docker-tc \
+    --network host \
+    --cap-add NET_ADMIN \
+    --restart always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /var/docker-tc:/var/docker-tc \
+    lukaszlach/docker-tc
 # docker-tc使用
 # cpu和mem数据处理
 # 画图
