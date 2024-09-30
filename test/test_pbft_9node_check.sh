@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-for rate in 20 15 10 7 5 3 1
+for rate in 15 13 11 9 7 5 3 1
 do
-    for times in 0 1 2 3 4 5
+    for times in 0
     do
         ## Clean up network
         docker stop $(docker ps -a -q)
