@@ -59,5 +59,6 @@ if False in flags:
     throughtput = None
 
 result = f'{algorithm},{node},{function},{rate},{times},{start_time},{end_time},{time_usage},{throughtput}\n'
+print(result)
 with open(output_file, 'a') as f:
     f.write(result)
