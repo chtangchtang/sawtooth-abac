@@ -20,20 +20,18 @@ def find_max_count(file_path):
     return max_count
 
 
+output_file = sys.argv[1]
 for root, dirs, files in os.walk('/mnt/influxdb/output/pbft'):
     for file in files:
         # 输出文件的完整路径
         filename = os.path.join(root, file)
         max_count_value = find_max_count(filename)
-
-        output_file = sys.argv[1]
         index = filename.split('/').index('output')
         algorithm = filename.split('/')[index+1]
         node = int(filename.split('/')[index+2][:-4])
         function = filename.split('/')[index+3].split('_')[0]
         rate = int(filename.split('/')[index+3].split('_')[1][:-4])
         times = filename.split('/')[index+3].split('_')[2]
-
         csv_reader = csv.reader(open(filename))
         for row in csv_reader:
             if row[0].find('start') > -1:
