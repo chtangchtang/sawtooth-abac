@@ -51,7 +51,7 @@ for row in csv_reader:
     if False not in flags:
         end_time = int(max(end_times))
         time_usage = (end_time - start_time) / 1000000000
-        throughtput = 1000 / time_usage
+        throughtput = max_count_value / time_usage
         break
 if False in flags:
     end_time = None
